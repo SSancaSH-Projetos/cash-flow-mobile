@@ -2,8 +2,12 @@ import React from 'react';
 import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import Styles from './Styles'
 import * as Animatable from 'react-native-animatable';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SignIn() {
+
+    const navigation = useNavigation();
+
     return (
         <View style={Styles.container}>
             <Animatable.View style={Styles.containerHeader}>
@@ -13,7 +17,7 @@ export default function SignIn() {
                 <SafeAreaView style={Styles.safeArea}>
                     <TextInput style={Styles.item} placeholder='Email' keyboardType='email-address'/>
                     <TextInput style={Styles.item} placeholder='Senha' keyboardType='numeric'/>
-                    <TouchableOpacity style={Styles.btnArea}>
+                    <TouchableOpacity style={Styles.btnArea} onPress={() => navigation.navigate('TravelList')}>
                         <Text style={Styles.btnTexto}>ENTRAR</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.btnAreaTextoSenha}>
