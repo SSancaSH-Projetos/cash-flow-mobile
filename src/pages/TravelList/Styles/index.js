@@ -15,6 +15,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    containerIfEmpty:{
+        height:600,
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    containerHeader:{
+        alignContent:'center',
+        justifyContent:'center'
+    },
+    TitleIfEmpty:{
+        fontSize:24,
+
+    }
 
 });
 

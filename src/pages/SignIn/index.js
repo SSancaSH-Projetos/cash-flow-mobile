@@ -20,9 +20,6 @@ export default function SignIn() {
                     <TouchableOpacity style={Styles.btnArea} onPress={() => navigation.navigate('TravelList')}>
                         <Text style={Styles.btnTexto}>ENTRAR</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={Styles.btnAreaTextoSenha}>
-                        <Text style={Styles.btnTextoSenha}>Esqueceu a senha?</Text>
-                    </TouchableOpacity>
                 </SafeAreaView>
             </Animatable.View>
            

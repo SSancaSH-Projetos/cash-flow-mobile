@@ -1,6 +1,91 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../../colors";
 
-const styles = StyleSheet.create({
 
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        flexDirection:'column',
+    },
+    containerPage:{
+        padding:20
+    },
+    title:{
+        fontSize:32
+    },
+    alertEmptyInput:{
+        color:'red'
+    },
+    inputDateDiv:{
+        flexDirection:'row',
+        width:200
+    },
+    inputDateDiv:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+    },
+    initiaDateInput:{
+        width:160,
+        height:50,
+        borderWidth:2,
+        borderRadius:5,
+        borderColor:Colors.primary,
+        fontSize:18,
+        paddingLeft:5,
+        marginTop:20
+    },
+    finalDateInput:{
+        width:160,
+        height:50,
+        borderWidth:2,
+        borderRadius:5,
+        borderColor:Colors.primary,
+        fontSize:18,
+        paddingLeft:5,
+        marginTop:20
+    },
+    initialLocateInput:{
+        width:344,
+        height:50,
+        borderWidth:2,
+        borderRadius:5,
+        borderColor:Colors.primary,
+        fontSize:18,
+        paddingLeft:5,
+        marginTop:20
+    },
+    finalLocateInput:{
+        width:344,
+        height:50,
+        borderWidth:2,
+        borderRadius:5,
+        borderColor:Colors.primary,
+        fontSize:18,
+        paddingLeft:5,
+        marginTop:20
+    },
+    descriptionInput:{
+        width:344,
+        height:100,
+        borderWidth:2,
+        borderRadius:5,
+        borderColor:Colors.primary,
+        fontSize:18,
+        paddingLeft:5,
+        marginTop:20
+    },
+    backgroundBtnAdd:{
+        alignItems:'center',
+        justifyContent:'center',
+        width:344,
+        height:50,
+        backgroundColor:Colors.secondary,
+        borderRadius:5,
+        marginTop:230
+    },
+    textBtnAdd:{
+        fontSize:22
+    }
 });
+
+export default styles;

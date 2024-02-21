@@ -21,14 +21,31 @@ const styles = StyleSheet.create({
         elevation: 5, 
     },
     header:{
-        flexDirection:"row"
+        flexDirection:"row",
+        justifyContent: 'space-between'
     },
     body:{
 
     },
     footer:{
-        flexDirection:"row"
+        flexDirection:"row",
+        marginTop:30,
+        alignItems: 'center'
+    },
+    dateTravel: {
+        marginLeft:20,
+    },
+    titleCard:{
+        fontSize:26,
+        marginBottom:20
+    },
+    btn_description:{
+        marginLeft:100
+    },
+    text_btn_description:{
+        fontSize:18
     }
+
 });
 
 export default styles;
