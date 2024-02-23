@@ -21,7 +21,6 @@ export default function Card({ destination, description, date, onRemove }) {
                 <View style={Styles.footer}>
                     <Icon name="calendar" size={30} color="#000" />
                     <Text style={Styles.dateTravel}>{date}</Text>
-                    <Text style={Styles.description}>{date}</Text>
                     <TouchableOpacity style={Styles.btn_description} onPress={() => { }}>
                         <Text style={Styles.text_btn_description}>Detalhes</Text>
                     </TouchableOpacity>

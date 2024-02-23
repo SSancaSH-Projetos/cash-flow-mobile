@@ -37,7 +37,7 @@ export default function TravelList() {
                             <Card
                                 destination={item.destination}
                                 description={item.description}
-                                date={item.date}
+                                date={item.initDate}
                                 onRemove={() => removeCard(index)}
                             />
                         )}

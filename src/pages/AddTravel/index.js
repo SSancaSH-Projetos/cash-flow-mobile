@@ -1,4 +1,3 @@
-// AddTravel.js
 import React, { useState } from 'react';
 import { Button, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -6,8 +5,8 @@ import Styles from './Style';
 import Header from './../../components/Header';
 
 const initialTravelData = {
-    departureDate: '',
-    completionDate: '',
+    initDate: '',
+    finalDate: '',
     name: '',
     origin: '',
     destination: '',
@@ -19,7 +18,6 @@ export default function AddTravel() {
     const [travelData, setTravelData] = useState(initialTravelData);
     const [alertEmptyInput, setAlertEmptyInput] = useState('');
 
-
     const adicionarViagem = () => {
         if (validateTravelData()) {
             setAlertEmptyInput('');
@@ -28,12 +26,46 @@ export default function AddTravel() {
             setAlertEmptyInput('Todos os Campos devem ser Preenchidos');
         }
     }
+
+    const handleInitDateChange = (inputDate) => {
+        const cleanedDate = inputDate.replace(/\D/g, '');
+    
+        let formattedDate = '';
+        if (cleanedDate.length >= 1) {
+          formattedDate += cleanedDate.substring(0, 2);
+        }
+        if (cleanedDate.length >= 3) {
+          formattedDate += '/' + cleanedDate.substring(2, 4);
+        }
+        if (cleanedDate.length >= 5) {
+          formattedDate += '/' + cleanedDate.substring(4, 8);
+        }
+    
+        setTravelData({ ...travelData, initDate: formattedDate });
+      };
+
+      const handleFinalDateChange = (inputDate) => {
+        const cleanedDate = inputDate.replace(/\D/g, '');
+    
+        let formattedDate = '';
+        if (cleanedDate.length >= 1) {
+          formattedDate += cleanedDate.substring(0, 2);
+        }
+        if (cleanedDate.length >= 3) {
+          formattedDate += '/' + cleanedDate.substring(2, 4);
+        }
+        if (cleanedDate.length >= 5) {
+          formattedDate += '/' + cleanedDate.substring(4, 8);
+        }
+    
+        setTravelData({ ...travelData, finalDate: formattedDate });
+    };
     
     const validateTravelData = () => {
-        const { departureDate, completionDate, origin, destination, description } = travelData;
+        const { initDate, finalDate, origin, destination, description } = travelData;
         if (
-            departureDate.trim() === '' ||
-            completionDate.trim() === '' ||
+            initDate.trim() === '' ||
+            finalDate.trim() === '' ||
             origin.trim() === '' ||
             destination.trim() === '' ||
             description.trim() === ''
@@ -47,21 +79,25 @@ export default function AddTravel() {
     return (
             
         <View style={Styles.container}>
-            <Header></Header>
+            <Header/>
             <View style={Styles.containerPage}>
             <Text style={Styles.title}>Marque Sua Viagem!</Text>
             <View style={Styles.inputDateDiv}>
                 <TextInput
                     style={Styles.initiaDateInput}
                     placeholder="Data de Inicio"
-                    value={travelData.departureDate}
-                    onChangeText={text => setTravelData({ ...travelData, departureDate: text })}
+                    value={travelData.initDate}
+                    onChangeText={handleInitDateChange}
+                    keyboardType="numeric"
+                    maxLength={10}
                 />
                 <TextInput
                     style={Styles.finalDateInput}
                     placeholder="Data de Conclusão"
-                    value={travelData.completionDate}
-                    onChangeText={text => setTravelData({ ...travelData, completionDate: text })}
+                    value={travelData.finalDate}
+                    onChangeText={handleFinalDateChange}
+                    keyboardType="numeric"
+                    maxLength={10}
                 />
             </View>
             <TextInput
@@ -87,6 +123,8 @@ export default function AddTravel() {
                 <Text style={Styles.textBtnAdd}>Adicionar</Text>
             </TouchableOpacity>
             </View>
+
+            
         </View>
     );
 }
