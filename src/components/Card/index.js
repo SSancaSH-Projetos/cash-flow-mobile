@@ -2,8 +2,23 @@ import React from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
-export default function Card({ destination, description, date, onRemove }) {
+export default function Card({ destination, description, initDate,finalDate, onRemove }) {
+
+    const Travel ={
+        destination : destination,
+        description : description,
+        initDate : initDate,
+        finalDate : finalDate,
+    }
+
+    const navigator = useNavigation();
+
+    const goToTravelDescription = () => {
+
+    }
+     
     return (
         <SafeAreaView style={Styles.container}>
             <View style={Styles.shadow}>
@@ -20,8 +35,8 @@ export default function Card({ destination, description, date, onRemove }) {
 
                 <View style={Styles.footer}>
                     <Icon name="calendar" size={30} color="#000" />
-                    <Text style={Styles.dateTravel}>{date}</Text>
-                    <TouchableOpacity style={Styles.btn_description} onPress={() => { }}>
+                    <Text style={Styles.dateTravel}>{initDate}</Text>
+                    <TouchableOpacity style={Styles.btn_description} onPress={() => {goToTravelDescription}}>
                         <Text style={Styles.text_btn_description}>Detalhes</Text>
                     </TouchableOpacity>
                 </View>

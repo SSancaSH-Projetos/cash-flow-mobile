@@ -27,9 +27,9 @@ export default function TravelList() {
     }
 
     return (
-        <SafeAreaView style={Styles.cardContainer}>
-            <Header />
-            <View style={Styles.containerHeader}>
+        <SafeAreaView style={Styles.container}>
+            <Header/>
+            <View>
                 {dataList.length > 0 ? (
                     <FlatList
                         data={dataList}
@@ -37,21 +37,22 @@ export default function TravelList() {
                             <Card
                                 destination={item.destination}
                                 description={item.description}
-                                date={item.initDate}
+                                initDate={item.initDate}
+                                finalDate={item.finalDate}
                                 onRemove={() => removeCard(index)}
                             />
                         )}
                         keyExtractor={(item, index) => index.toString()}
                     />
                 ) : (
-                    <View style={Styles.containerIfEmpty}>
+                    <View style={Styles.item}>
                         <Image source={require('../../img/travel-and-tourism.png')} />
-                        <Text style={Styles.TitleIfEmpty}>Monte seu Plano de Viagens</Text>
-                        <Text style={Styles.subTitleIfEmpty}>adicione viagens para poder gerencia-las</Text>
+                        <Text style={Styles.title}>Monte seu Plano de Viagens</Text>
+                        <Text>Adicione viagens para poder gerencia-las</Text>
                     </View>
                 )}
             </View>
-            <TouchableOpacity style={Styles.btnAreaTextoSenha} onPress={addItemToList}>
+            <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
                 <Icon name="plus" size={30} color="#000" />
             </TouchableOpacity>
         </SafeAreaView>

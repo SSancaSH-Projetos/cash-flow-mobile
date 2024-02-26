@@ -4,13 +4,14 @@ import Colors from "../../../colors";
 
 const styles = StyleSheet.create({
     container:{
+        marginTop:12,
         justifyContent: 'center',
         alignItems: 'center',
     },
     shadow:{
-        margin:50,
         padding:20,
-        width: 320,
+        marginBottom: 6,
+        width: '90%',
         height: 180,
         backgroundColor: 'white',
         borderRadius: 10,
