@@ -31,8 +31,10 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 6,
         borderColor: Colors.primary,
-        fontSize: 16,
+        fontSize: 20, // aumentando o tamanho da fonte
         textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center' // centralizando o texto verticalmente
       },
     address:{
         width: '97%',

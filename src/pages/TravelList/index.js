@@ -57,6 +57,7 @@ export default function TravelList() {
             <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
                 <Icon name="plus" size={30} color="#000" />
             </TouchableOpacity>
+
         </View>
     );
 }

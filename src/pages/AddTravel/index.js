@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { Button, TextInput, View, Text, TouchableOpacity, Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Styles from './Style';
 import Header from './../../components/Header';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const initialTravelData = {
     initDate: '',
@@ -14,10 +15,12 @@ const initialTravelData = {
 };
 
 export default function AddTravel() {
-    
+    const currentDate = new Date();
     const navigation = useNavigation();
     const [travelData, setTravelData] = useState(initialTravelData);
     const [alertEmptyInput, setAlertEmptyInput] = useState('');
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [selectedDateField, setSelectedDateField] = useState('');
 
     const adicionarViagem = () => {
         if (validateTravelData()) {
@@ -28,40 +31,6 @@ export default function AddTravel() {
         }
     }
 
-    const handleInitDateChange = (inputDate) => {
-        const cleanedDate = inputDate.replace(/\D/g, '');
-    
-        let formattedDate = '';
-        if (cleanedDate.length >= 1) {
-          formattedDate += cleanedDate.substring(0, 2);
-        }
-        if (cleanedDate.length >= 3) {
-          formattedDate += '/' + cleanedDate.substring(2, 4);
-        }
-        if (cleanedDate.length >= 5) {
-          formattedDate += '/' + cleanedDate.substring(4, 8);
-        }
-    
-        setTravelData({ ...travelData, initDate: formattedDate });
-      };
-
-      const handleFinalDateChange = (inputDate) => {
-        const cleanedDate = inputDate.replace(/\D/g, '');
-    
-        let formattedDate = '';
-        if (cleanedDate.length >= 1) {
-          formattedDate += cleanedDate.substring(0, 2);
-        }
-        if (cleanedDate.length >= 3) {
-          formattedDate += '/' + cleanedDate.substring(2, 4);
-        }
-        if (cleanedDate.length >= 5) {
-          formattedDate += '/' + cleanedDate.substring(4, 8);
-        }
-    
-        setTravelData({ ...travelData, finalDate: formattedDate });
-    };
-    
     const validateTravelData = () => {
         const { initDate, finalDate, origin, destination, description } = travelData;
         if (
@@ -75,30 +44,53 @@ export default function AddTravel() {
         }
         return true;
     }
-    
+
+    const handleDateConfirm = (date) => {
+        const formattedDate = date.toLocaleDateString('pt-BR'); 
+        setTravelData({ ...travelData, [selectedDateField]: formattedDate });
+        hideDatePicker();
+    };
+
+    const showDatePicker = (field) => {
+        setSelectedDateField(field);
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    function formattedDate(data){
+
+    }
+
+
 
     return (
-            
         <View style={Styles.container}>
-            <Header/>
+            <Header />
             <View style={Styles.content}>
                 <Text style={Styles.title}>Marque Sua Viagem!</Text>
                 <View style={Styles.boxDate}>
-                    <TextInput
-                        placeholderTextColor={'gray'}
+                    <TouchableOpacity
+                        onPress={() => showDatePicker('initDate')}
                         style={Styles.date}
-                        keyboardType='numeric'
-                        placeholder="Data de Inicio"
-                        value={travelData.initDate}
-                        onChangeText={handleInitDateChange}
-                    />
-                    <TextInput
-                        placeholderTextColor={'gray'}
+                    >
+                        <Text>{travelData.initDate || "Data de Inicio"}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => showDatePicker('finalDate')}
                         style={Styles.date}
-                        keyboardType='numeric'
-                        placeholder="Data de Fim"
-                        value={travelData.finalDate}
-                        onChangeText={handleFinalDateChange}
+                    >
+                        <Text>{travelData.finalDate || "Data de Fim"}</Text>
+                    </TouchableOpacity>
+                    
+                    <DateTimePickerModal
+                        isVisible={isDatePickerVisible}
+                        mode="date"
+                        minimumDate={currentDate}
+                        onConfirm={handleDateConfirm}
+                        onCancel={hideDatePicker}
                     />
                 </View>
                 <TextInput
@@ -128,8 +120,6 @@ export default function AddTravel() {
                     <Text style={Styles.textBottom}>ADICIONAR</Text>
                 </TouchableOpacity>
             </View>
-
-            
         </View>
     );
 }
