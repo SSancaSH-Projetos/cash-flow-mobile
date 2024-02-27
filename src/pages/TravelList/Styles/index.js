@@ -5,11 +5,14 @@ import Colors from "../../../colors";
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        height: '100%',
+    },
+    card:{             
+        heigh: '100%',
+        marginBottom: 10,
     },
     item:{
-        top: -70,       
-        height: '100%',
+        flex:1,
+        marginTop: '50%',
         justifyContent: 'center',
         alignItems: 'center',
     },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, Text, SafeAreaView, FlatList, TouchableOpacity, Image, ScrollView } from 'react-native';
 import Styles from './Styles';
 import Card from './../../components/Card';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -27,34 +27,36 @@ export default function TravelList() {
     }
 
     return (
-        <SafeAreaView style={Styles.container}>
+        <View style={Styles.container}>
             <Header/>
-            <View>
-                {dataList.length > 0 ? (
-                    <FlatList
-                        data={dataList}
-                        renderItem={({ item, index }) => (
-                            <Card
-                                destination={item.destination}
-                                description={item.description}
-                                initDate={item.initDate}
-                                finalDate={item.finalDate}
-                                onRemove={() => removeCard(index)}
-                            />
-                        )}
-                        keyExtractor={(item, index) => index.toString()}
-                    />
-                ) : (
-                    <View style={Styles.item}>
-                        <Image source={require('../../img/travel-and-tourism.png')} />
-                        <Text style={Styles.title}>Monte seu Plano de Viagens</Text>
-                        <Text>Adicione viagens para poder gerencia-las</Text>
-                    </View>
-                )}
-            </View>
+            <ScrollView style={Styles.scroll}>
+                <View style={Styles.card}>
+                    {dataList.length > 0 ? (
+                        <FlatList
+                            data={dataList}
+                            renderItem={({ item, index }) => (
+                                <Card
+                                    destination={item.destination}
+                                    description={item.description}
+                                    initDate={item.initDate}
+                                    finalDate={item.finalDate}
+                                    onRemove={() => removeCard(index)}
+                                />
+                            )}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                    ) : (
+                        <View style={Styles.item}>
+                            <Image source={require('../../img/travel-and-tourism.png')} />
+                            <Text style={Styles.title}>Monte seu Plano de Viagens</Text>
+                            <Text>Adicione viagens para poder gerencia-las</Text>
+                        </View>
+                    )}
+                </View>
+            </ScrollView>
             <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
                 <Icon name="plus" size={30} color="#000" />
             </TouchableOpacity>
-        </SafeAreaView>
+        </View>
     );
 }
