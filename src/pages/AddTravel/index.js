@@ -14,6 +14,7 @@ const initialTravelData = {
 };
 
 export default function AddTravel() {
+    
     const navigation = useNavigation();
     const [travelData, setTravelData] = useState(initialTravelData);
     const [alertEmptyInput, setAlertEmptyInput] = useState('');
@@ -80,48 +81,52 @@ export default function AddTravel() {
             
         <View style={Styles.container}>
             <Header/>
-            <View style={Styles.containerPage}>
-            <Text style={Styles.title}>Marque Sua Viagem!</Text>
-            <View style={Styles.inputDateDiv}>
+            <View style={Styles.content}>
+                <Text style={Styles.title}>Marque Sua Viagem!</Text>
+                <View style={Styles.boxDate}>
+                    <TextInput
+                        placeholderTextColor={'gray'}
+                        style={Styles.date}
+                        keyboardType='numeric'
+                        placeholder="Data de Inicio"
+                        value={travelData.initDate}
+                        onChangeText={handleInitDateChange}
+                    />
+                    <TextInput
+                        placeholderTextColor={'gray'}
+                        style={Styles.date}
+                        keyboardType='numeric'
+                        placeholder="Data de Fim"
+                        value={travelData.finalDate}
+                        onChangeText={handleFinalDateChange}
+                    />
+                </View>
                 <TextInput
-                    style={Styles.initiaDateInput}
-                    placeholder="Data de Inicio"
-                    value={travelData.initDate}
-                    onChangeText={handleInitDateChange}
-                    keyboardType="numeric"
-                    maxLength={10}
+                    style={Styles.address}
+                    placeholderTextColor={'gray'}
+                    placeholder="Local de Origem"
+                    value={travelData.origin}
+                    onChangeText={text => setTravelData({ ...travelData, origin: text })}
                 />
                 <TextInput
-                    style={Styles.finalDateInput}
-                    placeholder="Data de Conclusão"
-                    value={travelData.finalDate}
-                    onChangeText={handleFinalDateChange}
-                    keyboardType="numeric"
-                    maxLength={10}
+                    style={Styles.address}
+                    placeholderTextColor={'gray'}
+                    placeholder="Local de Destino"
+                    value={travelData.destination}
+                    onChangeText={text => setTravelData({ ...travelData, destination: text })}
                 />
-            </View>
-            <TextInput
-                style={Styles.initialLocateInput}
-                placeholder="Local de Origem"
-                value={travelData.origin}
-                onChangeText={text => setTravelData({ ...travelData, origin: text })}
-            />
-            <TextInput
-                style={Styles.finalLocateInput}
-                placeholder="Local de Destino"
-                value={travelData.destination}
-                onChangeText={text => setTravelData({ ...travelData, destination: text })}
-            />
-            <TextInput
-                style={Styles.descriptionInput}
-                placeholder="Descrição"
-                value={travelData.description}
-                onChangeText={text => setTravelData({ ...travelData, description: text })}
-            />
-            <Text style={Styles.alertEmptyInput}>{alertEmptyInput}</Text>
-            <TouchableOpacity style={Styles.backgroundBtnAdd} onPress={adicionarViagem}>
-                <Text style={Styles.textBtnAdd}>Adicionar</Text>
-            </TouchableOpacity>
+                <TextInput
+                    style={Styles.description}
+                    placeholderTextColor={'gray'}
+                    multiline={true}
+                    placeholder="Descrição"
+                    value={travelData.description}
+                    onChangeText={text => setTravelData({ ...travelData, description: text })}
+                />
+                <Text style={Styles.alert}>{alertEmptyInput}</Text>
+                <TouchableOpacity style={Styles.areaBottom} onPress={adicionarViagem}>
+                    <Text style={Styles.textBottom}>ADICIONAR</Text>
+                </TouchableOpacity>
             </View>
 
             

@@ -4,88 +4,85 @@ import Colors from "../../../colors";
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        flexDirection:'column',
+        flex: 1,
     },
-    containerPage:{
-        padding:20
+    content:{
+        width: '100%',
+        height: '100%',
+        alignContent: 'center',
     },
     title:{
-        fontSize:32
+        textAlign: 'center',
+        fontSize: 32,
+        fontWeight: 'bold',
+        padding: 30,
     },
-    alertEmptyInput:{
-        color:'red'
-    },
-    inputDateDiv:{
-        flexDirection:'row',
-        width:200
-    },
-    inputDateDiv:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-    },
-    initiaDateInput:{
-        width:160,
+    boxDate: {
+        width: '100%',
+        height: 50,
+        flexDirection: 'row',
+        justifyContent: 'space-around', 
+        alignItems: 'center',
+        marginBottom: 15 
+      },
+      date: {
+        width: '47%',
+        height: 50,
+        borderWidth: 2,
+        borderRadius: 6,
+        borderColor: Colors.primary,
+        fontSize: 16,
+        textAlign: 'center',
+      },
+    address:{
+        width: '97%',
         height:50,
         borderWidth:2,
         borderRadius:5,
         borderColor:Colors.primary,
-        fontSize:18,
-        paddingLeft:5,
-        marginTop:20
+        fontSize:16,
+        marginLeft:6,
+        marginBottom:15,
+        paddingLeft:6,
     },
-    finalDateInput:{
-        width:160,
-        height:50,
-        borderWidth:2,
-        borderRadius:5,
-        borderColor:Colors.primary,
-        fontSize:18,
-        paddingLeft:5,
-        marginTop:20
+    description: {
+        width: '97%',
+        height: 200,
+        borderWidth: 2,
+        borderRadius: 5,
+        borderColor: Colors.primary,
+        fontSize: 16,
+        marginLeft: 6,
+        marginBottom: 15,
+        paddingLeft: 6,
+        textAlign: 'left',
+        textAlignVertical: 'top' 
     },
-    initialLocateInput:{
-        width:344,
-        height:50,
-        borderWidth:2,
-        borderRadius:5,
-        borderColor:Colors.primary,
-        fontSize:18,
-        paddingLeft:5,
-        marginTop:20
+    alert:{
+        textAlign: 'center',
+        color: Colors.vermelho,
+        marginBottom: 15,
+        fontWeight: 'bold',
+        fontSize: 16,
     },
-    finalLocateInput:{
-        width:344,
-        height:50,
-        borderWidth:2,
-        borderRadius:5,
-        borderColor:Colors.primary,
-        fontSize:18,
-        paddingLeft:5,
-        marginTop:20
-    },
-    descriptionInput:{
-        width:344,
-        height:100,
-        borderWidth:2,
-        borderRadius:5,
-        borderColor:Colors.primary,
-        fontSize:18,
-        paddingLeft:5,
-        marginTop:20
-    },
-    backgroundBtnAdd:{
-        alignItems:'center',
-        justifyContent:'center',
-        width:344,
+    areaBottom:{
+        width:'97%',
         height:50,
         backgroundColor:Colors.secondary,
         borderRadius:5,
-        marginTop:230
+        alignContent: 'center',
+        justifyContent: 'center', 
+        marginLeft: 6,
     },
-    textBtnAdd:{
-        fontSize:22
+    textBottom:{
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#fff'
     }
+    
+      
+
 });
 
 export default styles;
