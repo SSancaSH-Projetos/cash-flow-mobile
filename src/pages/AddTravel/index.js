@@ -6,8 +6,8 @@ import Header from './../../components/Header';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const initialTravelData = {
-    initDate: '',
-    finalDate: '',
+    initDate: '1',
+    finalDate: '1',
     name: '',
     origin: '',
     destination: '',

@@ -29,7 +29,7 @@ export default function TravelList() {
     return (
         <View style={Styles.container}>
             <Header/>
-            <ScrollView style={Styles.scroll}>
+            
                 <View style={Styles.card}>
                     {dataList.length > 0 ? (
                         <FlatList
@@ -37,6 +37,7 @@ export default function TravelList() {
                             renderItem={({ item, index }) => (
                                 <Card
                                     destination={item.destination}
+                                    origin={item.origin}
                                     description={item.description}
                                     initDate={item.initDate}
                                     finalDate={item.finalDate}
@@ -53,7 +54,7 @@ export default function TravelList() {
                         </View>
                     )}
                 </View>
-            </ScrollView>
+            
             <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
                 <Icon name="plus" size={30} color="#000" />
             </TouchableOpacity>
