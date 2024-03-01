@@ -3,10 +3,18 @@ import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Image} from 'rea
 import Styles from './Styles'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
+import { login } from '../../service/userService';
 
 export default function SignIn() {
 
     const navigation = useNavigation();
+
+    const makeLogin = () =>{
+        if(login){
+            console.log("Funciona")
+            navigation.navigate('TravelList')
+        }
+    }
 
     return (
         <View style={Styles.container}>
@@ -17,7 +25,7 @@ export default function SignIn() {
                 <SafeAreaView style={Styles.safeArea}>
                     <TextInput style={Styles.item} placeholder='Email' keyboardType='email-address'/>
                     <TextInput style={Styles.item} placeholder='Senha' keyboardType='numeric'/>
-                    <TouchableOpacity style={Styles.btnArea} onPress={() => navigation.navigate('TravelList')}>
+                    <TouchableOpacity style={Styles.btnArea} onPress={makeLogin}>
                         <Text style={Styles.btnTexto}>ENTRAR</Text>
                     </TouchableOpacity>
                 </SafeAreaView>

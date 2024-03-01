@@ -5,16 +5,18 @@ import Styles from './Style';
 import Header from './../../components/Header';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
+import { AddTravelMethod } from '../../service/travelService'; 
+
 const initialTravelData = {
-    initDate: '1',
-    finalDate: '1',
+    initDate: '',
+    finalDate: '',
     name: '',
     origin: '',
     destination: '',
     description: ''
 };
 
-export default function AddTravel() {
+export default function addTravel() {
     const currentDate = new Date();
     const navigation = useNavigation();
     const [travelData, setTravelData] = useState(initialTravelData);
@@ -25,7 +27,14 @@ export default function AddTravel() {
     const adicionarViagem = () => {
         if (validateTravelData()) {
             setAlertEmptyInput('');
-            navigation.navigate('TravelList', { travelData });
+            console.log(travelData)
+            const success = AddTravelMethod(travelData);
+            console.log(success)
+            if (success) {
+                navigation.navigate('TravelList');
+            } else {
+                setAlertEmptyInput('Erro ao adicionar a viagem');
+            }
         } else {
             setAlertEmptyInput('Todos os Campos devem ser Preenchidos');
         }
@@ -59,12 +68,6 @@ export default function AddTravel() {
     const hideDatePicker = () => {
         setDatePickerVisibility(false);
     };
-
-    function formattedDate(data){
-
-    }
-
-
 
     return (
         <View style={Styles.container}>

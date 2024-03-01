@@ -4,7 +4,7 @@ import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Card({ destination, origin,  description, initDate,finalDate, onRemove }) {
+export default function Card({ destination,  description, initDate,finalDate, onRemove }) {
 
     const navigator = useNavigation();
 
