@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextInput, View, Text, TouchableOpacity, Modal } from 'react-native';
+import { TextInput, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Styles from './Style';
 import Header from './../../components/Header';
@@ -8,9 +8,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { AddTravelMethod } from '../../service/travelService'; 
 
 const initialTravelData = {
-    initDate: '',
-    finalDate: '',
-    name: '',
+    initDate: '11/11/11',
+    finalDate: '12/11/11',
     origin: '',
     destination: '',
     description: ''
@@ -32,6 +31,7 @@ export default function addTravel() {
             console.log(success)
             if (success) {
                 navigation.navigate('TravelList');
+                console.log(travelData)
             } else {
                 setAlertEmptyInput('Erro ao adicionar a viagem');
             }

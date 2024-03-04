@@ -5,25 +5,26 @@ import Card from './../../components/Card';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Header from '../../components/Header';
-import { ListTravelMethod } from '../../service/travelService';
+import { ListTravelMethod, RemoveTravelMethod } from '../../service/travelService';
 
 export default function TravelList() {
     const [dataList, setDataList] = useState([]);
     const navigation = useNavigation();
     const route = useRoute();
 
-    useFocusEffect(useCallback(() => {(async() => setDataList([...await ListTravelMethod()]))()}, []));
-
-    useEffect(() => {
-        console.log(dataList);
-    }, [dataList])
+    //Metodo para Popular a Lista de Viagens
+    useFocusEffect(useCallback(() => {
+        (async() => {
+            setDataList([...await ListTravelMethod()])
+        })()
+    }, []));
 
     const addItemToList = () => {
         navigation.navigate('AddTravel');
     }
 
-    const removeCard = (indexToRemove) => {
-        setDataList(prevData => prevData.filter((_, index) => index !== indexToRemove));
+    const removeCard = (id_card) => {
+        setDataList(RemoveTravelMethod(id_card))
     }
 
     return (
@@ -40,7 +41,7 @@ export default function TravelList() {
                                     description={item.description}
                                     initDate={item.initDate}
                                     finalDate={item.finalDate}
-                                    onRemove={() => removeCard(index)}
+                                    onRemove={() => removeCard(item.id)}
                                 />
                             )}
                             keyExtractor={(item, index) => index.toString()}

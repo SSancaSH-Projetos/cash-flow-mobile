@@ -4,7 +4,7 @@ import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Card({ destination,  description, initDate,finalDate, onRemove }) {
+export default function Card({ origin, destination,  description, initDate,finalDate, onRemove }) {
 
     const navigator = useNavigation();
 
@@ -12,7 +12,6 @@ export default function Card({ destination,  description, initDate,finalDate, on
         navigator.navigate('TravelDescription');
     }
 
-     
     return (
         <SafeAreaView style={Styles.container}>
             <View style={Styles.shadow}>
