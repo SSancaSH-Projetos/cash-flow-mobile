@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         marginTop: 40,
-        borderRa
     },
     addButton: {
         flexDirection: 'row',

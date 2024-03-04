@@ -16,7 +16,7 @@ const initialTravelData = {
     description: ''
 };
 
-export default function addTravel() {
+export default function AddTravel() {
     const currentDate = new Date();
     const navigation = useNavigation();
     const [travelData, setTravelData] = useState(initialTravelData);
