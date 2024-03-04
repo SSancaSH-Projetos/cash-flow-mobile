@@ -8,8 +8,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { AddTravelMethod } from '../../service/travelService'; 
 
 const initialTravelData = {
-    initDate: '11/11/11',
-    finalDate: '12/11/11',
+    initDate: '',
+    finalDate: '',
     origin: '',
     destination: '',
     description: ''
