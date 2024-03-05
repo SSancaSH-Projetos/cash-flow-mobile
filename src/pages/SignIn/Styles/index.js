@@ -70,7 +70,14 @@ const styles = StyleSheet.create({
     btnTextoSenha:{
        fontWeight: 'bold',
        color: Colors.primary
-    }
+    },
+    alert:{
+        textAlign: 'center',
+        color: Colors.vermelho,
+        marginTop: 15,
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
     
 });
 

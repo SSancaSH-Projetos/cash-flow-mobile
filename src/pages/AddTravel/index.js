@@ -4,12 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 import Styles from './Style';
 import Header from './../../components/Header';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-
 import { AddTravelMethod } from '../../service/travelService'; 
 
+
 const initialTravelData = {
-    initDate: '',
-    finalDate: '',
+    initDate: '1',
+    finalDate: '1',
     origin: '',
     destination: '',
     description: ''

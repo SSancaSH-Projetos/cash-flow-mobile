@@ -12,24 +12,24 @@ export default  function Routes(){
         
         <Stack.Navigator>
             <Stack.Screen 
-            name="Welcome"
-            component={Welcome}
-            options={{headerShown: false}}
+                name="Welcome"
+                component={Welcome}
+                options={{headerShown: false}}
             />
              <Stack.Screen 
-            name="SignIn"
-            component={SignIn}
-            options={{headerShown: false}}
+                name="SignIn"
+                component={SignIn}
+                options={{headerShown: false}}
             />
              <Stack.Screen
-             name='TravelList'
-             component={TravelList}
-             options={{headerShown:false}}
+                name='TravelList'
+                component={TravelList}
+                options={{headerShown:false}}
              />
              <Stack.Screen
-             name='AddTravel'
-             component={addTravel}
-             options={{headerShown:false}}
+                name='AddTravel'
+                component={addTravel}
+                options={{headerShown:false}}
              />
         </Stack.Navigator>
     )
