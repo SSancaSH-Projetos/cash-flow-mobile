@@ -6,33 +6,30 @@ import { useNavigation } from '@react-navigation/native';
 import { login } from '../../service/userService';
 
 
-const InitUser = () => {
-    username = '',
-    password = ''
-}; 
-
 
 export default function SignIn() {
     const navigation = useNavigation();
-    const [ user , setUser ] = useState(InitUser);
+    const [ username , setUsername] = useState('')
+    const [ password , setPassword] = useState('')
     const [alertErrorInput, setAlertErrorInput] = useState('');
 
 
 const makeLogin = () => {
-    login(user.username, user.password)
-    .then(function(result) {
-        if(result){
-            console.log('Entrou...')
-            navigation.navigate('TravelList')
-        }else{
-            setAlertErrorInput('Erro no Login... Usuario ou Senha Incorretos')
-        }
-    })
-    .catch(function(error) {
-       
-    });
-
-    
+    if(username === "" || password === ""){
+        setAlertErrorInput("Todos os campos devem ser preenchidos")
+    }else{
+        login( username , password )
+        .then(function(result) {
+            if(result){
+                console.log('Entrou...')
+                navigation.navigate('TravelList')
+            }else{
+                setAlertErrorInput('Erro no Login... Usuario ou Senha Incorretos')
+            }
+        })
+        .catch(function(error) {
+        });
+    }
 }
 
     return (
@@ -46,14 +43,14 @@ const makeLogin = () => {
                         style={Styles.item} 
                         placeholder='Email' 
                         keyboardType='email-address' 
-                        onChangeText={text => setUser({...user , username : text })}
+                        onChangeText={(text) => setUsername(text)}
                     />
 
                     <TextInput 
                         style={Styles.item} 
                         placeholder='Senha' 
                         keyboardType='numeric'
-                        onChangeText={text => setUser({...user , password : text })}
+                        onChangeText={(text) => setPassword(text)}
                     />
 
                     <Text style={Styles.alert}>{alertErrorInput}</Text>
