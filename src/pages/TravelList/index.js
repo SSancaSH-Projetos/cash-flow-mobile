@@ -24,8 +24,12 @@ export default function TravelList() {
     }
 
     const removeCard = (id_card) => {
-        setDataList(RemoveTravelMethod(id_card))
+        console.log(id_card);
+        const updatedList = dataList.filter(item => item.id !== id_card);
+        setDataList(updatedList);
+        RemoveTravelMethod(id_card);
     }
+    
 
     return (
         <View style={Styles.container}>

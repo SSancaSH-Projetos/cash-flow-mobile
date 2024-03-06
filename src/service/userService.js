@@ -5,10 +5,12 @@ const usuarios = [
 ];
 
 export async function login(username, password) {
-  for (const usuario of usuarios) {
-    if (usuario.username === username && usuario.password === password) {
-      return true;
-    }
-  }
+  fetch('http://10.110.12.25:8080/api/login', {
+    method: 'POST',
+    body: `email=${username}&password=${password}`,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  })
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
   return false;
 }

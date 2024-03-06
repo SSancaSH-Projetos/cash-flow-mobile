@@ -10,6 +10,7 @@ export async function AddTravelMethod({ initDate, finalDate, origin, destination
         description
     };
     travels.push(newTravel);
+    console.log(travels)
     await new Promise(res => setTimeout(res, 1000))
     return true;
 }
@@ -26,6 +27,7 @@ export async function ListTravelMethod() {
 }
 
 export async function RemoveTravelMethod(id_travel) {
+    console.log(id_travel)
     await new Promise(res => setTimeout(res, 1000))
     const index = travels.findIndex(travel => travel.id === id_travel);
     if (index !== -1) {

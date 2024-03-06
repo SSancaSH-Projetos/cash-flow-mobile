@@ -49,7 +49,7 @@ const makeLogin = () => {
                     <TextInput 
                         style={Styles.item} 
                         placeholder='Senha' 
-                        keyboardType='numeric'
+                        keyboardType='default'
                         onChangeText={(text) => setPassword(text)}
                     />
 
