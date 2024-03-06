@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Alert} from 'react-native';
+import React, { Component, useState } from 'react';
+import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Alert, BackHandler} from 'react-native';
 import Styles from './Styles'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
@@ -23,6 +23,7 @@ const makeLogin = () => {
             if(result){
                 console.log('Entrou...')
                 navigation.navigate('TravelList')
+
             }else{
                 setAlertErrorInput('Erro no Login... Usuario ou Senha Incorretos')
             }
@@ -31,6 +32,7 @@ const makeLogin = () => {
         });
     }
 }
+   
 
     return (
         <View style={Styles.container}>
