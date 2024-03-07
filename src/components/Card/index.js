@@ -26,9 +26,11 @@ export default function Card({ origin, destination,  description, initDate,final
                     <Text>{description}</Text>
                 </View>
 
-                <View style={Styles.footer}>
-                    <Icon name="calendar" size={30} color="#000" />
-                    <Text style={Styles.dateTravel}>{initDate}</Text>
+                <View style={Styles.containerFooter}>
+                    <View style={Styles.contentText}>
+                        <Icon name="calendar" size={30} color="#000" />
+                        <Text style={Styles.dateTravel}>{initDate}</Text>
+                    </View>                   
                     <TouchableOpacity style={Styles.btn_description} onPress={goToTravelDescription}>
                         <Text style={Styles.text_btn_description}>Detalhes</Text>
                     </TouchableOpacity>

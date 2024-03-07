@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         padding:20,
         marginBottom: 6,
         width: '90%',
-        height: 180,
+        height: 'auto',
         backgroundColor: 'white',
         borderRadius: 10,
         shadowColor: '#000',
@@ -28,10 +28,15 @@ const styles = StyleSheet.create({
     body:{
 
     },
-    footer:{
+    containerFooter:{
         flexDirection:"row",
         marginTop:30,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    contentText:{
+        flexDirection:"row",
+        alignItems: 'center',
     },
     dateTravel: {
         marginLeft:20,
@@ -44,7 +49,7 @@ const styles = StyleSheet.create({
         marginLeft:100
     },
     text_btn_description:{
-        fontSize:18
+        fontSize:18,
     }
 
 });
