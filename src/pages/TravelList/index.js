@@ -34,6 +34,9 @@ export default function TravelList() {
     return (
         <View style={Styles.container}>
             <Header/>
+            <View style={Styles.containerTitle}>
+                <Text style={Styles.title}>Viagens Marcadas</Text>
+            </View>
                 <View style={Styles.card}>
                     {dataList.length > 0 ? (
                         <FlatList
@@ -49,6 +52,7 @@ export default function TravelList() {
                                 />
                             )}
                             keyExtractor={(item, index) => index.toString()}
+                            contentContainerStyle={{ paddingBottom: 250 }} 
                         />
                     ) : (
                         <View style={Styles.item}>

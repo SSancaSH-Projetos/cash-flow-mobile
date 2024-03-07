@@ -1,10 +1,21 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../../colors";
+import colors from "../../../colors";
 
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
+    },
+    containerTitle:{
+        width:"100%",
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    title:{
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     card:{             
         heigh: '100%',
