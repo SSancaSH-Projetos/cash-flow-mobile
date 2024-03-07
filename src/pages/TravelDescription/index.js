@@ -1,9 +1,10 @@
     import React, { useState, useEffect } from 'react';
-    import { View , Text , TouchableOpacity} from "react-native";
+    import { View , Text , TouchableOpacity, FlatList} from "react-native";
     import Styles from './Styles/';
     import { useNavigation , useRoute} from '@react-navigation/native';
     import Icon from 'react-native-vector-icons/FontAwesome';
     import Header from '../../components/Header';
+    import CardExpenses from '../../components/CardExpenses';
 
 
     export default function TravelDescription() {
@@ -12,14 +13,7 @@
         const navigation = useNavigation();
         const route = useRoute();
 
-        const viagem = {
-            viajem:"Viagem a negócio",
-            destino: 'São Paulo',
-            origem: 'São Carlos',
-            dataInicio: '10/12/2023',
-            dataFinal: '10/03/2024',
-            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages',
-        }
+        const { origin, destination, description, initDate, finalDate } = route.params;
         
         useEffect(() => {
             const { dataTravel } = route.params || {};
@@ -32,27 +26,51 @@
             navigation.navigate('AddExpenses')
         }
 
+        const despesas = [
+            {id: '1', description: 'Restaurante', valor: '98,90' },
+            {id: '2', description: 'Dormitorio', valor: '198,90' },
+            {id: '3', description: 'Combustivel', valor: '598,90' },
+        ]
+
         return(
             <View style={Styles.container}>
                 <Header/>
                 <View style={Styles.titleContainer}>
-                    <Text style={Styles.textOrigem}>{viagem.origem}</Text>
-                    <Text style={Styles.textDestino}>{viagem.destino}</Text>
+                    <Text style={Styles.textDestino}>{destination}</Text>
+                    <Text style={Styles.textOrigem}>{origin}</Text> 
                 </View>
 
                 <View style={Styles.date}>
                     <View style={Styles.dateInicio}>
-                        <Text style={Styles.dateInicioText}>Data Inicio</Text>
-                        <Text style={Styles.dateText}>{viagem.dataInicio}</Text>
+                        <Text style={Styles.dateTextItem}>Data Inicio</Text>
+                        <Text style={Styles.dateText}>{initDate}</Text>
                     </View>
                     <View style={Styles.dateFinal}>
-                        <Text style={Styles.dateFinalText}>Data Final</Text>
-                        <Text style={Styles.dateText}>{viagem.dataFinal}</Text>
+                        <Text style={Styles.dateTextItem}>Data Final</Text>
+                        <Text style={Styles.dateText}>{finalDate}</Text>
                     </View>
                 </View>
                 <View style={Styles.descriptionContainer}>
-                    <Text style={Styles.description}>Descrição</Text>
-                    <Text style={Styles.descriptionText}>{viagem.description}</Text>
+                    <Text style={Styles.description}>DESCRIÇÃO</Text>
+                    <Text style={Styles.descriptionText}>{description}</Text>
+                </View>
+                <View style={Styles.containerCard}>
+                    <View style={Styles.contentTitle}>
+                        <Text style={Styles.titleText}>DESPESAS</Text>
+                    </View>
+                    <FlatList
+                        data={despesas}
+                        renderItem={({item}) => {
+                            return (
+                              <CardExpenses
+                              description={item.description}
+                              value={item.valor}
+                              />
+                            )
+
+                        }}
+                    />
+
                 </View>
                 
                 <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>

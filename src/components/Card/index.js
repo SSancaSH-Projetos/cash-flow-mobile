@@ -4,12 +4,12 @@ import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Card({ origin, destination,  description, initDate,finalDate, onRemove }) {
+export default function Card({ origin, destination,  description, initDate,finalDate, onRemove, onPress }) {
 
     const navigator = useNavigation();
 
     const goToTravelDescription = () => {
-        navigator.navigate('TravelDescription');
+        navigator.navigate('TravelDescription', { origin, destination, description, initDate, finalDate });
     }
 
     return (

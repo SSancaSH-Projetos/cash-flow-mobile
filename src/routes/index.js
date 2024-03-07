@@ -4,6 +4,7 @@ import SignIn from '../pages/SignIn'
 import TravelList from "../pages/TravelList";
 import addTravel from "../pages/AddTravel";
 import TravelDescription from "../pages/TravelDescription/"
+import ExpensesDescription from '../pages/ExpensesDescription/'
 
 
 const Stack =  createNativeStackNavigator();
@@ -35,6 +36,11 @@ export default  function Routes(){
               <Stack.Screen
                 name='TravelDescription'
                 component={TravelDescription}
+                options={{headerShown:false}}
+             />
+              <Stack.Screen
+                name='ExpensesDescription'
+                component={ExpensesDescription}
                 options={{headerShown:false}}
              />
         </Stack.Navigator>

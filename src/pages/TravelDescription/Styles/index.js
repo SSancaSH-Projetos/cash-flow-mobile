@@ -8,70 +8,82 @@ const styles = StyleSheet.create({
     },
     titleContainer:{
         width: '100%',
-        height: '10%'
-
-    }, 
-    textOrigem:{
-        color: Colors.primary,
-        fontWeight: 'bold',
-        fontSize: 30,
-        marginTop:10,
-        marginBottom: 10,
-
+        height: 70,
+        marginTop: 10,
+        paddingLeft:10,
     },
     textDestino:{
-        color: Colors.branco,
-        fontSize: 20,
+        fontSize: 32,
         fontWeight: 'bold',
+        color: Colors.primary,
+    },
+    textOrigem:{
+        fontSize: 16,
+        color: Colors.cinza,
     },
     date:{
-        width:'100%',
-        height: '15%',
         flexDirection: 'row',
-        alignItems:'center',
-        justifyContent:'space-around',
-        marginTop:10,
-    }, 
+        height: 100,
+        justifyContent: 'space-between',
+        marginLeft: 6,
+        marginRight:6,
+    },
     dateInicio:{
-        width: '50%',
-        height: '100%',
+        width: '40%',
         alignItems: 'center',
-        justifyContent: 'center'
-    },
-    dateInicioText:{
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    dateText:{
-        fontSize:25,
-        backgroundColor: Colors.primary,
-        padding: 10,
-        borderRadius: 10,
-        color: Colors.branco,
+        justifyContent: 'center',
     },
     dateFinal:{
-        width: '50%',
-        height: '100%',
+        width: '40%',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
-    dateFinalText:{
+    dateTextItem:{
         fontSize: 20,
-        fontWeight: 'bold',
+    },
+    dateText:{
+        backgroundColor: Colors.primary,
+        width: '80%',
+        color: Colors.branco,
+        borderRadius: 6,
+        fontSize:20,
+        padding: 7,
+
     },
     descriptionContainer:{
         width: '100%',
-        height: 'auto',
-        padding: 10,
+        padding: 6,
+
     },
     description:{
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: 'bold',
-    }, 
+        color: Colors.primary
+    },
     descriptionText:{
         fontSize: 16,
-        textAlign: 'justify'
+
     },
+    containerCard:{
+        flex: 1,
+        marginTop: 15,
+    },
+    contentTitle: {
+        height: '10%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    titleText:{
+        fontSize: 20,
+        color: Colors.primary,
+        fontWeight: 'bold',
+    },
+
+
+
+
+
+
     containerBottom:{
         flex: 1,
         position: 'absolute',
