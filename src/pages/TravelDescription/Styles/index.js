@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     textDestino:{
         color: Colors.branco,
         fontSize: 20,
-        fontWeight: 20,
+        fontWeight: 'bold',
     },
     date:{
         width:'100%',

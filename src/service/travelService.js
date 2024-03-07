@@ -9,6 +9,7 @@ export async function AddTravelMethod({ initDate, finalDate, origin, destination
         destination,
         description
     };
+    
     travels.push(newTravel);
     console.log(travels)
     await new Promise(res => setTimeout(res, 1000))
