@@ -30,55 +30,21 @@
             {id: '1', description: 'Restaurante', valor: '98,90' },
             {id: '2', description: 'Dormitorio', valor: '198,90' },
             {id: '3', description: 'Combustivel', valor: '598,90' },
+<<<<<<< HEAD
             {id: '4', description: 'Teste02', valor: '98,90' },
             {id: '5', description: 'Teste03', valor: '198,90' },
             {id: '6', description: 'Teste01', valor: '598,90' },
+=======
+            {id: '4', description: 'Combustivel', valor: '598,90' },
+            {id: '5', description: 'Combustivel', valor: '598,90' },
+            {id: '6', description: 'Combustivel', valor: '598,90' },
+>>>>>>> 5d50adc3387d95ad64e33a25a7272a2c2bdc2084
         ]
 
         return(
             <View style={Styles.container}>
                 <Header/>
-                <View style={Styles.titleContainer}>
-                    <Text style={Styles.textDestino}>{destination}</Text>
-                    <Text style={Styles.textOrigem}>{origin}</Text> 
-                </View>
-
-                <View style={Styles.date}>
-                    <View style={Styles.dateInicio}>
-                        <Text style={Styles.dateTextItem}>Data Inicio</Text>
-                        <Text style={Styles.dateText}>{initDate}</Text>
-                    </View>
-                    <View style={Styles.dateFinal}>
-                        <Text style={Styles.dateTextItem}>Data Final</Text>
-                        <Text style={Styles.dateText}>{finalDate}</Text>
-                    </View>
-                </View>
-                <View style={Styles.descriptionContainer}>
-                    <Text style={Styles.description}>DESCRIÇÃO</Text>
-                    <Text style={Styles.descriptionText}>{description}</Text>
-                </View>
-                <View style={Styles.containerCard}>
-                    <View style={Styles.contentTitle}>
-                        <Text style={Styles.titleText}>DESPESAS</Text>
-                    </View>
-                    <FlatList
-                        data={despesas}
-                        renderItem={({item}) => {
-                            return (
-                              <CardExpenses
-                              description={item.description}
-                              value={item.valor}
-                              />
-                            )
-
-                        }}
-                    />
-
-                </View>
-                
-                <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
-                    <Icon name="plus" size={30} color="#000" />
-                </TouchableOpacity>
+                <View/>
             </View>
         )
     }

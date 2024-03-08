@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
 import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
@@ -9,7 +9,7 @@ export default function CardExpenses({ description,value, onRemove, onPress }) {
     const navigator = useNavigation();
 
     const goToExpensesDescription = () => {
-        navigator.navigate('AddExpenses');//mudar o endereco correto de detalhes
+        navigator.navigate('ExpensesDesription');
     }
 
     return (
@@ -30,7 +30,7 @@ export default function CardExpenses({ description,value, onRemove, onPress }) {
                         <Text style={Styles.dateTravel}>{value}</Text>
                     </View>                   
                     <TouchableOpacity style={Styles.btn_description} onPress={goToExpensesDescription}>
-                        <Text style={Styles.text_btn_description}>Detalhes</Text>
+                        <Text style={Styles.text_btn_description}>detalhes</Text>
                     </TouchableOpacity>
                 </View>
             </View>

@@ -27,6 +27,7 @@
             navigation.navigate('AddExpenses');
         }
 
+
         const despesas = [
             {id: '1', description: 'Restaurante', valor: '98,90' },
             {id: '2', description: 'Dormitorio', valor: '198,90' },
@@ -42,11 +43,11 @@
                 </View>
 
                 <View style={Styles.date}>
-                    <View style={Styles.dateInicio}>
+                    <View style={Styles.dateItem}>
                         <Text style={Styles.dateTextItem}>Data Inicio</Text>
                         <Text style={Styles.dateText}>{initDate}</Text>
                     </View>
-                    <View style={Styles.dateFinal}>
+                    <View style={Styles.dateItem}>
                         <Text style={Styles.dateTextItem}>Data Final</Text>
                         <Text style={Styles.dateText}>{finalDate}</Text>
                     </View>
@@ -74,7 +75,7 @@
 
                 </View>
                 
-                <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
+                <TouchableOpacity style={Styles.containerBottom}>
                     <Icon name="plus" size={30} color="#000" />
                 </TouchableOpacity>
             </View>

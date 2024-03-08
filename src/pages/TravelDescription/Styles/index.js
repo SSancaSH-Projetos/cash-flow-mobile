@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         color: Colors.primary,
     },
     textOrigem:{
-        fontSize: 16,
+        fontSize: 18,
         color: Colors.cinza,
     },
     date:{
@@ -28,26 +28,20 @@ const styles = StyleSheet.create({
         marginLeft: 6,
         marginRight:6,
     },
-    dateInicio:{
-        width: '40%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    dateFinal:{
-        width: '40%',
+    dateItem:{
+        width: '50%',
         alignItems: 'center',
         justifyContent: 'center',
     },
     dateTextItem:{
-        fontSize: 20,
+        fontSize: 18,
     },
     dateText:{
         backgroundColor: Colors.primary,
-        width: '80%',
         color: Colors.branco,
         borderRadius: 6,
-        fontSize:20,
-        padding: 7,
+        fontSize:18,
+        padding: 10,
 
     },
     descriptionContainer:{
