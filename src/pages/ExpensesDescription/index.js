@@ -23,13 +23,16 @@
         }, [route.params]);
 
         const addItemToList = () =>{
-            navigation.navigate('AddExpenses')
+            navigation.navigate('AddExpenses');
         }
 
         const despesas = [
             {id: '1', description: 'Restaurante', valor: '98,90' },
             {id: '2', description: 'Dormitorio', valor: '198,90' },
             {id: '3', description: 'Combustivel', valor: '598,90' },
+            {id: '4', description: 'Teste02', valor: '98,90' },
+            {id: '5', description: 'Teste03', valor: '198,90' },
+            {id: '6', description: 'Teste01', valor: '598,90' },
         ]
 
         return(

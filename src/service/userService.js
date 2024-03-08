@@ -1,10 +1,6 @@
-const usuarios = [
-  { username: "adm@gmail.com", password: "12345678" },
-  { username: "senai@gmail.com", password: "87654321" },
-  { username: "julio@gmail.com", password: "24681012" },
-];
+const usuarios = [];
 
-export async function login(username, password) {
+export async function serviceLoginMethod (username, password) {
     return true;
 }
 

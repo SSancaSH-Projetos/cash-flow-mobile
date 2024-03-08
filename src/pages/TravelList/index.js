@@ -43,6 +43,7 @@ export default function TravelList() {
                             data={dataList}
                             renderItem={({ item, index }) => (
                                 <Card
+                                    id={item.id}
                                     destination={item.destination}
                                     origin={item.origin}
                                     description={item.description}

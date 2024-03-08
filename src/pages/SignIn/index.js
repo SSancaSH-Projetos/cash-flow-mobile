@@ -3,7 +3,7 @@ import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Alert, BackHandl
 import Styles from './Styles'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
-import { login } from '../../service/userService';
+import { serviceLoginMethod } from '../../service/userService';
 
 
 
@@ -14,11 +14,11 @@ export default function SignIn() {
     const [alertErrorInput, setAlertErrorInput] = useState('');
 
 
-const makeLogin = () => {
+const login = () => {
     if(username === "" || password === ""){
         setAlertErrorInput("Todos os campos devem ser preenchidos")
     }else{
-        login( username , password )
+        serviceLoginMethod( username , password )
         .then(function(result) {
             if(result){
                 console.log('Entrou...')
@@ -56,7 +56,7 @@ const makeLogin = () => {
                     />
 
                     <Text style={Styles.alert}>{alertErrorInput}</Text>
-                    <TouchableOpacity style={Styles.btnArea} onPress={makeLogin}>
+                    <TouchableOpacity style={Styles.btnArea} onPress={login}>
                         <Text style={Styles.btnTexto}>ENTRAR</Text>
                     </TouchableOpacity>
                 </SafeAreaView>

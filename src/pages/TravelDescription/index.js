@@ -13,17 +13,18 @@
         const navigation = useNavigation();
         const route = useRoute();
 
-        const { origin, destination, description, initDate, finalDate } = route.params;
+        const { id, origin, destination, description, initDate, finalDate } = route.params;
         
         useEffect(() => {
             const { dataTravel } = route.params || {};
             if (dataTravel) {
                 setDataTravel(prevData => [...prevData, dataTravel]);
             }
+            console.log("Descrição: "+id);
         }, [route.params]);
 
         const addItemToList = () =>{
-            navigation.navigate('AddExpenses')
+            navigation.navigate('AddExpenses');
         }
 
         const despesas = [
