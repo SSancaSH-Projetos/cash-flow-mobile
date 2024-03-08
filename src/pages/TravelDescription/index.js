@@ -22,14 +22,15 @@
             }
         }, [route.params]);
 
-        const addItemToList = () =>{
-            navigation.navigate('AddExpenses')
-        }
+      
 
         const despesas = [
             {id: '1', description: 'Restaurante', valor: '98,90' },
             {id: '2', description: 'Dormitorio', valor: '198,90' },
             {id: '3', description: 'Combustivel', valor: '598,90' },
+            {id: '4', description: 'Combustivel', valor: '798,90' },
+            {id: '5', description: 'Combustivel', valor: '998,90' },
+            {id: '6', description: 'Combustivel', valor: '198,90' },
         ]
 
         return(
@@ -41,11 +42,11 @@
                 </View>
 
                 <View style={Styles.date}>
-                    <View style={Styles.dateInicio}>
+                    <View style={Styles.dateItem}>
                         <Text style={Styles.dateTextItem}>Data Inicio</Text>
                         <Text style={Styles.dateText}>{initDate}</Text>
                     </View>
-                    <View style={Styles.dateFinal}>
+                    <View style={Styles.dateItem}>
                         <Text style={Styles.dateTextItem}>Data Final</Text>
                         <Text style={Styles.dateText}>{finalDate}</Text>
                     </View>
@@ -73,7 +74,7 @@
 
                 </View>
                 
-                <TouchableOpacity style={Styles.containerBottom} onPress={addItemToList}>
+                <TouchableOpacity style={Styles.containerBottom}>
                     <Icon name="plus" size={30} color="#000" />
                 </TouchableOpacity>
             </View>
