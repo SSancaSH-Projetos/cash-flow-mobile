@@ -37,6 +37,7 @@
 
             {id: '4', description: 'Combustivel', valor: '598,90' },
             {id: '5', description: 'Combustivel', valor: '598,90' },
+            {id: '6', description: 'Combustivel', valor: '598,90' },
 
         ]
 

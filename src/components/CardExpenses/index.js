@@ -4,7 +4,7 @@ import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-export default function CardExpenses({ description,value, onRemove, onPress }) {
+export default function CardExpenses({ description,value, onRemove }) {
 
     const navigator = useNavigation();
 
@@ -21,7 +21,6 @@ export default function CardExpenses({ description,value, onRemove, onPress }) {
                         <Icon name="trash" size={30} color="#000" />
                     </TouchableOpacity>
                 </View>
-
 
 
                 <View style={Styles.containerFooter}>
