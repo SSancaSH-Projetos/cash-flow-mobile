@@ -1,6 +1,4 @@
-const expenses = [
-    
-];
+const expenses = [];
 
 export async function AddExpensesMethod({description , category , value, invoice, id_travel}) {
     const newExpenses={

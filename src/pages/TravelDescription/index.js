@@ -1,37 +1,32 @@
     import React, { useState, useEffect } from 'react';
     import { View , Text , TouchableOpacity, FlatList} from "react-native";
     import Styles from './Styles/';
-    import { useNavigation , useRoute} from '@react-navigation/native';
+    import { useFocusEffect , useNavigation , useRoute} from '@react-navigation/native';
     import Icon from 'react-native-vector-icons/FontAwesome';
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
     import AddExpenses from '../AddExpenses/'
+    import { ListExpensesMethod } from '../../service/ExpensesService';
 
 
     export default function TravelDescription() {
         const [dataTravel , setDataTravel] = useState([]);
+        const [dataExpenes , setDataExpenses] = useState([]);
 
         const navigation = useNavigation();
         const route = useRoute();
 
         const { id, origin, destination, description, initDate, finalDate } = route.params;
         
-        useEffect(() => {
-            const { dataTravel } = route.params || {};
-            if (dataTravel) {
-                setDataTravel(prevData => [...prevData, dataTravel]);
-            }
-            console.log("Descrição: "+id);
-        }, [route.params]);
+        useFocusEffect(useCallback(() => {
+            (async() => {
+                setDataExpenses([...await ListExpensesMethod(id)]);
+            })();
+        }, []));
 
         const goToAddExpenses = () =>{
             navigation.navigate('AddExpenses');
         }
-
-
-        const despesas = [
-            {id: '1', description: 'Restaurante', valor: '98,90' },
-        ]
 
         return(
             <View style={Styles.container}>
@@ -60,7 +55,7 @@
                         <Text style={Styles.titleText}>DESPESAS</Text>
                     </View>
                     <FlatList
-                        data={despesas}
+                        data={dataExpenes}
                         renderItem={({item}) => {
                             return (
                               <CardExpenses

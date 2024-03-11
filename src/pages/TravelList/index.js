@@ -16,7 +16,7 @@ export default function TravelList() {
     useFocusEffect(useCallback(() => {
         (async() => {
             setDataList([...await ListTravelMethod()])
-        })()
+        })();
     }, []));
 
     const addItemToList = () => {
