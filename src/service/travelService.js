@@ -8,6 +8,7 @@ export async function AddTravelMethod({ initDate, finalDate, origin, destination
         origin,
         destination,
         description
+        //Orçamento e Itinerario
     };
     
     travels.push(newTravel);
