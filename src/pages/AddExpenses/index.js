@@ -3,8 +3,12 @@ import React from 'react'
 import Styles from './Styles/'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Header from '../../components/Header/'
+import Camera from 'react-native-camera'
 
 export default function AddExpenses() {
+
+
+
  return (
    <View style={Styles.container}>
         <Header/>
@@ -23,7 +27,7 @@ export default function AddExpenses() {
                 keyboardType='numeric'
             />
         </View>
-        <TouchableOpacity style={Styles.areaButton}>
+        <TouchableOpacity style={Styles.areaButton} >
             <View style={Styles.button}>
                 <Text style={Styles.textButton}>Anexar Nota Fiscal</Text>
                 <Icon name="add-a-photo" size={30} color="#000" />
@@ -37,4 +41,6 @@ export default function AddExpenses() {
    </View>
   );
 }
+
+
 
