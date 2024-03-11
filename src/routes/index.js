@@ -2,9 +2,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Welcome from '../pages/Welcome'
 import SignIn from '../pages/SignIn'
 import TravelList from "../pages/TravelList";
-import addTravel from "../pages/AddTravel";
-import TravelDescription from "../pages/TravelDescription/"
-import ExpensesDescription from '../pages/ExpensesDescription/'
+import AddTravel from "../pages/AddTravel";
+import TravelDescription from "../pages/TravelDescription"
+import ExpensesDescription from '../pages/ExpensesDescription'
+import AddExpenses from "../pages/AddExpenses";
 
 
 const Stack =  createNativeStackNavigator();
@@ -30,7 +31,7 @@ export default  function Routes(){
              />
              <Stack.Screen
                 name='AddTravel'
-                component={addTravel}
+                component={AddTravel}
                 options={{headerShown:false}}
              />
               <Stack.Screen
@@ -41,6 +42,11 @@ export default  function Routes(){
               <Stack.Screen
                 name='ExpensesDescription'
                 component={ExpensesDescription}
+                options={{headerShown:false}}
+             />
+               <Stack.Screen
+                name='AddExpenses'
+                component={AddExpenses}
                 options={{headerShown:false}}
              />
         </Stack.Navigator>

@@ -5,6 +5,7 @@
     import Icon from 'react-native-vector-icons/FontAwesome';
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
+    import AddExpenses from '../AddExpenses/'
 
 
     export default function TravelDescription() {
@@ -23,15 +24,13 @@
             console.log("Descrição: "+id);
         }, [route.params]);
 
-        const addItemToList = () =>{
+        const goToAddExpenses = () =>{
             navigation.navigate('AddExpenses');
         }
 
 
         const despesas = [
             {id: '1', description: 'Restaurante', valor: '98,90' },
-            {id: '2', description: 'Dormitorio', valor: '198,90' },
-            {id: '3', description: 'Combustivel', valor: '598,90' },
         ]
 
         return(
@@ -75,7 +74,7 @@
 
                 </View>
                 
-                <TouchableOpacity style={Styles.containerBottom}>
+                <TouchableOpacity style={Styles.containerBottom} onPress={goToAddExpenses}>
                     <Icon name="plus" size={30} color="#000" />
                 </TouchableOpacity>
             </View>

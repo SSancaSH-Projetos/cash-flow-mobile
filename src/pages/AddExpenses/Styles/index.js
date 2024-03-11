@@ -1,72 +1,54 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../../../colors'; // Certifique-se de importar suas cores corretamente
+import Colors from '../../../colors';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff', // Cor de fundo branca
+        backgroundColor: '#fff',
     },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: Colors.primary, // Cor da barra azul
-        paddingHorizontal: 16,
-        paddingVertical: 12,
-    },
-    logo: {
-        width: 50,
-        height: 40,
-    },
-    menuIcon: {
-        padding: 5,
-        borderRadius: 5,
-    },
-    formContainer: {
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        paddingTop: 90,
-    },
-    inputContainer: {
-        marginBottom: 10,
+    form:{
+      
     },
     input: {
-        borderWidth: 2,
-        borderColor: Colors.primary,
+        height: 50,
+        margin: 12,
+        borderWidth: 1,
         borderRadius: 5,
-        paddingVertical: 8,
-        paddingHorizontal: 10,
-        marginBottom: 30,
-        borderRadius: 5,
-    },
-    photoButton: {
+        padding: 10,
+
+      },
+      areaButton:{
         flexDirection: 'row',
+        width: '100%',
+        height: 50,
         alignItems: 'center',
-        backgroundColor: Colors.secondary, // Cor do botão "Tirar Foto da Nota Fiscal"
+        justifyContent: 'center',
+    
+      },
+      button:{
+        width: '94%',
+        backgroundColor: Colors.secondary,
+        flexDirection:'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
         padding: 10,
         borderRadius: 5,
-        marginTop: 40,
-    },
-    addButton: {
+        
+      },
+      textButton:{
+        fontSize: 18,
+        color: Colors.branco,
+      }, 
+      areaButtonAdd:{
+        position: 'absolute',
+        bottom: '5%',
         flexDirection: 'row',
+        width: '100%',
+        height: 50,
         alignItems: 'center',
-        justifyContent: 'center', // Centraliza o conteúdo horizontalmente
-        backgroundColor: Colors.secondary, // Cor do botão "Adicionar Despesa"
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
-        marginTop: 10, // Ajuste o espaçamento conforme necessário
-        width: 300, // Ajuste a largura do botão conforme necessário
-    },    
-    buttonText: {
-        color: '#fff',
-        fontSize: 16,
-        marginLeft: 5,
-    },
-    centeredButtonContainer: {
-        alignItems: 'center',
-        marginTop: 90, // Ajuste o espaçamento conforme necessário
-    },
+        justifyContent: 'center',
+      },
+  
     
 });
 

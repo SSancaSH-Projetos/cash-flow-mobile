@@ -7,9 +7,8 @@
     import CardExpenses from '../../components/CardExpenses';
 
 
-    export default function TravelDescription() {
+    export default function ExpensesDescription() {
         const [dataTravel , setDataTravel] = useState([]);
-
         const navigation = useNavigation();
         const route = useRoute();
 
@@ -26,14 +25,7 @@
             navigation.navigate('AddExpenses');
         }
 
-        const despesas = [
-            {id: '1', description: 'Restaurante', valor: '98,90' },
-            {id: '2', description: 'Dormitorio', valor: '198,90' },
-            {id: '3', description: 'Combustivel', valor: '598,90' },
-        ]
-
-        
-
+      
         return(
             <View style={Styles.container}>
                 <Header/>
