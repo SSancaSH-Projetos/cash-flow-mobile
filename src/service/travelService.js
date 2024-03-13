@@ -7,7 +7,9 @@ export async function AddTravelMethod({ initDate, finalDate, origin, destination
         finalDate,
         origin,
         destination,
-        description
+        description,
+        expenses: []
+        
         //Orçamento e Itinerario
     };
     
@@ -66,6 +68,22 @@ export async function UpdateTravel(id_travel, initDate, finalDate, origin, desti
     return false;
 }
 
+export async function ListExpensesMethod(id_travel) {
+    await new Promise(res => setTimeout(res, 1000));
+    const expensesFound = [];
+
+    for (const expense of expenses) {
+        if (expense.travel === id_travel) {
+            expensesFound.push(expense);
+        }
+    }
+    return expensesFound;
+}
+
 function generateId() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
+
+
+
+export default travels;

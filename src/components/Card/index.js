@@ -9,7 +9,7 @@ export default function Card({ id , origin, destination,  description, initDate,
     const navigator = useNavigation();
 
     const goToTravelDescription = () => {
-        navigator.navigate('TravelDescription', {id, origin, destination, description, initDate, finalDate });
+        navigator.navigate('TravelDescription', {id});
         console.log(id);
     }
 
@@ -32,7 +32,7 @@ export default function Card({ id , origin, destination,  description, initDate,
                         <Icon name="calendar" size={30} color="#000" />
                         <Text style={Styles.dateTravel}>{initDate}</Text>
                     </View>                   
-                    <TouchableOpacity style={Styles.btn_description} onPress={goToTravelDescription}>
+                    <TouchableOpacity style={Styles.btn_description} onPress={goToTravelDescription }>
                         <Text style={Styles.text_btn_description}>Detalhes</Text>
                     </TouchableOpacity>
                 </View>

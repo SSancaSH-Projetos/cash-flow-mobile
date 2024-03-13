@@ -1,4 +1,4 @@
-const expenses = [];
+import travels from "../travelService";
 
 export async function AddExpensesMethod({description , category , value, invoice, id_travel}) {
     const newExpenses={
@@ -17,7 +17,7 @@ export async function AddExpensesMethod({description , category , value, invoice
         travel:id_travel,
     }
 
-    expenses.push(newExpenses);
+    travels.expenses.push(newExpenses);
     console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ',expenses);
     await new Promise(res => setTimeout(res, 1000));
     return true;
@@ -29,17 +29,6 @@ export async function FindExpensesMethod(id_expenses) {
     return foundExpenses || null;
 }
 
-export async function ListExpensesMethod(id_travel) {
-    await new Promise(res => setTimeout(res, 1000));
-    const expensesFound = [];
-
-    for (const expense of expenses) {
-        if (expense.travel === id_travel) {
-            expensesFound.push(expense);
-        }
-    }
-    return expensesFound;
-}
 
 
 export async function RemoveExpensesMethod(id_expenses) {
