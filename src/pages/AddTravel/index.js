@@ -8,8 +8,8 @@ import { AddTravelMethod } from '../../service/TravelService';
 
 
 const initialTravelData = {
-    initDate: '',
-    finalDate: '',
+    initDate: '1',
+    finalDate: '1',
     origin: '',
     destination: '',
     description: ''

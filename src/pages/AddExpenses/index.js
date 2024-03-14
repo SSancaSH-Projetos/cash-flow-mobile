@@ -1,92 +1,136 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react'
-import Styles from './Styles/'
+import { View, Text, TextInput, TouchableOpacity , Image} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import * as ImagePicker from 'expo-image-picker';
+import { Camera } from 'expo-camera';
+import Styles from './Styles/';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Header from '../../components/Header/'
+import Header from '../../components/Header/';
 import { useNavigation } from '@react-navigation/native';
-
 
 const inititExpensesData ={
     description: 'a',
-    categoty:'a',
+    category:'a',
     value:'a',
-    invoice:''
+    invoice: null // Mudando para null para indicar que inicialmente não há imagem selecionada
 };
+
+
+
+function ImageViewer({ placeholderImageSource, selectedImage }) {
+    const imageSource = selectedImage  ? { uri: selectedImage } : placeholderImageSource;
+    return <Image source={imageSource} style={Styles.image} />;
+  }
+  
 
 export default function AddExpenses() {
     const navigation = useNavigation();
     const [expensesData, setExpensesData] = useState(inititExpensesData);
     const [alertEmptyInput , setAlertEmptyInput] = useState('');
+    const [hasPermission, setHasPermission] = useState(null);
+    const [type, setType] = useState(Camera.Constants.Type.back);
+    const [camera, setCamera] = useState(null);
+    const [selectedImage , setSelectedImage] = useState(null);
+    const PlaceholderImage = require('../../img/notaFiscal.png');
 
+
+    useEffect(() => {
+        (async () => {
+            const { status } = await Camera.requestCameraPermissionsAsync();
+            setHasPermission(status === 'granted');
+        })();
+    }, []);
+
+    const takePicture = async () => {
+        if (camera) {
+            const photo = await camera.takePictureAsync();
+            setExpensesData({...expensesData, invoice: photo.uri});
+        }
+    };
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 1,
+        });
+
+        setSelectedImage(result.assets[0].uri);
+        
+        
+        // if (result && result.uri) {
+            
+            
+        // } else {
+        //     console.log('No image selected or URI is undefined.');
+        // }
+    };
 
     const addExpenses = () => {
-        if(true){
+        if(validateExpenses()){
             setAlertEmptyInput('');
-            const success = true;;
+            const success = true;
             if (success) {
-                navigation.navigate('');
-                console.log(expensesData);
+                console.log(selectedImage);
             } else {
                 setAlertEmptyInput('Erro ao adicionar a despesa');
             }
-            
-        }else{
-            setAlertEmptyInput('Todos os campos devem ser preenchidos')
+        } else {
+            setAlertEmptyInput('Todos os campos devem ser preenchidos');
         }
-    }
-    
+    };
 
     const validateExpenses = () => {
-        const {description , categoty ,value ,invoice} = expensesData; 
-        if(
-            description.trim() === '' ||
-            categoty.trim() === '' ||
-            value.trim() === ''
-        ){
-            return false;
-        }
-        return true;
-    }
+        const {description, category, value} = expensesData; 
+        return (
+            description.trim() !== '' &&
+            category.trim() !== '' &&
+            value.trim() !== '' &&
+            expensesData.invoice !== null // Garantindo que uma imagem foi selecionada
+        );
+    };
 
+    return (
+        <View style={Styles.container}>
+            <Header/>
+            <View Style={Styles.form}> 
+                <TextInput
+                    style={Styles.input}
+                    placeholder='Descrição'
+                    onChangeText={text => setExpensesData({...expensesData, description: text })}
+                />
+                <TextInput
+                    style={Styles.input}
+                    placeholder='Categoria'
+                    onChangeText={text => setExpensesData({...expensesData, category: text })}
 
+                />
+                <TextInput
+                    style={Styles.input}
+                    placeholder='Valor'
+                    keyboardType='numeric'
+                    onChangeText={text => setExpensesData({...expensesData, value: text })}
 
- return (
-   <View style={Styles.container}>
-        <Header/>
-        <View Style={Styles.form}> 
-            <TextInput
-                style={Styles.input}
-                placeholder='Descrição'
-                onChangeText={text => setExpensesData({...expensesData,description: text })}
+                />
+            </View>
+            
+            <TouchableOpacity style={Styles.areaButton} onPress={async() => pickImage()}>
+                <View style={Styles.button}>
+                    <Text style={Styles.textButton}>Anexar Nota Fiscal</Text>
+                    <Icon name="add-a-photo" size={30} color="#000" />
+                </View>
+            </TouchableOpacity>
+
+            <View style={Styles.imageContainer}>
+            <ImageViewer
+                placeholderImageSource={PlaceholderImage}
+                selectedImage={selectedImage}
             />
-            <TextInput
-                style={Styles.input}
-                placeholder='Categoria'
-                onChangeText={text => setExpensesData({...expensesData,categoty: text })}
+            </View>
 
-            />
-            <TextInput
-                style={Styles.input}
-                placeholder='Valor'
-                keyboardType='numeric'
-                onChangeText={text => setExpensesData({...expensesData,value: text })}
-
-            />
+            <TouchableOpacity style={Styles.areaButtonAdd} onPress={addExpenses}>
+                <View style={Styles.button}>
+                    <Text style={Styles.textButton}>ADICIONAR DESPESA</Text>
+                </View>
+            </TouchableOpacity>
         </View>
-        <TouchableOpacity style={Styles.areaButton} >
-            <View style={Styles.button}>
-                <Text style={Styles.textButton}>Anexar Nota Fiscal</Text>
-                <Icon name="add-a-photo" size={30} color="#000" />
-            </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={Styles.areaButtonAdd} onPress={addExpenses}>
-            <View style={Styles.button}>
-                <Text style={Styles.textButton}>ADICIONAR DESPESA</Text>
-            </View>
-        </TouchableOpacity>
-   </View>
-  );
+    );
 }
-
-
-

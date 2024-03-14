@@ -48,7 +48,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
-  
+      imageContainer:{
+        alignItems:'center',
+        justifyContent:'center'
+      },
+      image:{
+        width:150,
+        height:150,
+        margin:40
+      }
     
 });
 
