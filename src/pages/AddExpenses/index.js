@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity , Image} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity , Image, Modal} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
@@ -31,6 +31,7 @@ export default function AddExpenses() {
     const [camera, setCamera] = useState(null);
     const [selectedImage , setSelectedImage] = useState(null);
     const PlaceholderImage = require('../../img/notaFiscal.png');
+    const [visible, setVisible] = useState(false);
 
 
     useEffect(() => {
@@ -88,6 +89,10 @@ export default function AddExpenses() {
         );
     };
 
+    function openModal(){
+        setVisible(true)
+    }
+
     return (
         <View style={Styles.container}>
             <Header/>
@@ -112,12 +117,24 @@ export default function AddExpenses() {
                 />
             </View>
             
-            <TouchableOpacity style={Styles.areaButton} onPress={async() => pickImage()}>
+            <TouchableOpacity style={Styles.areaButton} onPress={openModal} >
                 <View style={Styles.button}>
                     <Text style={Styles.textButton}>Anexar Nota Fiscal</Text>
                     <Icon name="add-a-photo" size={30} color="#000" />
                 </View>
             </TouchableOpacity>
+            <Modal animationType='fade' visible={visible}>
+                <View style={{width: 200, height: 500}}>
+                    <Text style={{backgroundColor: "red"}}>Selecione</Text>
+                    <TouchableOpacity>
+                        <Text>Camera</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={async() => pickImage()}>
+                        <Text>Arquivo</Text>
+                    </TouchableOpacity>
+                </View>
+                
+            </Modal>
 
             <View style={Styles.imageContainer}>
             <ImageViewer
