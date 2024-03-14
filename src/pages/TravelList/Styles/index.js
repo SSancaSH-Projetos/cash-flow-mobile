@@ -33,14 +33,22 @@ const styles = StyleSheet.create({
         flex: 1,
         position: 'absolute',
         left:'75%',
-        top:'85%',
+        bottom:'0%',
         width:70,
         height:70,
         borderRadius:100,
         backgroundColor:Colors.secondary,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
+    loadingContainer:{
+       height:'100%',
+       justifyContent:'center',
+       alignItems:'center'
+    },
+    main:{
+        height:'85%'
+    }
 
 });
 

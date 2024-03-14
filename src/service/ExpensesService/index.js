@@ -1,4 +1,4 @@
-import travels from "../travelService";
+import travels from "../TravelService";
 
 export async function AddExpensesMethod({description , category , value, invoice, id_travel}) {
     const newExpenses={

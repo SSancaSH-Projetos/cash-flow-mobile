@@ -4,12 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 import Styles from './Style';
 import Header from './../../components/Header';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { AddTravelMethod } from '../../service/travelService'; 
+import { AddTravelMethod } from '../../service/TravelService'; 
 
 
 const initialTravelData = {
-    initDate: '1',
-    finalDate: '1',
+    initDate: '',
+    finalDate: '',
     origin: '',
     destination: '',
     description: ''
@@ -26,12 +26,9 @@ export default function AddTravel() {
     const adicionarViagem = () => {
         if (validateTravelData()) {
             setAlertEmptyInput('');
-            console.log(travelData)
             const success = AddTravelMethod(travelData);
-            console.log(success)
             if (success) {
                 navigation.navigate('TravelList');
-                console.log(travelData)
             } else {
                 setAlertEmptyInput('Erro ao adicionar a viagem');
             }

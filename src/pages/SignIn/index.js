@@ -3,7 +3,7 @@ import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Alert, BackHandl
 import Styles from './Styles'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
-import { serviceLoginMethod } from '../../service/userService';
+import { serviceLoginMethod } from '../../service/UserService';
 
 
 

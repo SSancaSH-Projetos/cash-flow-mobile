@@ -1,5 +1,5 @@
     import React, { useState, useEffect  , useCallback} from 'react';
-    import { View , Text , TouchableOpacity, FlatList} from "react-native";
+    import { View , Text , TouchableOpacity, FlatList  , ActivityIndicator} from "react-native";
     import Styles from './Styles/';
     import { useFocusEffect , useNavigation , useRoute} from '@react-navigation/native';
     import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,7 +7,8 @@
     import CardExpenses from '../../components/CardExpenses';
     import AddExpenses from '../AddExpenses/'
     import { ListExpensesMethod } from '../../service/ExpensesService';
-    import { FindTravelMethod } from '../../service/travelService';
+    import { ListAllDescriptionMethod } from '../../service/TravelService';
+
 
 
     const initialTravelData = {
@@ -16,26 +17,30 @@
         finalDate: '',
         origin: '',
         destination: '',
-        description: ''
+        description: '',
+        expenses:[]
     };
 
     export default function TravelDescription() {
         const [dataTravel , setDataTravel] = useState(initialTravelData);
-        const [dataExpenes , setDataExpenses] = useState([]);
+        const [isLoading, setIsLoading] = useState(false);
 
         const navigation = useNavigation();
         const route = useRoute();
 
         const { id } = route.params;
-
         
         
         useFocusEffect(useCallback(() => {
-            (async() => {
-                setDataTravel([...await FindTravelMethod(id)]);
-                setDataExpenses([...await ListExpensesMethod(id)]);
-            })();
-        }, []));
+            const fetchData = async () => {
+                const travelData = await ListAllDescriptionMethod(id);
+                if (travelData) {
+                    setDataTravel(travelData);
+                }
+            };
+            fetchData();
+        }, [id]));
+        
 
         const goToAddExpenses = () => {
             navigation.navigate('AddExpenses');
@@ -46,7 +51,7 @@
                 <Header/>
                 <View style={Styles.titleContainer}>
                     <Text style={Styles.textDestino}>{dataTravel.destination}</Text>
-                    <Text style={Styles.textOrigem}>{origin}</Text> 
+                    <Text style={Styles.textOrigem}>{dataTravel.origin}</Text> 
                 </View>
 
                 <View style={Styles.date}>
@@ -68,7 +73,7 @@
                         <Text style={Styles.titleText}>DESPESAS</Text>
                     </View>
                     <FlatList
-                        data={dataExpenes}
+                        data={dataTravel.expenses}
                         renderItem={({item}) => {
                             return (
                               <CardExpenses
