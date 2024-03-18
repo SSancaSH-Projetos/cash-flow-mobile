@@ -13,13 +13,16 @@ export async function AddExpensesMethod({ description, category, value, invoice,
         travel: id_travel,
     }
 
-    if (!Array.isArray(travels.expenses)) {
-        travels.expenses = [];
+   
+
+
+    const foundTravel = travels.find(travel => travel.id === id_travel);
+    if (foundTravel) {
+        console.log(newExpenses)
+        foundTravel.expenses.push(newExpenses);
     }
 
-    travels.expenses.push(newExpenses);
-
-    console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ', travels.expenses);
+    console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ', travels);
     await new Promise(res => setTimeout(res, 1000));
     return true;
 }

@@ -74,9 +74,9 @@ export async function UpdateTravel(id_travel, initDate, finalDate, origin, desti
 }
 
 export async function ListAllDescriptionMethod(id_travel) {
+    console.log("olha o macaco " + id_travel)
     await new Promise(res => setTimeout(res, 1000));
     const foundTravel = travels.find(travel => travel.id === id_travel);
-    console.log(foundTravel)
     return  foundTravel || null;
 }
 

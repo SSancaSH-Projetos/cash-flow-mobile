@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, Modal } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
 import Styles from './Styles/';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Header from '../../components/Header/';
-import { useNavigation , useRoute} from '@react-navigation/native';
+import { useFocusEffect, useNavigation , useRoute} from '@react-navigation/native';
 import { AddExpensesMethod } from '../../service/ExpensesService';
-import travels from '../../service/TravelService';
 
-const inititExpensesData = {
-    description: 'a',
-    category: 'a',
-    value: 'a',
+const inititialExpense = {
+    description: '',
+    category: '',
+    value: '',
     invoice: null,
     id_travel:'' 
 };
@@ -23,35 +22,26 @@ function ImageViewer({ placeholderImageSource, selectedImage }) {
     return <Image source={imageSource} style={Styles.image} />;
 }
 
-
 export default function AddExpenses() {
-    const navigation = useNavigation();
-    const [expensesData, setExpensesData] = useState(inititExpensesData);
-    const [alertEmptyInput, setAlertEmptyInput] = useState('');
-    const [hasPermission, setHasPermission] = useState(null);
-    const [type, setType] = useState(Camera.Constants.Type.back);
-    const [camera, setCamera] = useState(null);
+    const [expense, setExpense] = useState(inititialExpense);
     const [selectedImage, setSelectedImage] = useState(null);
+    const navigation = useNavigation();
     const PlaceholderImage = require('../../img/notaFiscal.png');
     const [visible, setVisible] = useState(false);
     const route = useRoute();
-
     const { id } = route.params;
 
-    useEffect(() => {
-        (async () => {
-            const { status } = await Camera.requestCameraPermissionsAsync();
-            setHasPermission(status === 'granted');
-            console.log("Parametros recebios: "+route.params)
-            setExpensesData(({ ...expensesData, id_travel: id })); 
-        })();
-    }, []);
+    async function requestCameraPermission() {
+        await Camera.requestCameraPermissionsAsync();
+        setExpense(({ ...expense, id_travel: id })); 
+    }
+
+    useFocusEffect(useCallback(() => { requestCameraPermission() }, []));
 
     const takePicture = async () => {
         if (camera) {
             const photo = await camera.takePictureAsync();
-            setExpensesData({ ...expensesData, invoice: photo.uri });
-            
+            setExpense({ ...expense, invoice: photo.uri });
         }
     };
 
@@ -65,7 +55,7 @@ export default function AddExpenses() {
             });
             if (!result.canceled) {
                 setSelectedImage(result.assets[0].uri);
-                setExpensesData({ ...expensesData, invoice: result.assets[0].uri }); 
+                setExpense({ ...expense, invoice: result.assets[0].uri }); 
             }
         } else {
             result = await ImagePicker.launchCameraAsync({
@@ -76,32 +66,28 @@ export default function AddExpenses() {
             });
             if (!result.canceled) {
                 setSelectedImage(result.uri || (result.assets.length > 0 && result.assets[0].uri));
-                setExpensesData({ ...expensesData, invoice: result.uri || (result.assets.length > 0 && result.assets[0].uri) });
+                setExpense({ ...expense, invoice: result.uri || (result.assets.length > 0 && result.assets[0].uri) });
             }
         }
     };
     
-    
-    const addExpenses = () => {
-        if (validateExpenses()) {
-            setAlertEmptyInput('');
-            const success = AddExpensesMethod(expensesData);
-            if (success) {
-                navigation.navigate('TravelDescription', expensesData.id_travel);
-            } else {
-                setAlertEmptyInput('Erro ao adicionar a despesa');
-            }
-            setExpensesData(inititExpensesData);
-            setSelectedImage(null); // Limpe a imagem selecionada
-        } else {
-            setAlertEmptyInput('Todos os campos devem ser preenchidos');
+    function addExpense() {
+        if (!validateExpenses()) {
+            //setAlertEmptyInput('Todos os campos devem ser preenchidos');
         }
-    };
+        //setAlertEmptyInput('');
+        const success = AddExpensesMethod(expense);
+        if (!success) {
+            //setAlertEmptyInput('Erro ao adicionar a despesa');
+        }
+        setSelectedImage(null);
+        navigation.navigate('TravelDescription', { id });
+    }
     
 
     const validateExpenses = () => {
-        const { description, category, value, invoice } = expensesData;
-        console.log(expensesData)
+        const { description, category, value, invoice } = expense;
+        console.log(expense)
         if(
             description.trim() !== '' &&
             category.trim() !== '' &&
@@ -112,8 +98,6 @@ export default function AddExpenses() {
         }else{
             return false;
         }
-            
-        
     };
     
 
@@ -132,19 +116,19 @@ export default function AddExpenses() {
                 <TextInput
                     style={Styles.input}
                     placeholder='Descrição'
-                    onChangeText={text => setExpensesData({ ...expensesData, description: text })}
+                    onChangeText={text => setExpense({ ...expense, description: text })}
                 />
                 <TextInput
                     style={Styles.input}
                     placeholder='Categoria'
-                    onChangeText={text => setExpensesData({ ...expensesData, category: text })}
+                    onChangeText={text => setExpense({ ...expense, category: text })}
 
                 />
                 <TextInput
                     style={Styles.input}
                     placeholder='Valor'
                     keyboardType='numeric'
-                    onChangeText={text => setExpensesData({ ...expensesData, value: text })}
+                    onChangeText={text => setExpense({ ...expense, value: text })}
 
                 />
             </View>
@@ -184,7 +168,7 @@ export default function AddExpenses() {
                 />
             </View>
 
-            <TouchableOpacity style={Styles.areaButtonAdd} onPress={() => addExpenses()}>
+            <TouchableOpacity style={Styles.areaButtonAdd} onPress={() => addExpense()}>
                 <View style={Styles.button}>
                     <Text style={Styles.textButton}>ADICIONAR DESPESA</Text>
                 </View>
