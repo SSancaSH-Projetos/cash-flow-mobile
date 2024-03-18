@@ -5,18 +5,20 @@ import { Camera } from 'expo-camera';
 import Styles from './Styles/';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Header from '../../components/Header/';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation , useRoute} from '@react-navigation/native';
+import { AddExpensesMethod } from '../../service/ExpensesService';
+import travels from '../../service/TravelService';
 
 const inititExpensesData = {
     description: 'a',
     category: 'a',
     value: 'a',
-    invoice: null // Mudando para null para indicar que inicialmente não há imagem selecionada
+    invoice: null,
+    id_travel:'' 
 };
 
 // Componente ImageViewer com console.log adicionado
 function ImageViewer({ placeholderImageSource, selectedImage }) {
-    console.log('selectedImage:', selectedImage); // Verifica se selectedImage está sendo atualizado corretamente
     const imageSource = selectedImage ? { uri: selectedImage } : placeholderImageSource;
     return <Image source={imageSource} style={Styles.image} />;
 }
@@ -32,11 +34,16 @@ export default function AddExpenses() {
     const [selectedImage, setSelectedImage] = useState(null);
     const PlaceholderImage = require('../../img/notaFiscal.png');
     const [visible, setVisible] = useState(false);
+    const route = useRoute();
+
+    const { id } = route.params;
 
     useEffect(() => {
         (async () => {
             const { status } = await Camera.requestCameraPermissionsAsync();
             setHasPermission(status === 'granted');
+            console.log("Parametros recebios: "+route.params)
+            setExpensesData(({ ...expensesData, id_travel: id })); 
         })();
     }, []);
 
@@ -44,6 +51,7 @@ export default function AddExpenses() {
         if (camera) {
             const photo = await camera.takePictureAsync();
             setExpensesData({ ...expensesData, invoice: photo.uri });
+            
         }
     };
 
@@ -54,10 +62,10 @@ export default function AddExpenses() {
             result = await ImagePicker.launchImageLibraryAsync({
                 quality: 1,
                 allowsEditing: true,
-                
             });
             if (!result.canceled) {
                 setSelectedImage(result.assets[0].uri);
+                setExpensesData({ ...expensesData, invoice: result.assets[0].uri }); 
             }
         } else {
             result = await ImagePicker.launchCameraAsync({
@@ -68,37 +76,46 @@ export default function AddExpenses() {
             });
             if (!result.canceled) {
                 setSelectedImage(result.uri || (result.assets.length > 0 && result.assets[0].uri));
+                setExpensesData({ ...expensesData, invoice: result.uri || (result.assets.length > 0 && result.assets[0].uri) });
             }
         }
     };
     
     
-    
-    
-
     const addExpenses = () => {
         if (validateExpenses()) {
             setAlertEmptyInput('');
-            const success = true;
+            const success = AddExpensesMethod(expensesData);
             if (success) {
-                console.log(selectedImage);
+                navigation.navigate('TravelDescription', expensesData.id_travel);
             } else {
                 setAlertEmptyInput('Erro ao adicionar a despesa');
             }
+            setExpensesData(inititExpensesData);
+            setSelectedImage(null); // Limpe a imagem selecionada
         } else {
             setAlertEmptyInput('Todos os campos devem ser preenchidos');
         }
     };
+    
 
     const validateExpenses = () => {
-        const { description, category, value } = expensesData;
-        return (
+        const { description, category, value, invoice } = expensesData;
+        console.log(expensesData)
+        if(
             description.trim() !== '' &&
             category.trim() !== '' &&
             value.trim() !== '' &&
-            expensesData.invoice !== null
-        );
+            invoice !== null 
+        ){
+            return true;
+        }else{
+            return false;
+        }
+            
+        
     };
+    
 
     function openModal() {
         setVisible(true);
@@ -167,7 +184,7 @@ export default function AddExpenses() {
                 />
             </View>
 
-            <TouchableOpacity style={Styles.areaButtonAdd} onPress={addExpenses}>
+            <TouchableOpacity style={Styles.areaButtonAdd} onPress={() => addExpenses()}>
                 <View style={Styles.button}>
                     <Text style={Styles.textButton}>ADICIONAR DESPESA</Text>
                 </View>

@@ -43,7 +43,7 @@
         
 
         const goToAddExpenses = () => {
-            navigation.navigate('AddExpenses');
+            navigation.navigate('AddExpenses',{id});
         }
 
         return(

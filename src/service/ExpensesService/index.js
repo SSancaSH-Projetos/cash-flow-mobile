@@ -1,27 +1,29 @@
 import travels from "../TravelService";
 
-export async function AddExpensesMethod({description , category , value, invoice, id_travel}) {
-    const newExpenses={
-        id:generateId(),
-
-        //Informados pelo usuario
+export async function AddExpensesMethod({ description, category, value, invoice, id_travel }) {
+    const newExpenses = {
+        id: generateId(),
         description,
         category,
         value,
-        invoice,//Caminho Nota fiscal
+        invoice,
+        date: getdate(),
+        hour: getHour(),
+        location: 'My PC',
+        travel: id_travel,
+    }
 
-        //gerados automaticamente
-        date:getdate(),
-        hour:getHour(),
-        location:'',
-        travel:id_travel,
+    if (!Array.isArray(travels.expenses)) {
+        travels.expenses = [];
     }
 
     travels.expenses.push(newExpenses);
-    console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ',expenses);
+
+    console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ', travels.expenses);
     await new Promise(res => setTimeout(res, 1000));
     return true;
 }
+
 
 export async function FindExpensesMethod(id_expenses) {
     await new Promise(res => setTimeout(res, 1000));
