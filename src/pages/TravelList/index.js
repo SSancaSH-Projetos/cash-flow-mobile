@@ -27,9 +27,9 @@ navigation.navigate('AddTravel');
 }
 
 const removeCard = (id_card) => {
-const updatedList = dataList.filter(item => item.id !== id_card);
-setDataList(updatedList);
-RemoveTravelMethod(id_card);
+    const updatedList = dataList.filter(item => item.id !== id_card);
+    setDataList(updatedList);
+    RemoveTravelMethod(id_card);
 }
 
 

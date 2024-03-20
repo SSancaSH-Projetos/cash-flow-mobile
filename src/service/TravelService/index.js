@@ -42,8 +42,10 @@ export async function RemoveTravelMethod(id_travel) {
     if (index !== -1) {
         travels.splice(index, 1);
         return true;
+        
     }
     return false;
+    
 }
 
 export async function UpdateTravel(id_travel, initDate, finalDate, origin, destination, description) {

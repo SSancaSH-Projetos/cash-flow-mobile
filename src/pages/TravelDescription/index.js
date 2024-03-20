@@ -6,6 +6,7 @@
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
     import { ListAllDescriptionMethod } from '../../service/TravelService';
+    import { RemoveExpensesMethod } from '../../service/ExpensesService';
 
     const initialTravel = {
         id:'',
@@ -32,6 +33,22 @@
         function navigateToAddExpensePage() {
             console.log("id de goToAddExpenses: "+id)
             navigation.navigate('AddExpenses', { id });
+        }
+
+        async function removeExpenses(id_card) {
+            const updatedExpenses = travel.expenses.filter(item => item.id !== id_card);
+            const removed = await RemoveExpensesMethod(id_card, travel.expenses);
+            console.log("updateExpenses: "+ updatedExpenses);
+            console.log("removed: "+ removed);
+            if (removed) {
+                setTravel(prevState => ({
+                    ...prevState,
+                    expenses: updatedExpenses
+                }));
+                console.log("Despesa removida com sucesso");
+            } else {
+                console.log("Erro ao remover despesa");
+            }
         }
 
         useFocusEffect(useCallback(() => { getTravel() }, []));
@@ -70,8 +87,10 @@
                         renderItem={({item}) => {
                             return (
                               <CardExpenses
-                              description={item.description}
-                              value={item.valor}
+                              id={item.id}
+                                description={item.description}
+                                value={item.valor}
+                                onRemove={() =>removeExpenses(item.id)}
                               />
                             )
 

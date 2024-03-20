@@ -36,15 +36,16 @@ export async function FindExpensesMethod(id_expenses) {
 
 
 
-export async function RemoveExpensesMethod(id_expenses) {
+export async function RemoveExpensesMethod(id_expenses, expenses) {
     await new Promise(res => setTimeout(res, 1000));
-    const index = expenses.findIndex(expenses => expenses.id === id_expenses);
+    const index = expenses.findIndex(expense => expense.id === id_expenses);
     if(index !== -1){
-        expenses.splice(index,1);
+        expenses.splice(index, 1);
         return true;
     }
     return false;
 }
+
 
 export async function UpdateExpenses({id_expenses , description , category , value, invoice, id_travel}) {
     await new Promise(res => setTimeout(res, 1000));
