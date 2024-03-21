@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 43,
+            "activePatchIndex": 77,
             "patches": [
                 {
                     "date": 1709840699471,
@@ -180,6 +180,142 @@
                 {
                     "date": 1709842761084,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,39 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';\r\n+import Styles from './Styles';\r\n+import Icon from 'react-native-vector-icons/FontAwesome';\r\n+import { useNavigation } from '@react-navigation/native';\r\n+\r\n+export default function CardExpenses({ description,value, onRemove, onPress }) {\r\n+\r\n+    const navigator = useNavigation();\r\n+\r\n+    const goToExpensesDescription = () => {\r\n+        navigator.navigate('AddExpenses');//mudar o endereco correto de detalhes\r\n+    }\r\n+\r\n+    return (\r\n+        <SafeAreaView style={Styles.container}>\r\n+            <View style={Styles.shadow}>\r\n+                <View style={Styles.header}>\r\n+                    <Text style={Styles.titleCard}>{description}</Text>\r\n+                    <TouchableOpacity onPress={onRemove}>\r\n+                        <Icon name=\"trash\" size={30} color=\"#000\" />\r\n+                    </TouchableOpacity>\r\n+                </View>\r\n+\r\n+\r\n+\r\n+                <View style={Styles.containerFooter}>\r\n+                    <View style={Styles.contentText}>\r\n+                        <Icon name=\"money\" size={30} color=\"#000\" />\r\n+                        <Text style={Styles.dateTravel}>{value}</Text>\r\n+                    </View>                   \r\n+                    <TouchableOpacity style={Styles.btn_description} onPress={goToExpensesDescription}>\r\n+                        <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n+                    </TouchableOpacity>\r\n+                </View>\r\n+            </View>\r\n+        </SafeAreaView>\r\n+    )\r\n+}\r\n"
+                },
+                {
+                    "date": 1711019296169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n import React from 'react';\r\n-import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';\r\n+import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';\r\n import Styles from './Styles';\r\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n+import animation from 'an'\r\n \r\n-export default function CardExpenses({ description,value, onRemove, onPress }) {\r\n+export default function CardExpenses({ description,value, onRemove }) {\r\n \r\n     const navigator = useNavigation();\r\n+    function expensesDetails(){\r\n \r\n-    const goToExpensesDescription = () => {\r\n-        navigator.navigate('AddExpenses');//mudar o endereco correto de detalhes\r\n     }\r\n \r\n     return (\r\n         <SafeAreaView style={Styles.container}>\r\n@@ -22,135 +22,20 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n \r\n \r\n-\r\n                 <View style={Styles.containerFooter}>\r\n                     <View style={Styles.contentText}>\r\n                         <Icon name=\"money\" size={30} color=\"#000\" />\r\n                         <Text style={Styles.dateTravel}>{value}</Text>\r\n                     </View>                   \r\n-                    <TouchableOpacity style={Styles.btn_description} onPress={goToExpensesDescription}>\r\n+                    <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-            </View>\r\n-        </SafeAreaView>\r\n-    )\r\n-}\r\n-import React from 'react';\r\n-import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';\r\n-import Styles from './Styles';\r\n-import Icon from 'react-native-vector-icons/FontAwesome';\r\n-import { useNavigation } from '@react-navigation/native';\r\n-\r\n-export default function CardExpenses({ description,value, onRemove, onPress }) {\r\n-\r\n-    const navigator = useNavigation();\r\n-\r\n-    const goToExpensesDescription = () => {\r\n-        navigator.navigate('AddExpenses');//mudar o endereco correo\r\n-    }\r\n-\r\n-    return (\r\n-        <SafeAreaView style={Styles.container}>\r\n-            <View style={Styles.shadow}>\r\n-                <View style={Styles.header}>\r\n-                    <Text style={Styles.titleCard}>{description}</Text>\r\n-                    <TouchableOpacity onPress={onRemove}>\r\n-                        <Icon name=\"trash\" size={30} color=\"#000\" />\r\n-                    </TouchableOpacity>\r\n+                <View>\r\n+                    <Text>teste</Text>\r\n                 </View>\r\n-\r\n-\r\n-\r\n-                <View style={Styles.containerFooter}>\r\n-                    <View style={Styles.contentText}>\r\n-                        <Icon name=\"money\" size={30} color=\"#000\" />\r\n-                        <Text style={Styles.dateTravel}>{value}</Text>\r\n-                    </View>                   \r\n-                    <TouchableOpacity style={Styles.btn_description} onPress={goToExpensesDescription}>\r\n-                        <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n-                    </TouchableOpacity>\r\n-                </View>\r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n-import React from 'react';\r\n-import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';\r\n-import Styles from './Styles';\r\n-import Icon from 'react-native-vector-icons/FontAwesome';\r\n-import { useNavigation } from '@react-navigation/native';\r\n-\r\n-export default function CardExpenses({ description,value, onRemove, onPress }) {\r\n-\r\n-    const navigator = useNavigation();\r\n-\r\n-    const goToExpensesDescription = () => {\r\n-        navigator.navigate('AddExpenses');//\r\n-    }\r\n-\r\n-    return (\r\n-        <SafeAreaView style={Styles.container}>\r\n-            <View style={Styles.shadow}>\r\n-                <View style={Styles.header}>\r\n-                    <Text style={Styles.titleCard}>{description}</Text>\r\n-                    <TouchableOpacity onPress={onRemove}>\r\n-                        <Icon name=\"trash\" size={30} color=\"#000\" />\r\n-                    </TouchableOpacity>\r\n-                </View>\r\n-\r\n-\r\n-\r\n-                <View style={Styles.containerFooter}>\r\n-                    <View style={Styles.contentText}>\r\n-                        <Icon name=\"money\" size={30} color=\"#000\" />\r\n-                        <Text style={Styles.dateTravel}>{value}</Text>\r\n-                    </View>                   \r\n-                    <TouchableOpacity style={Styles.btn_description} onPress={goToExpensesDescription}>\r\n-                        <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n-                    </TouchableOpacity>\r\n-                </View>\r\n-            </View>\r\n-        </SafeAreaView>\r\n-    )\r\n-}\r\n-import React from 'react';\r\n-import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';\r\n-import Styles from './Styles';\r\n-import Icon from 'react-native-vector-icons/FontAwesome';\r\n-import { useNavigation } from '@react-navigation/native';\r\n-\r\n-export default function CardExpenses({ description,value, onRemove, onPress }) {\r\n-\r\n-    const navigator = useNavigation();\r\n-\r\n-    const goToExpensesDescription = () => {\r\n-        navigator.navigate('Add');\r\n-    }\r\n-\r\n-    return (\r\n-        <SafeAreaView style={Styles.container}>\r\n-            <View style={Styles.shadow}>\r\n-                <View style={Styles.header}>\r\n-                    <Text style={Styles.titleCard}>{description}</Text>\r\n-                    <TouchableOpacity onPress={onRemove}>\r\n-                        <Icon name=\"trash\" size={30} color=\"#000\" />\r\n-                    </TouchableOpacity>\r\n-                </View>\r\n-\r\n-\r\n-\r\n-                <View style={Styles.containerFooter}>\r\n-                    <View style={Styles.contentText}>\r\n-                        <Icon name=\"money\" size={30} color=\"#000\" />\r\n-                        <Text style={Styles.dateTravel}>{value}</Text>\r\n-                    </View>                   \r\n-                    <TouchableOpacity style={Styles.btn_description} onPress={goToExpensesDescription}>\r\n-                        <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n-                    </TouchableOpacity>\r\n-                </View>\r\n-            </View>\r\n-        </SafeAreaView>\r\n-    )\r\n-}\r\n"
+                },
+                {
+                    "date": 1711019301927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';\r\n import Styles from './Styles';\r\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n-import animation from 'an'\r\n+import animation from 're'\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n \r\n     const navigator = useNavigation();\r\n"
+                },
+                {
+                    "date": 1711019330792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';\r\n import Styles from './Styles';\r\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n-import animation from 're'\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n \r\n     const navigator = useNavigation();\r\n"
+                },
+                {
+                    "date": 1711019337414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\r\n-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';\r\n+import { View, Text, SafeAreaView, TouchableOpacity, Animated } from 'react-native';\r\n import Styles from './Styles';\r\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n"
+                },
+                {
+                    "date": 1711019368058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                <View>\r\n+                <AnimatedView>\r\n                     <Text>teste</Text>\r\n                 </View>\r\n             </View>\r\n         </SafeAreaView>\r\n"
+                },
+                {
+                    "date": 1711019375488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,9 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                <AnimatedView>\r\n-                    <Text>teste</Text>\r\n-                </View>\r\n+                \r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019381909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                \r\n+                <Animated\r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019388009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,11 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                <Animated\r\n+                <Animated.View>\r\n+                    \r\n+                </Animated.View>\r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019395936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n                 <Animated.View>\r\n-                    \r\n+                    <Text>teste</Text>\r\n                 </Animated.View>\r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n"
+                },
+                {
+                    "date": 1711019402075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                <Animated.View>\r\n+                <Animated.View >\r\n                     <Text>teste</Text>\r\n                 </Animated.View>\r\n             </View>\r\n         </SafeAreaView>\r\n"
+                },
+                {
+                    "date": 1711019555185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                <Animated.View >\r\n+                <Animated.View>\r\n                     <Text>teste</Text>\r\n                 </Animated.View>\r\n             </View>\r\n         </SafeAreaView>\r\n"
+                },
+                {
+                    "date": 1711019581002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,9 @@\n                     <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n-                <Animated.View>\r\n-                    <Text>teste</Text>\r\n-                </Animated.View>\r\n+                \r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019592985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-\r\n+    \r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n@@ -32,7 +32,10 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n+            <Animated.View>\r\n+                    <Text>teste</Text>\r\n+                </Animated.View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019603361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    \r\n+    const de\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019608787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    const de\r\n+    const details\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019618087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    const details\r\n+    const []\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019626989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    const []\r\n+    const [detail, set]\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019633901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    const [detail, set]\r\n+    const [detail, setDetail]=\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019639944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n-import React from 'react';\r\n+import React, { useState } from 'react';\r\n import { View, Text, SafeAreaView, TouchableOpacity, Animated } from 'react-native';\r\n import Styles from './Styles';\r\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    const [detail, setDetail]=\r\n+    const [detail, setDetail]= useState\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019648176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import Icon from 'react-native-vector-icons/FontAwesome';\r\n import { useNavigation } from '@react-navigation/native';\r\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n-    const [detail, setDetail]= useState\r\n+    const [detail, setDetail]= useState(false)\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n \r\n     }\r\n"
+                },
+                {
+                    "date": 1711019655294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <Animated.View>\r\n+            <Animated.View >\r\n                     <Text>teste</Text>\r\n                 </Animated.View>\r\n         </SafeAreaView>\r\n     )\r\n"
+                },
+                {
+                    "date": 1711019661281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <Animated.View >\r\n+            <Animated.View vis>\r\n                     <Text>teste</Text>\r\n                 </Animated.View>\r\n         </SafeAreaView>\r\n     )\r\n"
+                },
+                {
+                    "date": 1711019666424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <Animated.View vis>\r\n+            <Animated.View visable>\r\n                     <Text>teste</Text>\r\n                 </Animated.View>\r\n         </SafeAreaView>\r\n     )\r\n"
+                },
+                {
+                    "date": 1711019672672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <Animated.View visable>\r\n+            <Animated.View visable={detail}>\r\n                     <Text>teste</Text>\r\n                 </Animated.View>\r\n         </SafeAreaView>\r\n     )\r\n"
+                },
+                {
+                    "date": 1711019694784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n export default function CardExpenses({ description,value, onRemove }) {\r\n     const [detail, setDetail]= useState(false)\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n-\r\n+        \r\n     }\r\n \r\n     return (\r\n         <SafeAreaView style={Styles.container}>\r\n"
+                },
+                {
+                    "date": 1711019701167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n export default function CardExpenses({ description,value, onRemove }) {\r\n     const [detail, setDetail]= useState(false)\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n-        \r\n+        setDetail()\r\n     }\r\n \r\n     return (\r\n         <SafeAreaView style={Styles.container}>\r\n"
+                },
+                {
+                    "date": 1711019707129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n export default function CardExpenses({ description,value, onRemove }) {\r\n     const [detail, setDetail]= useState(false)\r\n     const navigator = useNavigation();\r\n     function expensesDetails(){\r\n-        setDetail()\r\n+        setDetail(true)\r\n     }\r\n \r\n     return (\r\n         <SafeAreaView style={Styles.container}>\r\n"
+                },
+                {
+                    "date": 1711019714888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \r\n export default function CardExpenses({ description,value, onRemove }) {\r\n     const [detail, setDetail]= useState(false)\r\n     const navigator = useNavigation();\r\n-    function expensesDetails(){\r\n+    function openDetails(){\r\n         setDetail(true)\r\n     }\r\n \r\n     return (\r\n"
+                },
+                {
+                    "date": 1711019723799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                     <View style={Styles.contentText}>\r\n                         <Icon name=\"money\" size={30} color=\"#000\" />\r\n                         <Text style={Styles.dateTravel}>{value}</Text>\r\n                     </View>                   \r\n-                    <TouchableOpacity style={Styles.btn_description} onPress={expensesDetails}>\r\n+                    <TouchableOpacity style={Styles.btn_description} onPress={openDetails}>\r\n                         <Text style={Styles.text_btn_description}>Detalhes</Text>\r\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n"
+                },
+                {
+                    "date": 1711019745302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,8 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <Animated.View visable={detail}>\r\n-                    <Text>teste</Text>\r\n-                </Animated.View>\r\n+            \r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019752108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,8 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            \r\n+            <View\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019759603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,10 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <View\r\n+            <View>\r\n+                <Text\r\n+            </View>\r\n         </SafeAreaView>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1711019765808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <View >\r\n+            <View v>\r\n                 <Text>teste</Text>\r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n"
+                },
+                {
+                    "date": 1711019770996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n                     </TouchableOpacity>\r\n                 </View>\r\n                 \r\n             </View>\r\n-            <View visa>\r\n+            <View visab>\r\n                 <Text>teste</Text>\r\n             </View>\r\n         </SafeAreaView>\r\n     )\r\n"
                 }
             ],
             "date": 1709840699471,

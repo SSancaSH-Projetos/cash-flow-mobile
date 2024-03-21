@@ -1,0 +1,262 @@
+{
+    "sourceFile": "src/components/CardExpenses/Styles/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 61,
+            "patches": [
+                {
+                    "date": 1711020756268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1711020781557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n     text_btn_description:{\r\n         fontSize:18,\r\n     },\r\n \r\n+    //DETAILS\r\n     \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711020792292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,31 @@\n         fontSize:18,\r\n     },\r\n \r\n     //DETAILS\r\n-    \r\n+    containerDetails:{\r\n+        flexDirection:\"row\",\r\n+        marginTop:30,\r\n+        alignItems: 'center',\r\n+        justifyContent: 'center'\r\n+    },\r\n+    contentTextDetails:{\r\n+        flexDirection:\"row\",\r\n+        alignItems: 'center',\r\n+    },\r\n+    dateTravelDetails: {\r\n+        marginLeft:20,\r\n+    },\r\n+    titleCardDetails:{\r\n+        fontSize:26,\r\n+        marginBottom:20\r\n+    },\r\n+    btn_descriptionDetails:{\r\n+        marginLeft:100\r\n+    },\r\n+    text_btn_descriptionDetails:{\r\n+        fontSize:18,\r\n+    },\r\n \r\n });\r\n \r\n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1711020820244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n         fontSize:18,\r\n     },\r\n \r\n     //DETAILS\r\n-    containerDetails:{\r\n+    containerDetail:{\r\n         flexDirection:\"row\",\r\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711020827937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,13 +57,13 @@\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n-    contentTextDetails:{\r\n+    contentTextDetail:{\r\n         flexDirection:\"row\",\r\n         alignItems: 'center',\r\n     },\r\n-    dateTravelDetails: {\r\n+    dateTravelDetail: {\r\n         marginLeft:20,\r\n     },\r\n     titleCardDetails:{\r\n         fontSize:26,\r\n"
+                },
+                {
+                    "date": 1711020836580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,16 +64,16 @@\n     },\r\n     dateTravelDetail: {\r\n         marginLeft:20,\r\n     },\r\n-    titleCardDetails:{\r\n+    titleCardDetail:{\r\n         fontSize:26,\r\n         marginBottom:20\r\n     },\r\n-    btn_descriptionDetails:{\r\n+    btn_descriptionDetail:{\r\n         marginLeft:100\r\n     },\r\n-    text_btn_descriptionDetails:{\r\n+    text_btn_descriptionDetail:{\r\n         fontSize:18,\r\n     },\r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711020935747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,25 +57,9 @@\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n-    contentTextDetail:{\r\n-        flexDirection:\"row\",\r\n-        alignItems: 'center',\r\n-    },\r\n-    dateTravelDetail: {\r\n-        marginLeft:20,\r\n-    },\r\n-    titleCardDetail:{\r\n-        fontSize:26,\r\n-        marginBottom:20\r\n-    },\r\n-    btn_descriptionDetail:{\r\n-        marginLeft:100\r\n-    },\r\n-    text_btn_descriptionDetail:{\r\n-        fontSize:18,\r\n-    },\r\n+  \r\n \r\n });\r\n \r\n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1711020942509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,8 @@\n     },\r\n \r\n     //DETAILS\r\n     containerDetail:{\r\n-        flexDirection:\"row\",\r\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n"
+                },
+                {
+                    "date": 1711020951645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,9 @@\n     },\r\n \r\n     //DETAILS\r\n     containerDetail:{\r\n+        back\r\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n"
+                },
+                {
+                    "date": 1711020957563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     },\r\n \r\n     //DETAILS\r\n     containerDetail:{\r\n-        back\r\n+        backgroundColor: 'red'\r\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n"
+                },
+                {
+                    "date": 1711020965332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,10 @@\n     },\r\n \r\n     //DETAILS\r\n     containerDetail:{\r\n-        backgroundColor: 'red'\r\n+        backgroundColor: 'red',\r\n+        width\r\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n"
+                },
+                {
+                    "date": 1711020980149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,12 @@\n \r\n     //DETAILS\r\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n-        width\r\n+        width: '90%',\r\n+        borderRadius: 10,\r\n+        shadowColor: '#000',\r\n+        shadowOffset: { width: 0, height: 2 },\r\n         marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n"
+                },
+                {
+                    "date": 1711020996360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,8 @@\n         width: '90%',\r\n         borderRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n-        marginTop:30,\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n   \r\n"
+                },
+                {
+                    "date": 1711021020490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     //DETAILS\r\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n         width: '90%',\r\n-        borderRadius: 10,\r\n+        border\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711021025698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     //DETAILS\r\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n         width: '90%',\r\n-        border\r\n+        borderBottomLeftRadius\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711021032466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     //DETAILS\r\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n         width: '90%',\r\n-        borderBottomLeftRadius\r\n+        borderBottomLeftRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711021044162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n         width: '90%',\r\n         borderBottomLeftRadius: 10,\r\n+        borderBottomLeftRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711021050282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n         width: '90%',\r\n         borderBottomLeftRadius: 10,\r\n-        borderBottomLeftRadius: 10,\r\n+        borderBottomRightRadiustRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711021058476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n     containerDetail:{\r\n         backgroundColor: 'red',\r\n         width: '90%',\r\n         borderBottomLeftRadius: 10,\r\n-        borderBottomRightRadiustRadius: 10,\r\n+        borderBottomRightRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n"
+                },
+                {
+                    "date": 1711021105488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n         width: '90%',\r\n         height: 'auto',\r\n         backgroundColor: 'white',\r\n         borderRadius: 10,\r\n+        bo\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         shadowOpacity: 0.25,\r\n         shadowRadius: 3.84,\r\n"
+                },
+                {
+                    "date": 1711021113177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         width: '90%',\r\n         height: 'auto',\r\n         backgroundColor: 'white',\r\n         borderRadius: 10,\r\n-        bo\r\n+        borderTopRightRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         shadowOpacity: 0.25,\r\n         shadowRadius: 3.84,\r\n"
+                },
+                {
+                    "date": 1711021122464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n         marginBottom: 6,\r\n         width: '90%',\r\n         height: 'auto',\r\n         backgroundColor: 'white',\r\n-        borderRadius: 10,\r\n         borderTopRightRadius: 10,\r\n+        bt\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         shadowOpacity: 0.25,\r\n         shadowRadius: 3.84,\r\n"
+                },
+                {
+                    "date": 1711021128436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,12 +13,16 @@\n         width: '90%',\r\n         height: 'auto',\r\n         backgroundColor: 'white',\r\n         borderTopRightRadius: 10,\r\n-        bt\r\n+        borderTopLeftRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         shadowOpacity: 0.25,\r\n+        shadowRadius: 3.84\r\n+        shadowColor: '#000',\r\n+        shadowOffset: { width: 0, height: 2 },\r\n+        shadowOpacity: 0.25,\r\n         shadowRadius: 3.84,\r\n         elevation: 5, \r\n     },\r\n     header:{\r\n"
+                },
+                {
+                    "date": 1711021135081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,16 +13,12 @@\n         width: '90%',\r\n         height: 'auto',\r\n         backgroundColor: 'white',\r\n         borderTopRightRadius: 10,\r\n-        borderTopLeftRadius: 10,\r\n+        borderTopLeftRadius:10\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         shadowOpacity: 0.25,\r\n-        shadowRadius: 3.84\r\n-        shadowColor: '#000',\r\n-        shadowOffset: { width: 0, height: 2 },\r\n-        shadowOpacity: 0.25,\r\n         shadowRadius: 3.84,\r\n         elevation: 5, \r\n     },\r\n     header:{\r\n"
+                },
+                {
+                    "date": 1711021166274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n         marginBottom: 6,\r\n         width: '90%',\r\n         height: 'auto',\r\n         backgroundColor: 'white',\r\n+        borderRadius: 10,\r\n         borderTopRightRadius: 10,\r\n-        borderTopLeftRadius:10\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         shadowOpacity: 0.25,\r\n         shadowRadius: 3.84,\r\n"
+                },
+                {
+                    "date": 1711021178300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { StyleSheet } from \"react-native\";\r\n+i\r\n \r\n \r\n const styles = StyleSheet.create({\r\n     container:{\r\n"
+                },
+                {
+                    "date": 1711021183858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { StyleSheet } from \"react-native\";\r\n-i\r\n+import colors\r\n \r\n \r\n const styles = StyleSheet.create({\r\n     container:{\r\n"
+                },
+                {
+                    "date": 1711021190697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { StyleSheet } from \"react-native\";\r\n-import colors\r\n+import colors from '../'\r\n \r\n \r\n const styles = StyleSheet.create({\r\n     container:{\r\n"
+                },
+                {
+                    "date": 1711021198640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { StyleSheet } from \"react-native\";\r\n-import colors from '../'\r\n+import colors from '../../../colors'\r\n \r\n \r\n const styles = StyleSheet.create({\r\n     container:{\r\n"
+                },
+                {
+                    "date": 1711021209223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { StyleSheet } from \"react-native\";\r\n-import colors from '../../../colors'\r\n+import colors from '../../../colors/'\r\n \r\n \r\n const styles = StyleSheet.create({\r\n     container:{\r\n@@ -54,9 +54,9 @@\n     },\r\n \r\n     //DETAILS\r\n     containerDetail:{\r\n-        backgroundColor: 'red',\r\n+        backgroundColor: colors,\r\n         width: '90%',\r\n         borderBottomLeftRadius: 10,\r\n         borderBottomRightRadius: 10,\r\n         shadowColor: '#000',\r\n"
+                },
+                {
+                    "date": 1711021250470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,17 +54,18 @@\n     },\r\n \r\n     //DETAILS\r\n     containerDetail:{\r\n-        backgroundColor: colors,\r\n+        backgroundColor: colors.primary,\r\n         width: '90%',\r\n         borderBottomLeftRadius: 10,\r\n         borderBottomRightRadius: 10,\r\n         shadowColor: '#000',\r\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n+    value\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021257042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,11 @@\n         shadowOffset: { width: 0, height: 2 },\r\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n-    value\r\n+    value:{\r\n+        font\r\n+    }\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021258241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n     value:{\r\n-        font\r\n+        fontSize\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021269598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,10 @@\n         alignItems: 'center',\r\n         justifyContent: 'center'\r\n     },\r\n     value:{\r\n-        fontSize\r\n+        fontSize: 20,\r\n+        color:colors.white,\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021276654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n         justifyContent: 'center'\r\n     },\r\n     value:{\r\n         fontSize: 20,\r\n-        color:colors.white,\r\n+        color:colors.\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021283652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,10 @@\n         justifyContent: 'center'\r\n     },\r\n     value:{\r\n         fontSize: 20,\r\n-        color:colors.\r\n+        color:colors.branco,\r\n+        \r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021289217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n     },\r\n     value:{\r\n         fontSize: 20,\r\n         color:colors.branco,\r\n-        \r\n+        fontWeight: 'bold'\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021301169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,10 @@\n     },\r\n     value:{\r\n         fontSize: 20,\r\n         color:colors.branco,\r\n-        fontWeight: 'bold'\r\n+        fontWeight: 'bold',\r\n+        padding:\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021352487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,10 +67,10 @@\n     value:{\r\n         fontSize: 20,\r\n         color:colors.branco,\r\n         fontWeight: 'bold',\r\n-        padding:\r\n-    }\r\n+        padding: 5,\r\n+    }, info\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021359253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,10 @@\n         fontSize: 20,\r\n         color:colors.branco,\r\n         fontWeight: 'bold',\r\n         padding: 5,\r\n-    }, info\r\n+    },\r\n+    infoD\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021366238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n         color:colors.branco,\r\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n-    infoD\r\n+    infoContaine\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021406687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,11 @@\n         color:colors.branco,\r\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n-    infoContaine\r\n+        infoContainer:{\r\n+            \r\n+    }\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021416529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,9 @@\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n         infoContainer:{\r\n-            \r\n+        \r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021429026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,10 +69,10 @@\n         color:colors.branco,\r\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n-        infoContainer:{\r\n-        \r\n+    infoContainer:{\r\n+        justifyContent: \r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021436413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,9 @@\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n     infoContainer:{\r\n-        justifyContent: \r\n+        justifyContent: 'flex-start'\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021443638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,8 +70,9 @@\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n     infoContainer:{\r\n+        bac\r\n         justifyContent: 'flex-start'\r\n     }\r\n   \r\n \r\n"
+                },
+                {
+                    "date": 1711021451770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,9 @@\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n     infoContainer:{\r\n-        bac\r\n+        width: '100%'\r\n         justifyContent: 'flex-start'\r\n     }\r\n   \r\n \r\n"
+                },
+                {
+                    "date": 1711021475780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,10 +70,11 @@\n         fontWeight: 'bold',\r\n         padding: 5,\r\n     },\r\n     infoContainer:{\r\n-        width: '100%'\r\n-        justifyContent: 'flex-start'\r\n+        width: '100%',\r\n+        justifyContent: 'flex-start',\r\n+        padding\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021519179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,10 +72,11 @@\n     },\r\n     infoContainer:{\r\n         width: '100%',\r\n         justifyContent: 'flex-start',\r\n-        padding\r\n-    }\r\n+        padding: 5,\r\n+    },\r\n+    textDetail\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021603823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,85 @@\n+import { StyleSheet } from \"react-native\";\r\n+import colors from '../../../colors/'\r\n+\r\n+\r\n+const styles = StyleSheet.create({\r\n+    container:{\r\n+        marginTop:12,\r\n+        justifyContent: 'center',\r\n+        alignItems: 'center',\r\n+    },\r\n+    shadow:{\r\n+        padding:20,\r\n+        marginBottom: 6,\r\n+        width: '90%',\r\n+        height: 'auto',\r\n+        backgroundColor: 'white',\r\n+        borderRadius: 10,\r\n+        borderTopRightRadius: 10,\r\n+        shadowColor: '#000',\r\n+        shadowOffset: { width: 0, height: 2 },\r\n+        shadowOpacity: 0.25,\r\n+        shadowRadius: 3.84,\r\n+        elevation: 5, \r\n+    },\r\n+    header:{\r\n+        flexDirection:\"row\",\r\n+        justifyContent: 'space-between'\r\n+    },\r\n+    body:{\r\n+\r\n+    },\r\n+    containerFooter:{\r\n+        flexDirection:\"row\",\r\n+        marginTop:30,\r\n+        alignItems: 'center',\r\n+        justifyContent: 'space-between'\r\n+    },\r\n+    contentText:{\r\n+        flexDirection:\"row\",\r\n+        alignItems: 'center',\r\n+    },\r\n+    dateTravel: {\r\n+        marginLeft:20,\r\n+    },\r\n+    titleCard:{\r\n+        fontSize:26,\r\n+        marginBottom:20\r\n+    },\r\n+    btn_description:{\r\n+        marginLeft:100\r\n+    },\r\n+    text_btn_description:{\r\n+        fontSize:18,\r\n+    },\r\n+\r\n+    //DETAILS\r\n+    containerDetail:{\r\n+        backgroundColor: colors.primary,\r\n+        width: '90%',\r\n+        borderBottomLeftRadius: 10,\r\n+        borderBottomRightRadius: 10,\r\n+        shadowColor: '#000',\r\n+        shadowOffset: { width: 0, height: 2 },\r\n+        alignItems: 'center',\r\n+        justifyContent: 'center'\r\n+    },\r\n+    value:{\r\n+        fontSize: 20,\r\n+        color:colors.branco,\r\n+        fontWeight: 'bold',\r\n+        padding: 5,\r\n+    },\r\n+    infoContainer:{\r\n+        width: '100%',\r\n+        justifyContent: 'flex-start',\r\n+        padding: 5,\r\n+    },\r\n+    textDetail:{\r\n+        color\r\n+    }\r\n+  \r\n+\r\n+});\r\n+\r\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1711021610074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,94 +75,11 @@\n         justifyContent: 'flex-start',\r\n         padding: 5,\r\n     },\r\n     textDetail:{\r\n-        color\r\n+        color: color\r\n     }\r\n   \r\n \r\n });\r\n \r\n-export default styles;\n-import { StyleSheet } from \"react-native\";\r\n-import colors from '../../../colors/'\r\n-\r\n-\r\n-const styles = StyleSheet.create({\r\n-    container:{\r\n-        marginTop:12,\r\n-        justifyContent: 'center',\r\n-        alignItems: 'center',\r\n-    },\r\n-    shadow:{\r\n-        padding:20,\r\n-        marginBottom: 6,\r\n-        width: '90%',\r\n-        height: 'auto',\r\n-        backgroundColor: 'white',\r\n-        borderRadius: 10,\r\n-        borderTopRightRadius: 10,\r\n-        shadowColor: '#000',\r\n-        shadowOffset: { width: 0, height: 2 },\r\n-        shadowOpacity: 0.25,\r\n-        shadowRadius: 3.84,\r\n-        elevation: 5, \r\n-    },\r\n-    header:{\r\n-        flexDirection:\"row\",\r\n-        justifyContent: 'space-between'\r\n-    },\r\n-    body:{\r\n-\r\n-    },\r\n-    containerFooter:{\r\n-        flexDirection:\"row\",\r\n-        marginTop:30,\r\n-        alignItems: 'center',\r\n-        justifyContent: 'space-between'\r\n-    },\r\n-    contentText:{\r\n-        flexDirection:\"row\",\r\n-        alignItems: 'center',\r\n-    },\r\n-    dateTravel: {\r\n-        marginLeft:20,\r\n-    },\r\n-    titleCard:{\r\n-        fontSize:26,\r\n-        marginBottom:20\r\n-    },\r\n-    btn_description:{\r\n-        marginLeft:100\r\n-    },\r\n-    text_btn_description:{\r\n-        fontSize:18,\r\n-    },\r\n-\r\n-    //DETAILS\r\n-    containerDetail:{\r\n-        backgroundColor: colors.primary,\r\n-        width: '90%',\r\n-        borderBottomLeftRadius: 10,\r\n-        borderBottomRightRadius: 10,\r\n-        shadowColor: '#000',\r\n-        shadowOffset: { width: 0, height: 2 },\r\n-        alignItems: 'center',\r\n-        justifyContent: 'center'\r\n-    },\r\n-    value:{\r\n-        fontSize: 20,\r\n-        color:colors.branco,\r\n-        fontWeight: 'bold',\r\n-        padding: 5,\r\n-    },\r\n-    infoContainer:{\r\n-        width: '100%',\r\n-        justifyContent: 'flex-start',\r\n-        padding: 5,\r\n-    },\r\n-    textDetail\r\n-  \r\n-\r\n-});\r\n-\r\n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1711021618341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         justifyContent: 'flex-start',\r\n         padding: 5,\r\n     },\r\n     textDetail:{\r\n-        color: color\r\n+        color: colors.\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021624203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         justifyContent: 'flex-start',\r\n         padding: 5,\r\n     },\r\n     textDetail:{\r\n-        color: colors.\r\n+        color: colors\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021630087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         justifyContent: 'flex-start',\r\n         padding: 5,\r\n     },\r\n     textDetail:{\r\n-        color: colors\r\n+        color: colors.branco\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021637409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,10 @@\n         justifyContent: 'flex-start',\r\n         padding: 5,\r\n     },\r\n     textDetail:{\r\n-        color: colors.branco\r\n+        color: colors.branco,\r\n+        fontSize: 14,\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021650608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,10 @@\n         padding: 5,\r\n     },\r\n     textDetail:{\r\n         color: colors.branco,\r\n-        fontSize: 14,\r\n+        fontSize: 18,\r\n+        lineHeight: 30,\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021685179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,10 +77,9 @@\n     },\r\n     textDetail:{\r\n         color: colors.branco,\r\n         fontSize: 18,\r\n-        lineHeight: 30,\r\n-    }\r\n+    }, text\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021692161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,12 @@\n     },\r\n     textDetail:{\r\n         color: colors.branco,\r\n         fontSize: 18,\r\n-    }, text\r\n+    }, \r\n+    text:{\r\n+        \r\n+    }\r\n   \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1711021699931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,9 +79,10 @@\n         color: colors.branco,\r\n         fontSize: 18,\r\n     }, \r\n     text:{\r\n-        \r\n+        flexWrap:'wrap',\r\n+        lineHeight: 30,\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021705694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,8 +81,10 @@\n     }, \r\n     text:{\r\n         flexWrap:'wrap',\r\n         lineHeight: 30,\r\n+        color: colors.cinza,\r\n+        fontSize: 14,\r\n     }\r\n   \r\n \r\n });\r\n"
+                },
+                {
+                    "date": 1711021712849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,9 @@\n     }, \r\n     text:{\r\n         flexWrap:'wrap',\r\n         lineHeight: 30,\r\n-        color: colors,\r\n+        color: colors.,\r\n         fontSize: 14,\r\n     }\r\n   \r\n \r\n"
+                },
+                {
+                    "date": 1711021765951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,92 @@\n+import { StyleSheet } from \"react-native\";\r\n+import colors from '../../../colors/'\r\n+\r\n+\r\n+const styles = StyleSheet.create({\r\n+    container:{\r\n+        marginTop:12,\r\n+        justifyContent: 'center',\r\n+        alignItems: 'center',\r\n+    },\r\n+    shadow:{\r\n+        padding:20,\r\n+        marginBottom: 6,\r\n+        width: '90%',\r\n+        height: 'auto',\r\n+        backgroundColor: 'white',\r\n+        borderRadius: 10,\r\n+        borderTopRightRadius: 10,\r\n+        shadowColor: '#000',\r\n+        shadowOffset: { width: 0, height: 2 },\r\n+        shadowOpacity: 0.25,\r\n+        shadowRadius: 3.84,\r\n+        elevation: 5, \r\n+    },\r\n+    header:{\r\n+        flexDirection:\"row\",\r\n+        justifyContent: 'space-between'\r\n+    },\r\n+    body:{\r\n+\r\n+    },\r\n+    containerFooter:{\r\n+        flexDirection:\"row\",\r\n+        marginTop:30,\r\n+        alignItems: 'center',\r\n+        justifyContent: 'space-between'\r\n+    },\r\n+    contentText:{\r\n+        flexDirection:\"row\",\r\n+        alignItems: 'center',\r\n+    },\r\n+    dateTravel: {\r\n+        marginLeft:20,\r\n+    },\r\n+    titleCard:{\r\n+        fontSize:26,\r\n+        marginBottom:20\r\n+    },\r\n+    btn_description:{\r\n+        marginLeft:100\r\n+    },\r\n+    text_btn_description:{\r\n+        fontSize:18,\r\n+    },\r\n+\r\n+    //DETAILS\r\n+    containerDetail:{\r\n+        backgroundColor: colors.primary,\r\n+        width: '90%',\r\n+        borderBottomLeftRadius: 10,\r\n+        borderBottomRightRadius: 10,\r\n+        shadowColor: '#000',\r\n+        shadowOffset: { width: 0, height: 2 },\r\n+        alignItems: 'center',\r\n+        justifyContent: 'center'\r\n+    },\r\n+    value:{\r\n+        fontSize: 20,\r\n+        color:colors.branco,\r\n+        fontWeight: 'bold',\r\n+        padding: 5,\r\n+    },\r\n+    infoContainer:{\r\n+        width: '100%',\r\n+        justifyContent: 'flex-start',\r\n+        padding: 5,\r\n+    },\r\n+    textDetail:{\r\n+        color: colors.branco,\r\n+        fontSize: 18,\r\n+    }, \r\n+    text:{\r\n+        backgroundColor: 'red',\r\n+        color: colors.branco,\r\n+        fontSize: 16,\r\n+        text\r\n+    }\r\n+  \r\n+\r\n+});\r\n+\r\n+export default styles;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1711020756268,
+            "name": "Commit-0",
+            "content": "import { StyleSheet } from \"react-native\";\r\n\r\n\r\nconst styles = StyleSheet.create({\r\n    container:{\r\n        marginTop:12,\r\n        justifyContent: 'center',\r\n        alignItems: 'center',\r\n    },\r\n    shadow:{\r\n        padding:20,\r\n        marginBottom: 6,\r\n        width: '90%',\r\n        height: 'auto',\r\n        backgroundColor: 'white',\r\n        borderRadius: 10,\r\n        shadowColor: '#000',\r\n        shadowOffset: { width: 0, height: 2 },\r\n        shadowOpacity: 0.25,\r\n        shadowRadius: 3.84,\r\n        elevation: 5, \r\n    },\r\n    header:{\r\n        flexDirection:\"row\",\r\n        justifyContent: 'space-between'\r\n    },\r\n    body:{\r\n\r\n    },\r\n    containerFooter:{\r\n        flexDirection:\"row\",\r\n        marginTop:30,\r\n        alignItems: 'center',\r\n        justifyContent: 'space-between'\r\n    },\r\n    contentText:{\r\n        flexDirection:\"row\",\r\n        alignItems: 'center',\r\n    },\r\n    dateTravel: {\r\n        marginLeft:20,\r\n    },\r\n    titleCard:{\r\n        fontSize:26,\r\n        marginBottom:20\r\n    },\r\n    btn_description:{\r\n        marginLeft:100\r\n    },\r\n    text_btn_description:{\r\n        fontSize:18,\r\n    },\r\n\r\n    \r\n\r\n});\r\n\r\nexport default styles;"
+        }
+    ]
+}

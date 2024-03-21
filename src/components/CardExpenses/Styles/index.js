@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import Colors from "../../../colors";
+import colors from '../../../colors/'
 
 
 const styles = StyleSheet.create({
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         height: 'auto',
         backgroundColor: 'white',
         borderRadius: 10,
+        borderTopRightRadius: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
@@ -50,7 +51,53 @@ const styles = StyleSheet.create({
     },
     text_btn_description:{
         fontSize:18,
+    },
+
+    //DETAILS
+    containerDetail:{
+        backgroundColor: colors.primary,
+        width: '90%',
+        height: 'auto',
+        marginBottom: 10, 
+        borderRadius:10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    value:{
+        fontSize: 20,
+        color:colors.branco,
+        fontWeight: 'bold',
+        padding: 5,
+    },
+    infoContainer:{
+        width: '100%',
+        justifyContent: 'flex-start',
+        padding: 5,
+    },
+    textDetail:{
+        color: colors.branco,
+        fontSize: 18,
+        fontWeight: 'bold',
+    }, 
+    text:{
+        color: colors.branco,
+        fontSize: 16,
+        marginLeft: 20,
+    },
+    bottomDetail:{
+        backgroundColor: 'red',
+        padding: 10,
+        marginBottom: 8,
+        borderRadius: 8,
+    },
+    bottomText:{
+        color: colors.branco,
+        fontSize: 16,
+        fontWeight: 'bold',
     }
+  
 
 });
 
