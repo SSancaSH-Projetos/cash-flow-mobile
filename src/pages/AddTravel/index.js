@@ -8,8 +8,8 @@ import { AddTravelMethod } from '../../service/TravelService';
 
 
 const initialTravelData = {
-    initDate: '1',
-    finalDate: '1',
+    startDate: '',
+    endDate: '',
     origin: '',
     destination: '',
     description: ''
@@ -23,11 +23,12 @@ export default function AddTravel() {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [selectedDateField, setSelectedDateField] = useState('');
 
-    const adicionarViagem = () => {
+    const adicionarViagem = async () => {
         if (validateTravelData()) {
             setAlertEmptyInput('');
-            const success = AddTravelMethod(travelData);
+            const success = await AddTravelMethod(travelData);
             if (success) {
+                
                 navigation.navigate('TravelList');
             } else {
                 setAlertEmptyInput('Erro ao adicionar a viagem');
@@ -38,10 +39,10 @@ export default function AddTravel() {
     }
 
     const validateTravelData = () => {
-        const { initDate, finalDate, origin, destination, description } = travelData;
+        const { startDate, endDate, origin, destination, description } = travelData;
         if (
-            initDate.trim() === '' ||
-            finalDate.trim() === '' ||
+            startDate.trim() === '' ||
+            endDate.trim() === '' ||
             origin.trim() === '' ||
             destination.trim() === '' ||
             description.trim() === ''
@@ -52,7 +53,7 @@ export default function AddTravel() {
     }
 
     const handleDateConfirm = (date) => {
-        const formattedDate = date.toLocaleDateString('pt-BR'); 
+        const formattedDate = date.toISOString().split('T')[0];
         setTravelData({ ...travelData, [selectedDateField]: formattedDate });
         hideDatePicker();
     };
@@ -73,16 +74,16 @@ export default function AddTravel() {
                 <Text style={Styles.title}>Marque Sua Viagem!</Text>
                 <View style={Styles.boxDate}>
                     <TouchableOpacity
-                        onPress={() => showDatePicker('initDate')}
+                        onPress={() => showDatePicker('startDate')}
                         style={Styles.date}
                     >
-                        <Text>{travelData.initDate || "Data de Inicio"}</Text>
+                        <Text>{travelData.startDate || "Data de Inicio"}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => showDatePicker('finalDate')}
+                        onPress={() => showDatePicker('endDate')}
                         style={Styles.date}
                     >
-                        <Text>{travelData.finalDate || "Data de Fim"}</Text>
+                        <Text>{travelData.endDate || "Data de Fim"}</Text>
                     </TouchableOpacity>
                     
                     <DateTimePickerModal

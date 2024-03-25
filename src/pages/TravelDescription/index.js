@@ -5,13 +5,13 @@
     import Icon from 'react-native-vector-icons/FontAwesome';
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
-    import { ListAllDescriptionMethod } from '../../service/TravelService';
+    import { ListTravelMethod } from '../../service/TravelService';
     import { RemoveExpensesMethod } from '../../service/ExpensesService';
 
     const initialTravel = {
         id:'',
-        initDate: '',
-        finalDate: '',
+        startDate: '',
+        endDate: '',
         origin: '',
         destination: '',
         description: '',
@@ -25,7 +25,7 @@
         const { id } = route.params;
 
         async function getTravel() {
-            const travel = await ListAllDescriptionMethod(id);
+            const travel = await ListTravelMethod(id);
             travel && setTravel(travel);
             console.log("Travel data fouded: " + travel.id);
         }
@@ -65,11 +65,11 @@
                 <View style={Styles.date}>
                     <View style={Styles.dateItem}>
                         <Text style={Styles.dateTextItem}>Data Inicio</Text>
-                        <Text style={Styles.dateText}>{travel.initDate}</Text>
+                        <Text style={Styles.dateText}>{travel.startDate}</Text>
                     </View>
                     <View style={Styles.dateItem}>
                         <Text style={Styles.dateTextItem}>Data Final</Text>
-                        <Text style={Styles.dateText}>{travel.finalDate}</Text>
+                        <Text style={Styles.dateText}>{travel.endDate}</Text>
                     </View>
                 </View>
 

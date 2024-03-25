@@ -16,6 +16,7 @@ const route = useRoute();
 //Metodo para Popular a Lista de Viagens
 useFocusEffect(useCallback(() => {
 (async() => {
+    console.log("Listando...");
     setIsLoading(true);
     setDataList([...await ListTravelMethod()]);
     setIsLoading(false);
@@ -23,13 +24,14 @@ useFocusEffect(useCallback(() => {
 }, []));
 
 const addItemToList = () => {
-navigation.navigate('AddTravel');
+    navigation.navigate('AddTravel');
 }
 
 const removeCard = (id_card) => {
     const updatedList = dataList.filter(item => item.id !== id_card);
-    setDataList(updatedList);
     RemoveTravelMethod(id_card);
+    setDataList(updatedList);
+    
 }
 
 
@@ -57,7 +59,7 @@ return (
                                 id={item.id}
                                 destination={item.destination}
                                 description={item.description}
-                                initDate={item.initDate}
+                                startDate={item.startDate}
                                 onRemove={() => removeCard(item.id)}
                             />
                         )}

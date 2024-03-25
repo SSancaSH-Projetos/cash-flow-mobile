@@ -1,4 +1,6 @@
 import travels from "../TravelService";
+const url = process.env.EXPO_PUBLIC_API_URL;
+
 
 export async function AddExpensesMethod({ description, category, value, invoice, id_travel }) {
     const newExpenses = {

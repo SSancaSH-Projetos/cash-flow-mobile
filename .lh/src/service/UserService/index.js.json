@@ -1,0 +1,98 @@
+{
+    "sourceFile": "src/service/UserService/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1711364653589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1711364660495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,6 @@\n export async function serviceLoginMethod (username, password) {\r\n     return true;\r\n }\r\n \r\n-:\r\n+\r\n+?\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1711364666827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,5 @@\n     return true;\r\n }\r\n \r\n \r\n-?\n\\ No newline at end of file\n+\r\n"
+                },
+                {
+                    "date": 1711364678543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+const usuarios = [];\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch('http://10.110.12.25:8080/api/login', {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       return false;  \r\n+}\r\n"
+                },
+                {
+                    "date": 1711364692847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n const usuarios = [];\r\n \r\n+\r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch('http://10.110.12.25:8080/api/login', {\r\n           method: 'POST',\r\n@@ -15,12 +16,4 @@\n         console.log(\"erro: \"+ error)\r\n        }\r\n        return false;  \r\n }\r\n-const usuarios = [];\r\n-\r\n-export async function serviceLoginMethod (username, password) {\r\n-    return true;\r\n-}\r\n-\r\n-\r\n-\r\n"
+                },
+                {
+                    "date": 1711364806737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const usuarios = [];\r\n+const url = \r\n \r\n-\r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch('http://10.110.12.25:8080/api/login', {\r\n           method: 'POST',\r\n"
+                },
+                {
+                    "date": 1711364813512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const usuarios = [];\r\n-const url = \r\n+const url = process.env.\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch('http://10.110.12.25:8080/api/login', {\r\n"
+                },
+                {
+                    "date": 1711364828036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n const usuarios = [];\r\n-const url = process.env.\r\n+const url = process.env.apiURL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n-        const response = await fetch('http://10.110.12.25:8080/api/login', {\r\n+        const response = await fetch(, {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n"
+                },
+                {
+                    "date": 1711364835075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n const url = process.env.apiURL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n-        const response = await fetch(, {\r\n+        const response = await fetch(url+\"\", {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n"
+                },
+                {
+                    "date": 1711364854669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n const url = process.env.apiURL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n-        const response = await fetch(url+\"\", {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n"
+                },
+                {
+                    "date": 1711364863476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n+            \r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n"
+                },
+                {
+                    "date": 1711364872731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n-            \r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n@@ -15,6 +14,7 @@\n         console.log(response);\r\n        } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n        }\r\n+       \r\n        return false;  \r\n }\r\n"
+                },
+                {
+                    "date": 1711364886930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n         console.log(response);\r\n        } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n        }\r\n-       \r\n+       console.log(\"\")\r\n        return false;  \r\n }\r\n"
+                },
+                {
+                    "date": 1711364906815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n         console.log(response);\r\n        } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n        }\r\n-       console.log(\"\")\r\n+       console.log(url);\r\n        return false;  \r\n }\r\n"
+                },
+                {
+                    "date": 1711365007431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n         console.log(response);\r\n        } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n        }\r\n-       console.log(url);\r\n+       console.log(\"\"+url);\r\n        return false;  \r\n }\r\n"
+                },
+                {
+                    "date": 1711365107555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+const usuarios = [];\r\n+const url = process.env.API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       console.log(\"url global:\"+url);\r\n+       return false;  \r\n+}\r\n"
+                },
+                {
+                    "date": 1711365573889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+const usuarios = [];\r\n+const url = process.env.REACT_APP_API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       console.log(\"url global:\"+url);\r\n+       return false;  \r\n+}\r\n"
+                },
+                {
+                    "date": 1711365750985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const usuarios = [];\r\n-const url = process.env.REACT_APP_API_URL;\r\n+const url = process.env.EXPO_PUBLICAPI_URL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n@@ -17,44 +17,4 @@\n        }\r\n        console.log(\"url global:\"+url);\r\n        return false;  \r\n }\r\n-const usuarios = [];\r\n-const url = process.env.API_URL;\r\n-\r\n-export async function serviceLoginMethod (username, password) {\r\n-    try {\r\n-        const response = await fetch(url+\"/api/login\", {\r\n-          method: 'POST',\r\n-          body: `email=${username}&password=${password}`,\r\n-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n-        });\r\n-        if(response.ok){\r\n-          return true;\r\n-        }\r\n-        console.log(response);\r\n-       } catch (error) {\r\n-        console.log(\"erro: \"+ error)\r\n-       }\r\n-       console.log(\"url global:\"+url);\r\n-       return false;  \r\n-}\r\n-const usuarios = [];\r\n-const url = process.env.apiURL;\r\n-\r\n-export async function serviceLoginMethod (username, password) {\r\n-    try {\r\n-        const response = await fetch(url+\"/api/login\", {\r\n-          method: 'POST',\r\n-          body: `email=${username}&password=${password}`,\r\n-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n-        });\r\n-        if(response.ok){\r\n-          return true;\r\n-        }\r\n-        console.log(response);\r\n-       } catch (error) {\r\n-        console.log(\"erro: \"+ error)\r\n-       }\r\n-       console.log(\"\"+url);\r\n-       return false;  \r\n-}\r\n"
+                },
+                {
+                    "date": 1711365805114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const usuarios = [];\r\n-const url = process.env.EXPO_PUBLICAPI_URL;\r\n+const url = process.env.EXPO_PUBLIC_API_URL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n"
+                },
+                {
+                    "date": 1711365812453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+const usuarios = [];\r\n+const url = process.env.EXPO_PUBLIC_API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       console.log(\"url global:\"+url);\r\n+       return false;  \r\n+}\r\n"
+                },
+                {
+                    "date": 1711366350125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+const usuarios = [];\r\n+const url = process.env.EXPO_PUBLIC_API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       console.log(\"url global:\"+url);\r\n+       return false;  \r\n+}\r\n"
+                }
+            ],
+            "date": 1711364653589,
+            "name": "Commit-0",
+            "content": "const usuarios = [];\r\n\r\nexport async function serviceLoginMethod (username, password) {\r\n    return true;\r\n}\r\n\r\n:\r\n"
+        }
+    ]
+}

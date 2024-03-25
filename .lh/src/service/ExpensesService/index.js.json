@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/service/ExpensesService/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1711365837097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1711365837097,
+            "name": "Commit-0",
+            "content": "import travels from \"../TravelService\";\r\nconst url = process.env.EXPO_PUBLIC_API_URL;\r\n\r\n\r\nexport async function AddExpensesMethod({ description, category, value, invoice, id_travel }) {\r\n    const newExpenses = {\r\n        id: generateId(),\r\n        description,\r\n        category,\r\n        value,\r\n        invoice,\r\n        date: getdate(),\r\n        hour: getHour(),\r\n        location: 'My PC',\r\n        travel: id_travel,\r\n    }\r\n\r\n   \r\n\r\n\r\n    const foundTravel = travels.find(travel => travel.id === id_travel);\r\n    if (foundTravel) {\r\n        console.log(newExpenses)\r\n        foundTravel.expenses.push(newExpenses);\r\n    }\r\n\r\n    console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ', travels);\r\n    await new Promise(res => setTimeout(res, 1000));\r\n    return true;\r\n}\r\n\r\n\r\nexport async function FindExpensesMethod(id_expenses) {\r\n    await new Promise(res => setTimeout(res, 1000));\r\n    const foundExpenses = expenses.find(expenses => expenses.id === id_expenses);\r\n    return foundExpenses || null;\r\n}\r\n\r\n\r\n\r\nexport async function RemoveExpensesMethod(id_expenses, expenses) {\r\n    await new Promise(res => setTimeout(res, 1000));\r\n    const index = expenses.findIndex(expense => expense.id === id_expenses);\r\n    if(index !== -1){\r\n        expenses.splice(index, 1);\r\n        return true;\r\n    }\r\n    return false;\r\n}\r\n\r\n\r\nexport async function UpdateExpenses({id_expenses , description , category , value, invoice, id_travel}) {\r\n    await new Promise(res => setTimeout(res, 1000));\r\n    if(\r\n        id_expenses.trim() === '' ||\r\n        description.trim() === '' ||\r\n        category.trim() === '' ||\r\n        value.trim() === '' ||\r\n        invoice.trim() === '' ||\r\n        id_travel.trim() === ''\r\n    ) {\r\n        return false;\r\n    }\r\n\r\n    const index = expenses.findIndex(expenses => expenses.id === id_expenses);\r\n    if(index !== -1){\r\n        expenses[index] = {\r\n            id: id_expenses,\r\n            description,\r\n            category,\r\n            value,\r\n            invoice,\r\n            id_travel\r\n        }\r\n        return true;\r\n    }\r\n\r\n    return false;\r\n\r\n\r\n}\r\n\r\nfunction generateId() {\r\n    return '$' + Math.random().toString(36).substr(2, 9);\r\n}\r\n\r\nfunction getdate() {\r\n    var currentdate = new Date();\r\n    var datetime = currentdate.getDay() + \"/\" + currentdate.getMonth() \r\n    + \"/\" + currentdate.getFullYear();\r\n    return datetime;\r\n}\r\n\r\nfunction getHour() {\r\n    var currenthour = new Date();\r\n    var hour = + currenthour.getHours() + \":\" + currenthour.getMinutes() + \":\" + currenthour.getSeconds();\r\n    return hour;\r\n}\r\n"
+        }
+    ]
+}

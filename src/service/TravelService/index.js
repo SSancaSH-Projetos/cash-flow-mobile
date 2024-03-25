@@ -1,91 +1,156 @@
 const travels = [];
+const url = process.env.EXPO_PUBLIC_API_URL;
 
-export async function AddTravelMethod({ initDate, finalDate, origin, destination, description }) {
+export async function AddTravelMethod({ startDate, endDate, origin, destination, description }) {
     const newTravel = {
-        id: generateId(),
-        initDate,
-        finalDate,
+        startDate,
+        endDate,
         origin,
         destination,
         description,
-        expenses: []
-        
-        //Orçamento e Itinerario
+        expenses: [],
+        itinerary:[
+            "São Carlos",
+            "Campinas",
+            "São Paulo",
+            "Nova York"
+        ]
+        // Orçamento e Itinerario
     };
-    
-    travels.push(newTravel);
-    console.log(travels)
-    await new Promise(res => setTimeout(res, 1000))
-    return true;
+
+    try {
+        const response = await fetch(url+"/api/travels", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTravel)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to add travel');
+        }
+        return true;
+    } catch (error) {
+        console.error('Error adding travel:', error);
+        return false;
+    }
 }
+
 
 export async function FindTravelMethod(id_travel) {
-    await new Promise(res => setTimeout(res, 1000));
-    const foundTravel = travels.find(travel => travel.id === id_travel);
-    if (foundTravel) {
-        const { id, destination, description, initDate } = foundTravel;
-        return { id, destination, description, initDate };
+    try {
+        const response = await fetch(`${url}/${id_travel}`);
+
+        if (!response.ok) {
+            throw new Error('Travel not found');
+        }
+
+        const foundTravel = await response.json();
+        const { id, destination, description, startDate } = foundTravel;
+        return { id, destination, description, startDate };
+    } catch (error) {
+        console.error('Error finding travel:', error);
+        return null;
     }
-    return null;
 }
 
-
 export async function ListTravelMethod() {
-    await new Promise(res => setTimeout(res, 1000))
-    return travels;
+    try {
+        const response = await fetch(url+"/api/travels");
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch travels');
+        }
+
+        const travelList = await response.json();
+        await new Promise(res => setTimeout(res, 1000));
+        console.log(travelList);
+        return travelList;
+    } catch (error) {
+        console.error('Error listing travels:', error);
+        return [];
+    }
 }
 
 export async function RemoveTravelMethod(id_travel) {
-    console.log(id_travel)
-    await new Promise(res => setTimeout(res, 1000))
-    const index = travels.findIndex(travel => travel.id === id_travel);
-    if (index !== -1) {
-        travels.splice(index, 1);
-        return true;
-        
-    }
-    return false;
-    
-}
+    try {
+        const response = await fetch(`${url}/api/travels/${id_travel}`, {
+            method: 'DELETE'
+        });
 
-export async function UpdateTravel(id_travel, initDate, finalDate, origin, destination, description) {
-    await new Promise(res => setTimeout(res, 1000))
-    if (
-        initDate.trim() === '' ||
-        finalDate.trim() === '' ||
-        origin.trim() === '' ||
-        destination.trim() === '' ||
-        description.trim() === ''
-    ) {
+        if (!response.ok) {
+            throw new Error('Failed to remove travel');
+        }
+
+        const index = travels.findIndex(travel => travel.id === id_travel);
+        if (index !== -1) {
+            travels.splice(index, 1);
+            return true;
+        }
+        return false;
+    } catch (error) {
+        console.error('Error removing travel:', error);
         return false;
     }
-    
-    const index = travels.findIndex(travel => travel.id === id_travel);
-    if (index !== -1) {
-        travels[index] = {
+}
+
+export async function UpdateTravel(id_travel, startDate, endDate, origin, destination, description) {
+    try {
+        const response = await fetch(`${url}/${id_travel}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                startDate,
+                endDate,
+                origin,
+                destination,
+                description
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to update travel');
+        }
+
+        const updatedTravel = {
             id: id_travel,
-            initDate,
-            finalDate,
+            startDate,
+            endDate,
             origin,
             destination,
             description
         };
-        return true;
+
+        const index = travels.findIndex(travel => travel.id === id_travel);
+        if (index !== -1) {
+            travels[index] = updatedTravel;
+            return true;
+        }
+        return false;
+    } catch (error) {
+        console.error('Error updating travel:', error);
+        return false;
     }
-    return false;
 }
 
 export async function ListAllDescriptionMethod(id_travel) {
-    console.log("olha o macaco " + id_travel)
-    await new Promise(res => setTimeout(res, 1000));
-    const foundTravel = travels.find(travel => travel.id === id_travel);
-    return  foundTravel || null;
+    try {
+        const response = await fetch(`${url}/api/travels${id_travel}`);
+
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch travel description');
+        }
+
+        const foundTravel = await response.json();
+        return foundTravel || null;
+    } catch (error) {
+        console.error('Error listing travel description:', error);
+        return null;
+    }
 }
-
-function generateId() {
-    return '_' + Math.random().toString(36).substr(2, 9);
-}
-
-
 
 export default travels;
