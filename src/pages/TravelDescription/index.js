@@ -6,7 +6,7 @@
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
     import { ListAllDescriptionMethod } from '../../service/TravelService';
-    import { RemoveExpensesMethod } from '../../service/ExpensesService';
+    import { RemoveExpensesMethod , ListExpensesMethod } from '../../service/ExpensesService';
 
     const initialTravel = {
         id:'',
@@ -27,6 +27,9 @@
         async function getTravel() {
             const travel = await ListAllDescriptionMethod(id);
             travel && setTravel(travel);
+            const expensesResponse = await ListExpensesMethod(id);
+            setTravel({...travel, expenses : expensesResponse});
+            console.log("despesas encontradas: "+expensesResponse);
             console.log("Travel data fouded: " + travel.id);
         }
 
@@ -35,9 +38,9 @@
             navigation.navigate('AddExpenses', { id });
         }
 
-        async function removeExpenses(id_card) {
+        async function removeExpenses(id_travel , id_card) {
             const updatedExpenses = travel.expenses.filter(item => item.id !== id_card);
-            const removed = await RemoveExpensesMethod(id_card, travel.expenses);
+            const removed = await RemoveExpensesMethod(id_travel, id_card);
             console.log("updateExpenses: "+ updatedExpenses);
             console.log("removed: "+ removed);
             if (removed) {
@@ -90,7 +93,7 @@
                               id={item.id}
                                 description={item.description}
                                 value={item.valor}
-                                onRemove={() =>removeExpenses(item.id)}
+                                onRemove={() =>removeExpenses(travel.id , item.id)}
                               />
                             )
 

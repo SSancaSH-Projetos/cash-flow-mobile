@@ -45,6 +45,7 @@ export async function FindExpensesMethod(id_travel , id_expenses) {
 }
 
 export async function RemoveExpensesMethod(id_travel , id_expenses) {
+    console.log(id_travel+"----"+id_expenses);
     try {
         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {
             method: 'DELETE'
@@ -89,6 +90,22 @@ export async function UpdateExpenses({ id_expenses, description, category, value
         return false;
     }
 }
+
+export async function ListExpensesMethod(id_travel) {
+    try {
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses`);
+
+        if (!response.ok) {
+            throw new Error('Failed to list expenses.');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error listing expenses:', error.message);
+        return null;
+    }
+}
+
 
 // function getDate() {
 //     const currentDate = new Date();

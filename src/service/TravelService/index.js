@@ -74,6 +74,7 @@ export async function ListTravelMethod() {
 }
 
 export async function RemoveTravelMethod(id_travel) {
+    
     try {
         const response = await fetch(`${url}/api/travels/${id_travel}`, {
             method: 'DELETE'
