@@ -1,98 +1,104 @@
-import travels from "../TravelService";
-const url = process.env.EXPO_PUBLIC_API_URL;
+const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 
-
-export async function AddExpensesMethod({ description, category, value, invoice, id_travel }) {
+export async function AddExpensesMethod({ description, category, amount, id_travel }) {
     const newExpenses = {
-        id: generateId(),
+        description,
+        category,
+        amount,
+        location: 'MyPC',
+    };
+
+    try {
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newExpenses)
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to add expenses.');
+        }
+
+        console.log('add despesas: ', response);
+        return true;
+    } catch (error) {
+        console.error('Error adding expenses:', error.message);
+        return false;
+    }
+}
+
+export async function FindExpensesMethod(id_travel , id_expenses) {
+    try {
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`);
+
+        if (!response.ok) {
+            throw new Error('Failed to find expenses.');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error finding expenses:', error.message);
+        return null;
+    }
+}
+
+export async function RemoveExpensesMethod(id_travel , id_expenses) {
+    try {
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to remove expenses.');
+        }
+
+        return true;
+    } catch (error) {
+        console.error('Error removing expenses:', error.message);
+        return false;
+    }
+}
+
+export async function UpdateExpenses({ id_expenses, description, category, value, invoice, id_travel }) {
+    const updatedExpenses = {
         description,
         category,
         value,
         invoice,
-        date: getdate(),
-        hour: getHour(),
-        location: 'My PC',
-        travel: id_travel,
-    }
+        id_travel
+    };
 
-   
+    try {
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedExpenses)
+        });
 
+        if (!response.ok) {
+            throw new Error('Failed to update expenses.');
+        }
 
-    const foundTravel = travels.find(travel => travel.id === id_travel);
-    if (foundTravel) {
-        console.log(newExpenses)
-        foundTravel.expenses.push(newExpenses);
-    }
-
-    console.log('DADOS DA DESPESA ADICIONADAS AO ARRAY DE DESPENSAS: ', travels);
-    await new Promise(res => setTimeout(res, 1000));
-    return true;
-}
-
-
-export async function FindExpensesMethod(id_expenses) {
-    await new Promise(res => setTimeout(res, 1000));
-    const foundExpenses = expenses.find(expenses => expenses.id === id_expenses);
-    return foundExpenses || null;
-}
-
-
-
-export async function RemoveExpensesMethod(id_expenses, expenses) {
-    await new Promise(res => setTimeout(res, 1000));
-    const index = expenses.findIndex(expense => expense.id === id_expenses);
-    if(index !== -1){
-        expenses.splice(index, 1);
         return true;
-    }
-    return false;
-}
-
-
-export async function UpdateExpenses({id_expenses , description , category , value, invoice, id_travel}) {
-    await new Promise(res => setTimeout(res, 1000));
-    if(
-        id_expenses.trim() === '' ||
-        description.trim() === '' ||
-        category.trim() === '' ||
-        value.trim() === '' ||
-        invoice.trim() === '' ||
-        id_travel.trim() === ''
-    ) {
+    } catch (error) {
+        console.error('Error updating expenses:', error.message);
         return false;
     }
-
-    const index = expenses.findIndex(expenses => expenses.id === id_expenses);
-    if(index !== -1){
-        expenses[index] = {
-            id: id_expenses,
-            description,
-            category,
-            value,
-            invoice,
-            id_travel
-        }
-        return true;
-    }
-
-    return false;
-
-
 }
 
-function generateId() {
-    return '$' + Math.random().toString(36).substr(2, 9);
-}
+// function getDate() {
+//     const currentDate = new Date();
+//     const datetime = currentDate.getDate() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear();
+//     return datetime;
+// }
 
-function getdate() {
-    var currentdate = new Date();
-    var datetime = currentdate.getDay() + "/" + currentdate.getMonth() 
-    + "/" + currentdate.getFullYear();
-    return datetime;
-}
+// function getHour() {
+//     const currentHour = new Date();
+//     const hour = currentHour.getHours() + ":" + currentHour.getMinutes() + ":" + currentHour.getSeconds();
+//     return hour;
+// }
 
-function getHour() {
-    var currenthour = new Date();
-    var hour = + currenthour.getHours() + ":" + currenthour.getMinutes() + ":" + currenthour.getSeconds();
-    return hour;
-}

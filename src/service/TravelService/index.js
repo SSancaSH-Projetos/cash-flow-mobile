@@ -138,7 +138,8 @@ export async function UpdateTravel(id_travel, startDate, endDate, origin, destin
 
 export async function ListAllDescriptionMethod(id_travel) {
     try {
-        const response = await fetch(`${url}/api/travels${id_travel}`);
+        const response = await fetch(`${url}/api/travels/${id_travel}`);
+        console.log(response)
 
 
         if (!response.ok) {

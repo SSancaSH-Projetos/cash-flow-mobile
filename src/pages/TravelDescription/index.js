@@ -5,7 +5,7 @@
     import Icon from 'react-native-vector-icons/FontAwesome';
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
-    import { ListTravelMethod } from '../../service/TravelService';
+    import { ListAllDescriptionMethod } from '../../service/TravelService';
     import { RemoveExpensesMethod } from '../../service/ExpensesService';
 
     const initialTravel = {
@@ -25,7 +25,7 @@
         const { id } = route.params;
 
         async function getTravel() {
-            const travel = await ListTravelMethod(id);
+            const travel = await ListAllDescriptionMethod(id);
             travel && setTravel(travel);
             console.log("Travel data fouded: " + travel.id);
         }

@@ -11,7 +11,7 @@ import { AddExpensesMethod } from '../../service/ExpensesService';
 const inititialExpense = {
     description: '',
     category: '',
-    value: '',
+    amount: '',
     invoice: null,
     id_travel:'' 
 };
@@ -39,16 +39,16 @@ export default function AddExpenses() {
     useFocusEffect(useCallback(() => { requestCameraPermission() }, []));
 
     const takePicture = async () => {
-        if (camera) {
+        if (Camera) {
             const photo = await camera.takePictureAsync();
             setExpense({ ...expense, invoice: photo.uri });
         }
     };
 
-    const pickImage = async (value) => {
+    const pickImage = async (amount) => {
         closeModal();
         let result;
-        if (value) {
+        if (amount) {
             result = await ImagePicker.launchImageLibraryAsync({
                 quality: 1,
                 allowsEditing: true,
@@ -86,12 +86,12 @@ export default function AddExpenses() {
     
 
     const validateExpenses = () => {
-        const { description, category, value, invoice } = expense;
+        const { description, category, amount, invoice } = expense;
         console.log(expense)
         if(
             description.trim() !== '' &&
             category.trim() !== '' &&
-            value.trim() !== '' &&
+            amount.trim() !== '' &&
             invoice !== null 
         ){
             return true;
@@ -128,7 +128,7 @@ export default function AddExpenses() {
                     style={Styles.input}
                     placeholder='Valor'
                     keyboardType='numeric'
-                    onChangeText={text => setExpense({ ...expense, value: text })}
+                    onChangeText={text => setExpense({ ...expense, amount: text })}
 
                 />
             </View>
