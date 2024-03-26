@@ -91,8 +91,7 @@
                             return (
                               <CardExpenses
                               id={item.id}
-                                description={item.description}
-                                value={item.valor}
+                                id_travel={travel.id}
                                 onRemove={() =>removeExpenses(travel.id , item.id)}
                               />
                             )
