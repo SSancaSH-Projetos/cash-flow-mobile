@@ -73,12 +73,12 @@ export default function AddExpenses() {
     
     function addExpense() {
         if (!validateExpenses()) {
-            //setAlertEmptyInput('Todos os campos devem ser preenchidos');
+            setAlertEmptyInput('Todos os campos devem ser preenchidos');
         }
-        //setAlertEmptyInput('');
+        setAlertEmptyInput('');
         const success = AddExpensesMethod(expense);
         if (!success) {
-            //setAlertEmptyInput('Erro ao adicionar a despesa');
+            setAlertEmptyInput('Erro ao adicionar a despesa');
         }
         setSelectedImage(null);
         navigation.navigate('TravelDescription', { id });
@@ -109,6 +109,13 @@ export default function AddExpenses() {
         setVisible(false);
     }
 
+    function validarAmount(amount) {
+        let amountVerificada = amount.replace(", ", ".");
+        setExpense({...expense, amount: amountVerificada});
+        console.log("verificado: ", amountVerificada);
+        
+    }
+
     return (
         <View style={Styles.container}>
             <Header />
@@ -128,7 +135,8 @@ export default function AddExpenses() {
                     style={Styles.input}
                     placeholder='Valor'
                     keyboardType='numeric'
-                    onChangeText={text => setExpense({ ...expense, amount: text })}
+                    // onChangeText={text => setExpense({ ...expense, amount: text })}
+                    onChangeText={(text)=>{validarAmount(text)}}
 
                 />
             </View>

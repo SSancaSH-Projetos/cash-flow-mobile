@@ -49,7 +49,7 @@ export default function CardExpenses({ id_travel,id,  onRemove }) {
                 <View style={Styles.containerFooter}>
                     <View style={Styles.contentText}>
                         <Icon name="money" size={30} color="#000" />
-                        <Text style={Styles.dateTravel}>{expense.value}</Text>
+                        <Text style={Styles.dateTravel}>R$ {expense.amount}</Text>
                     </View>                   
                     <TouchableOpacity style={Styles.btn_description} onPress={() => details('fadeInDown')} >
                         <Text style={Styles.text_btn_description}>Detalhes</Text>
@@ -58,7 +58,7 @@ export default function CardExpenses({ id_travel,id,  onRemove }) {
             </View>
             {detail && (
                 <Animatable.View animation={fade} duration={500} style={Styles.containerDetail}>
-                    <Text style={Styles.value}>{expense.mount}</Text>
+                    <Text style={Styles.value}>R$ {expense.amount}</Text>
                     <View style={Styles.infoContainer}>
                         <Text style={Styles.textDetail}>Categoria</Text>
                         <Text style={Styles.text}>{expense.category}</Text>

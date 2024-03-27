@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     },
     dateTravel: {
         marginLeft:20,
+        fontSize:20,
     },
     titleCard:{
         fontSize:26,
@@ -88,14 +89,18 @@ const styles = StyleSheet.create({
     },
     bottomDetail:{
         backgroundColor: 'red',
-        padding: 10,
+        padding: 8,
         marginBottom: 8,
         borderRadius: 8,
+        width:200,
+        
     },
     bottomText:{
         color: colors.branco,
         fontSize: 16,
         fontWeight: 'bold',
+        textAlign:'center'
+        
     }
   
 
