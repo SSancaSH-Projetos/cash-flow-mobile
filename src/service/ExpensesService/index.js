@@ -44,7 +44,7 @@ formData.append('fiscalNote', {
 formData.append('Content-Type', 'image/png');
 
 const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}/fiscalNote`, {
-    method: 'POST',
+    method: 'PUT',
     headers: {
         'Content-Type': 'multipart/form-data',
         'otherHeader': 'foo',
