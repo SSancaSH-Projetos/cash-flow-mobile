@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 31,
+            "activePatchIndex": 36,
             "patches": [
                 {
                     "date": 1711365837097,
@@ -132,6 +132,26 @@
                 {
                     "date": 1711374042304,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     }\r\n }\r\n \r\n export async function RemoveExpensesMethod(id_travel , id_expenses) {\r\n-    console.log(id_travel+\"\"+)\r\n+    console.log(id_travel+\"__\"+id_expenses)\r\n     try {\r\n         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {\r\n             method: 'DELETE'\r\n         });\r\n"
+                },
+                {
+                    "date": 1712148387310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,10 @@\n         return false;\r\n     }\r\n }\r\n \r\n+export async function \r\n+\r\n export async function FindExpensesMethod(id_travel , id_expenses) {\r\n     try {\r\n         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`);\r\n \r\n@@ -44,9 +46,9 @@\n     }\r\n }\r\n \r\n export async function RemoveExpensesMethod(id_travel , id_expenses) {\r\n-    console.log(id_travel+\"__\"+id_expenses)\r\n+    console.log(id_travel+\"----\"+id_expenses);\r\n     try {\r\n         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {\r\n             method: 'DELETE'\r\n         });\r\n"
+                },
+                {
+                    "date": 1712148392702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         return false;\r\n     }\r\n }\r\n \r\n-export async function \r\n+export async function AddPhoto\r\n \r\n export async function FindExpensesMethod(id_travel , id_expenses) {\r\n     try {\r\n         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`);\r\n"
+                },
+                {
+                    "date": 1712148400018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         return false;\r\n     }\r\n }\r\n \r\n-export async function AddPhoto\r\n+export async function Add\r\n \r\n export async function FindExpensesMethod(id_travel , id_expenses) {\r\n     try {\r\n         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`);\r\n"
+                },
+                {
+                    "date": 1712148422184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         return false;\r\n     }\r\n }\r\n \r\n-export async function AddInvoiceA\r\n+export async function AddInvoiceAE\r\n \r\n export async function FindExpensesMethod(id_travel , id_expenses) {\r\n     try {\r\n         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`);\r\n"
+                },
+                {
+                    "date": 1712148441996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         return false;\r\n     }\r\n }\r\n \r\n-export async function AddInvoiceAExpenses(id_e){\r\n+export async function AddInvoiceAExpenses(id_expenses){\r\n \r\n }\r\n \r\n export async function FindExpensesMethod(id_travel , id_expenses) {\r\n"
                 }
             ],
             "date": 1711365837097,

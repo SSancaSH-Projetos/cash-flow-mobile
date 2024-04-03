@@ -16,7 +16,6 @@ const inititialExpense = {
     id_travel:'' 
 };
 
-// Componente ImageViewer com console.log adicionado
 function ImageViewer({ placeholderImageSource, selectedImage }) {
     const imageSource = selectedImage ? { uri: selectedImage } : placeholderImageSource;
     return <Image source={imageSource} style={Styles.image} />;
@@ -55,7 +54,7 @@ export default function AddExpenses() {
             });
             if (!result.canceled) {
                 setSelectedImage(result.assets[0].uri);
-                setExpense({ ...expense, invoice: result.assets[0].uri }); 
+                setExpense({ ...expense, invoice: result.assets[0] }); 
             }
         } else {
             result = await ImagePicker.launchCameraAsync({
@@ -66,7 +65,7 @@ export default function AddExpenses() {
             });
             if (!result.canceled) {
                 setSelectedImage(result.uri || (result.assets.length > 0 && result.assets[0].uri));
-                setExpense({ ...expense, invoice: result.uri || (result.assets.length > 0 && result.assets[0].uri) });
+                setExpense({ ...expense, invoice: result || (result.assets.length > 0 && result.assets[0]) });
             }
         }
     };
@@ -76,6 +75,7 @@ export default function AddExpenses() {
             //setAlertEmptyInput('Todos os campos devem ser preenchidos');
         }
         //setAlertEmptyInput('');
+        console.log("expenses:"+ expense)
         const success = AddExpensesMethod(expense);
         if (!success) {
             //setAlertEmptyInput('Erro ao adicionar a despesa');

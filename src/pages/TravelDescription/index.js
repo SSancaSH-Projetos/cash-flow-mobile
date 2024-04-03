@@ -29,20 +29,15 @@
             travel && setTravel(travel);
             const expensesResponse = await ListExpensesMethod(id);
             setTravel({...travel, expenses : expensesResponse});
-            console.log("despesas encontradas: "+expensesResponse);
-            console.log("Travel data fouded: " + travel.id);
         }
 
         function navigateToAddExpensePage() {
-            console.log("id de goToAddExpenses: "+id)
             navigation.navigate('AddExpenses', { id });
         }
 
         async function removeExpenses(id_travel , id_card) {
             const updatedExpenses = travel.expenses.filter(item => item.id !== id_card);
             const removed = await RemoveExpensesMethod(id_travel, id_card);
-            console.log("updateExpenses: "+ updatedExpenses);
-            console.log("removed: "+ removed);
             if (removed) {
                 setTravel(prevState => ({
                     ...prevState,

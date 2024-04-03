@@ -1,6 +1,8 @@
+import { Platform } from "react-native";
+
 const apiUrl = process.env.EXPO_PUBLIC_API_URL;
 
-export async function AddExpensesMethod({ description, category, amount, id_travel }) {
+export async function AddExpensesMethod({ description, category, amount,invoice, id_travel }) {
     const newExpenses = {
         description,
         category,
@@ -21,12 +23,47 @@ export async function AddExpensesMethod({ description, category, amount, id_trav
             throw new Error('Failed to add expenses.');
         }
 
-        console.log('add despesas: ', response);
+        console.log("invoice:" + invoice)
+        AddInvoiceAExpenses(id_travel,invoice,id_travel)
         return true;
     } catch (error) {
         console.error('Error adding expenses:', error.message);
         return false;
     }
+
+   
+}
+
+export async function AddInvoiceAExpenses(id_expenses,invoice,id_travel){
+    const formData = new FormData();
+formData.append('fiscalNote', {
+    uri: Platform.OS === 'ios' ? invoice.uri.replace('file://', '') : invoice.uri,
+    name: 'fiscalNote.png',
+    type: 'image/png', 
+});
+formData.append('Content-Type', 'image/png');
+
+const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}/fiscalNote`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'multipart/form-data',
+        'otherHeader': 'foo',
+    },
+    body: formData,
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('File upload failed');
+    }
+    return true; 
+})
+.then(data => {
+    console.log('Server response:', data);
+})
+.catch(error => {
+    console.error('Error uploading file:', error);
+});
+
 }
 
 export async function FindExpensesMethod(id_travel , id_expenses) {
@@ -45,7 +82,6 @@ export async function FindExpensesMethod(id_travel , id_expenses) {
 }
 
 export async function RemoveExpensesMethod(id_travel , id_expenses) {
-    console.log(id_travel+"----"+id_expenses);
     try {
         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {
             method: 'DELETE'
@@ -72,12 +108,12 @@ export async function UpdateExpenses({ id_expenses, description, category, value
     };
 
     try {
-        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}`, {
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}/fiscalNote`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(updatedExpenses)
+            body:stringify(updatedExpenses)
         });
 
         if (!response.ok) {
