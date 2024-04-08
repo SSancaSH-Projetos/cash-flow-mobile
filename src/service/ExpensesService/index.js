@@ -23,8 +23,8 @@ export async function AddExpensesMethod({ description, category, amount,invoice,
             throw new Error('Failed to add expenses.');
         }
 
-        console.log("invoice:" + invoice)
-        AddInvoiceAExpenses(id_travel,invoice,id_travel)
+        console.log("invoice:" + JSON.stringify(response.headers.get("Location")))
+        AddInvoiceAExpenses(invoice,response.headers.get("Location"));
         return true;
     } catch (error) {
         console.error('Error adding expenses:', error.message);
@@ -34,21 +34,19 @@ export async function AddExpensesMethod({ description, category, amount,invoice,
    
 }
 
-export async function AddInvoiceAExpenses(id_expenses,invoice,id_travel){
+export async function AddInvoiceAExpenses(invoice,url){
     const formData = new FormData();
-formData.append('fiscalNote', {
-    uri: Platform.OS === 'ios' ? invoice.uri.replace('file://', '') : invoice.uri,
-    name: 'fiscalNote.png',
-    type: 'image/png', 
-});
-formData.append('Content-Type', 'image/png');
+    formData.append('fiscalNote', {
+        uri: Platform.OS === 'ios' ? invoice.uri.replace('file://', '') : invoice.uri,
+        name: 'fiscalNote.png',
+        type: 'image/png', 
+    });
 
-const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}/fiscalNote`, {
+const response = await fetch(url+"/fiscalNote", {
     method: 'PUT',
     headers: {
-        'Content-Type': 'multipart/form-data',
-        'otherHeader': 'foo',
-    },
+        'Content-Type': 'multipart/form-data'
+        },
     body: formData,
 })
 .then(response => {
