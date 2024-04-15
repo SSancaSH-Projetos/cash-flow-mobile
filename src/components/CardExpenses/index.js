@@ -69,7 +69,7 @@ export default function CardExpenses({ id_travel,id,  onRemove }) {
                     </View>
                     <View style={Styles.infoContainer}>
                         <Text style={Styles.textDetail}>Descrição</Text>
-                        <Text style={Styles.text}>teste</Text>
+                        <Text style={Styles.text}>{expense.description}</Text>
                     </View>
                     <TouchableOpacity style={Styles.bottomDetail} onPress={() => details('fadeOutUp')}>
                         <Text style={Styles.bottomText}>Fechar</Text>

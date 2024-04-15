@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         marginBottom:20
     },
     btn_description:{
-        marginLeft:100
+        marginLeft:"10%"
     },
     text_btn_description:{
         fontSize:18,
