@@ -40,7 +40,7 @@ export async function AddInvoiceAExpenses(invoice,url){
         uri: Platform.OS === 'ios' ? invoice.uri.replace('file://', '') : invoice.uri,
         name: 'fiscalNote.png',
         type: 'image/png', 
-    });
+    })
 
 const response = await fetch(url+"/fiscalNote", {
     method: 'PUT',
@@ -76,6 +76,24 @@ export async function FindExpensesMethod(id_travel , id_expenses) {
     } catch (error) {
         console.error('Error finding expenses:', error.message);
         return null;
+    }
+}
+
+export async function FindImageInvoiceExpenses(id_travel, id_expenses) {
+    try{
+        const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses/${id_expenses}/fiscalNote`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if(!response.ok){
+            throw new Error("response is not ok to get a Invoice Image")
+        }
+        const foundExpenses = await response.json();
+        return foundExpenses;
+    }catch{
+        throw new Error("Failed to get a Invoice Image")
     }
 }
 
