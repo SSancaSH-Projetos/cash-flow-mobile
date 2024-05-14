@@ -16,7 +16,6 @@ const route = useRoute();
 //Metodo para Popular a Lista de Viagens
 useFocusEffect(useCallback(() => {
 (async() => {
-    console.log("Listando...");
     setIsLoading(true);
     setDataList([...await ListTravelMethod()]);
     setIsLoading(false);

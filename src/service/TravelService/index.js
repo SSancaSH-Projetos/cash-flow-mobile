@@ -65,8 +65,7 @@ export async function ListTravelMethod() {
 
         const travelList = await response.json();
         await new Promise(res => setTimeout(res, 1000));
-        console.log(travelList);
-        return travelList;
+        return travelList.reverse();
     } catch (error) {
         console.error('Error listing travels:', error);
         return [];
