@@ -52,6 +52,7 @@ const login = () => {
                         style={Styles.item} 
                         placeholder='Senha' 
                         keyboardType='default'
+                        secureTextEntry
                         onChangeText={(text) => setPassword(text)}
                     />
 

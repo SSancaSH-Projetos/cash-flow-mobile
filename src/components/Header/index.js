@@ -7,6 +7,10 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function header() {
     const navigation = useNavigation();
+
+    function logar(){
+        alert("Logado")
+    }
     return(
         <View style={Styles.container}>
             <TouchableOpacity
@@ -15,7 +19,7 @@ export default function header() {
                     source={require('../../img/logo_branca.png')}
                     style={{width:54, height:49}}></Image>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={logar}>
                  <Icon name="menu" size={50} color="#fff"/>
             </TouchableOpacity>
         </View>
