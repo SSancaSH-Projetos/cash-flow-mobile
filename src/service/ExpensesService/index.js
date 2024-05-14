@@ -146,28 +146,16 @@ export async function UpdateExpenses({ id_expenses, description, category, value
 export async function ListExpensesMethod(id_travel) {
     try {
         const response = await fetch(`${apiUrl}/api/travels/${id_travel}/expenses`);
-
         if (!response.ok) {
             throw new Error('Failed to list expenses.');
         }
 
-        return await response.json();
+        const expenses = await response.json();
+        return expenses.reverse();
     } catch (error) {
         console.error('Error listing expenses:', error.message);
         return null;
     }
 }
 
-
-// function getDate() {
-//     const currentDate = new Date();
-//     const datetime = currentDate.getDate() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear();
-//     return datetime;
-// }
-
-// function getHour() {
-//     const currentHour = new Date();
-//     const hour = currentHour.getHours() + ":" + currentHour.getMinutes() + ":" + currentHour.getSeconds();
-//     return hour;
-// }
 

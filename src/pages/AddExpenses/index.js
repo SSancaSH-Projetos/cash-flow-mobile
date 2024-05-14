@@ -68,7 +68,6 @@ function addExpense() {
         //setAlertEmptyInput('Todos os campos devem ser preenchidos');
     }
     //setAlertEmptyInput('');
-    console.log("expenses:"+ expense)
     const success = AddExpensesMethod(expense);
     if (!success) {
         //setAlertEmptyInput('Erro ao adicionar a despesa');
