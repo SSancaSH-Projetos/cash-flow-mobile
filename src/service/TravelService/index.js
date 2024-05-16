@@ -139,8 +139,6 @@ export async function UpdateTravel(id_travel, startDate, endDate, origin, destin
 export async function ListAllDescriptionMethod(id_travel) {
     try {
         const response = await fetch(`${url}/api/travels/${id_travel}`);
-        console.log(response)
-
 
         if (!response.ok) {
             throw new Error('Failed to fetch travel description');
@@ -153,5 +151,22 @@ export async function ListAllDescriptionMethod(id_travel) {
         return null;
     }
 }
+
+export async function GeneratePdf(id_travel) {
+    try {
+        const response = await fetch(`${url}/api/travels/${id_travel}/print`);
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch travel description');
+        }
+        
+        const blob = await response.blob();
+        return blob;
+    } catch (error) {
+        console.error('Error generating PDF:', error);
+        throw error;
+    }
+}
+
 
 export default travels;

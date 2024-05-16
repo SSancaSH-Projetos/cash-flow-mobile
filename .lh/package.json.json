@@ -1,0 +1,26 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1715857598696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715861284001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,11 +16,12 @@\n     \"expo\": \"~50.0.7\",\r\n     \"expo-camera\": \"~14.0.6\",\r\n     \"expo-image-picker\": \"~14.7.1\",\r\n     \"expo-status-bar\": \"~1.11.1\",\r\n+    \"expo-updates\": \"^0.25.11\",\r\n     \"react\": \"18.2.0\",\r\n     \"react-dom\": \"18.2.0\",\r\n-    \"react-native\": \"0.73.4\",\r\n+    \"react-native\": \"0.73.6\",\r\n     \"react-native-animatable\": \"^1.4.0\",\r\n     \"react-native-modal-datetime-picker\": \"^17.1.0\",\r\n     \"react-native-vector-icons\": \"^10.0.3\",\r\n     \"react-native-web\": \"~0.19.6\"\r\n@@ -28,5 +29,5 @@\n   \"devDependencies\": {\r\n     \"@babel/core\": \"^7.20.0\"\r\n   },\r\n   \"private\": true\r\n-}\n\\ No newline at end of file\n+}\r\n"
+                },
+                {
+                    "date": 1715861301786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     \"expo\": \"~50.0.7\",\r\n     \"expo-camera\": \"~14.0.6\",\r\n     \"expo-image-picker\": \"~14.7.1\",\r\n     \"expo-status-bar\": \"~1.11.1\",\r\n-    \"expo-updates\": \"^0.25.11\",\r\n+    \"expo-updates\": \" ~0.24.12\",\r\n     \"react\": \"18.2.0\",\r\n     \"react-dom\": \"18.2.0\",\r\n     \"react-native\": \"0.73.6\",\r\n     \"react-native-animatable\": \"^1.4.0\",\r\n"
+                }
+            ],
+            "date": 1715857598696,
+            "name": "Commit-0",
+            "content": "{\r\n  \"name\": \"cashflow\",\r\n  \"version\": \"1.0.0\",\r\n  \"main\": \"node_modules/expo/AppEntry.js\",\r\n  \"scripts\": {\r\n    \"start\": \"expo start\",\r\n    \"android\": \"expo start --android\",\r\n    \"ios\": \"expo start --ios\",\r\n    \"web\": \"expo start --web\"\r\n  },\r\n  \"dependencies\": {\r\n    \"@expo/metro-runtime\": \"~3.1.3\",\r\n    \"@react-native-cookies/cookies\": \"^6.2.1\",\r\n    \"@react-navigation/native\": \"^6.1.10\",\r\n    \"@react-navigation/native-stack\": \"^6.9.18\",\r\n    \"expo\": \"~50.0.7\",\r\n    \"expo-camera\": \"~14.0.6\",\r\n    \"expo-image-picker\": \"~14.7.1\",\r\n    \"expo-status-bar\": \"~1.11.1\",\r\n    \"react\": \"18.2.0\",\r\n    \"react-dom\": \"18.2.0\",\r\n    \"react-native\": \"0.73.4\",\r\n    \"react-native-animatable\": \"^1.4.0\",\r\n    \"react-native-modal-datetime-picker\": \"^17.1.0\",\r\n    \"react-native-vector-icons\": \"^10.0.3\",\r\n    \"react-native-web\": \"~0.19.6\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.20.0\"\r\n  },\r\n  \"private\": true\r\n}"
+        }
+    ]
+}
