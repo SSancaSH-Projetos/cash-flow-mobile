@@ -5,7 +5,7 @@ export async function serviceLoginMethod (username, password) {
     try {
         const response = await fetch(url+"/api/login", {
           method: 'POST',
-          body: `email=${username}&password=${password}`,
+          body: `email=${username}&password=${password}&remember-me=`,
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
         if(response.ok){
@@ -36,21 +36,19 @@ export async function serviceLogoutMethod () {
 }
 
 export async function verifyLoginMethod () {
-    /*
+    
       try {
-        const response = await fetch(url+"/api/logout", {
-          method: 'POST',
+        const response = await fetch(url+"/api/auth", {
+          method: 'GET',
         });
-        if(response.ok){
-          console.log(response);
+        console.log(response);
+
+        if(response.status == 204){
           return true;
         }
-        console.log(response);
       } catch (error) {
         console.log("erro: "+ error)
       }
-      return false;  
-  */
       return false;
   
 }

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 40,
+            "activePatchIndex": 61,
             "patches": [
                 {
                     "date": 1711364653589,
@@ -168,6 +168,90 @@
                 {
                     "date": 1716209694768,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,8 @@\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;  \r\n   */\r\n-      return true;\r\n+      return false;\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716209776874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}`,\r\n+          body: `email=${username}&password=${password}&`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716209782574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&`,\r\n+          body: `email=${username}&password=${password}&rem`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716209788347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&rem`,\r\n+          body: `email=${username}&password=${password}&remenber`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716209799397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&remenber`,\r\n+          body: `email=${username}&password=${password}&remember`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716209808060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&remember`,\r\n+          body: `email=${username}&password=${password}&remember-me=${}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716209956293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&remember-me=${}`,\r\n+          body: `email=${username}&password=${password}&remember-me=`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716211067458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,12 @@\n const url = process.env.EXPO_PUBLIC_API_URL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n+      let bodyContent = new FormData();\r\n+bodyContent.append(\"email\", \"employee@email.com\");\r\n+bodyContent.append(\"password\", \"password\");\r\n+bodyContent.append(\"remember-me\", \"\");\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}&remember-me=`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n"
+                },
+                {
+                    "date": 1716211074261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n       let bodyContent = new FormData();\r\n-bodyContent.append(\"email\", \"employee@email.com\");\r\n-bodyContent.append(\"password\", \"password\");\r\n-bodyContent.append(\"remember-me\", \"\");\r\n+      bodyContent.append(\"email\", \"employee@email.com\");\r\n+      bodyContent.append(\"password\", \"password\");\r\n+      bodyContent.append(\"remember-me\", \"\");\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}&remember-me=`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n"
+                },
+                {
+                    "date": 1716211081134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,12 @@\n const url = process.env.EXPO_PUBLIC_API_URL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n-      let bodyContent = new FormData();\r\n-      bodyContent.append(\"email\", \"employee@email.com\");\r\n-      bodyContent.append(\"password\", \"password\");\r\n-      bodyContent.append(\"remember-me\", \"\");\r\n+        let bodyContent = new FormData();\r\n+        bodyContent.append(\"email\", \"username\");\r\n+        bodyContent.append(\"password\", \"password\");\r\n+        bodyContent.append(\"remember-me\", \"\");\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}&remember-me=`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n"
+                },
+                {
+                    "date": 1716211086609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         let bodyContent = new FormData();\r\n         bodyContent.append(\"email\", \"username\");\r\n-        bodyContent.append(\"password\", \"password\");\r\n+        bodyContent.append(\"password\", password);\r\n         bodyContent.append(\"remember-me\", \"\");\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n           body: `email=${username}&password=${password}&remember-me=`,\r\n"
+                },
+                {
+                    "date": 1716211097060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,14 +3,14 @@\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         let bodyContent = new FormData();\r\n-        bodyContent.append(\"email\", \"username\");\r\n+        bodyContent.append(\"email\", username);\r\n         bodyContent.append(\"password\", password);\r\n         bodyContent.append(\"remember-me\", \"\");\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&remember-me=`,\r\n+          body: bodyContent,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716211236079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n         let bodyContent = new FormData();\r\n         bodyContent.append(\"email\", username);\r\n         bodyContent.append(\"password\", password);\r\n         bodyContent.append(\"remember-me\", \"\");\r\n+        \r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n           body: bodyContent,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n"
+                },
+                {
+                    "date": 1716211248721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,11 @@\n const url = process.env.EXPO_PUBLIC_API_URL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n-        let bodyContent = new FormData();\r\n-        bodyContent.append(\"email\", username);\r\n-        bodyContent.append(\"password\", password);\r\n-        bodyContent.append(\"remember-me\", \"\");\r\n-        \r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: bodyContent,\r\n+          body: `email=${username}&password=${password}&remember-me=`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716211254572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}&remember-me=`,\r\n+          body: `email=${username}&password=${password}`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716211301071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export async function serviceLoginMethod (username, password) {\r\n     try {\r\n         const response = await fetch(url+\"/api/login\", {\r\n           method: 'POST',\r\n-          body: `email=${username}&password=${password}`,\r\n+          body: `email=${username}&password=${password}&remember-me=`,\r\n           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n         });\r\n         if(response.ok){\r\n           return true;\r\n"
+                },
+                {
+                    "date": 1716211550242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n      return false;  \r\n }\r\n \r\n export async function verifyLoginMethod () {\r\n-    /*\r\n+    \r\n       try {\r\n         const response = await fetch(url+\"/api/logout\", {\r\n           method: 'POST',\r\n         });\r\n@@ -49,9 +49,7 @@\n       } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;  \r\n-  */\r\n-      return false;\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716211560727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n export async function verifyLoginMethod () {\r\n     \r\n       try {\r\n-        const response = await fetch(url+\"/api/logout\", {\r\n+        const response = await fetch(url+\"/api/auth\", {\r\n           method: 'POST',\r\n         });\r\n         if(response.ok){\r\n           console.log(response);\r\n@@ -48,8 +48,8 @@\n         console.log(response);\r\n       } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n       }\r\n-      return false;  \r\n+      return false;\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716211573623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n export async function verifyLoginMethod () {\r\n     \r\n       try {\r\n         const response = await fetch(url+\"/api/auth\", {\r\n-          method: 'POST',\r\n+          method: 'GET',\r\n         });\r\n-        if(response.ok){\r\n+        if(response.code == ){\r\n           console.log(response);\r\n           return true;\r\n         }\r\n         console.log(response);\r\n"
+                },
+                {
+                    "date": 1716211586000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,54 @@\n+const usuarios = [];\r\n+const url = process.env.EXPO_PUBLIC_API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}&remember-me=`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       return false;  \r\n+}\r\n+\r\n+\r\n+export async function serviceLogoutMethod () {\r\n+  try {\r\n+      const response = await fetch(url+\"/api/logout\", {\r\n+        method: 'POST',\r\n+      });\r\n+      if(response.ok){\r\n+        console.log(response);\r\n+        return true;\r\n+      }\r\n+      console.log(response);\r\n+     } catch (error) {\r\n+      console.log(\"erro: \"+ error)\r\n+     }\r\n+     return false;  \r\n+}\r\n+\r\n+export async function verifyLoginMethod () {\r\n+    \r\n+      try {\r\n+        const response = await fetch(url+\"/api/auth\", {\r\n+          method: 'GET',\r\n+        });\r\n+        if(response.code == 204){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+      } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+      }\r\n+      return false;\r\n+  \r\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1716211592324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,67 +40,13 @@\n       try {\r\n         const response = await fetch(url+\"/api/auth\", {\r\n           method: 'GET',\r\n         });\r\n-        if(response.code == 204){\r\n-          return true;\r\n-        }\r\n         console.log(response);\r\n-      } catch (error) {\r\n-        console.log(\"erro: \"+ error)\r\n-      }\r\n-      return false;\r\n-  \r\n-}\r\n \r\n-const usuarios = [];\r\n-const url = process.env.EXPO_PUBLIC_API_URL;\r\n-\r\n-export async function serviceLoginMethod (username, password) {\r\n-    try {\r\n-        const response = await fetch(url+\"/api/login\", {\r\n-          method: 'POST',\r\n-          body: `email=${username}&password=${password}&remember-me=`,\r\n-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n-        });\r\n-        if(response.ok){\r\n+        if(response.code == 204){\r\n           return true;\r\n         }\r\n-        console.log(response);\r\n-       } catch (error) {\r\n-        console.log(\"erro: \"+ error)\r\n-       }\r\n-       return false;  \r\n-}\r\n-\r\n-\r\n-export async function serviceLogoutMethod () {\r\n-  try {\r\n-      const response = await fetch(url+\"/api/logout\", {\r\n-        method: 'POST',\r\n-      });\r\n-      if(response.ok){\r\n-        console.log(response);\r\n-        return true;\r\n-      }\r\n-      console.log(response);\r\n-     } catch (error) {\r\n-      console.log(\"erro: \"+ error)\r\n-     }\r\n-     return false;  \r\n-}\r\n-\r\n-export async function verifyLoginMethod () {\r\n-    \r\n-      try {\r\n-        const response = await fetch(url+\"/api/auth\", {\r\n-          method: 'GET',\r\n-        });\r\n-        if(response.code == ){\r\n-          console.log(response);\r\n-          return true;\r\n-        }\r\n-        console.log(response);\r\n       } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;\r\n"
+                },
+                {
+                    "date": 1716211605018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,55 @@\n+const usuarios = [];\r\n+const url = process.env.EXPO_PUBLIC_API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}&remember-me=`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       return false;  \r\n+}\r\n+\r\n+\r\n+export async function serviceLogoutMethod () {\r\n+  try {\r\n+      const response = await fetch(url+\"/api/logout\", {\r\n+        method: 'POST',\r\n+      });\r\n+      if(response.ok){\r\n+        console.log(response);\r\n+        return true;\r\n+      }\r\n+      console.log(response);\r\n+     } catch (error) {\r\n+      console.log(\"erro: \"+ error)\r\n+     }\r\n+     return false;  \r\n+}\r\n+\r\n+export async function verifyLoginMethod () {\r\n+    \r\n+      try {\r\n+        const response = await fetch(url+\"/api/auth\", {\r\n+          method: 'GET',\r\n+        });\r\n+        console.log(response);\r\n+\r\n+        if(response.status == 204){\r\n+          return true;\r\n+        }\r\n+      } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+      }\r\n+      return false;\r\n+  \r\n+}\r\n+\r\n"
                 }
             ],
             "date": 1711364653589,
