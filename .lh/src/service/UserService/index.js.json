@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 40,
             "patches": [
                 {
                     "date": 1711364653589,
@@ -88,6 +88,86 @@
                 {
                     "date": 1711366350125,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+const usuarios = [];\r\n+const url = process.env.EXPO_PUBLIC_API_URL;\r\n+\r\n+export async function serviceLoginMethod (username, password) {\r\n+    try {\r\n+        const response = await fetch(url+\"/api/login\", {\r\n+          method: 'POST',\r\n+          body: `email=${username}&password=${password}`,\r\n+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+        });\r\n+        if(response.ok){\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+       } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+       }\r\n+       console.log(\"url global:\"+url);\r\n+       return false;  \r\n+}\r\n"
+                },
+                {
+                    "date": 1716208436060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,44 +17,23 @@\n        }\r\n        console.log(\"url global:\"+url);\r\n        return false;  \r\n }\r\n-const usuarios = [];\r\n-const url = process.env.EXPO_PUBLIC_API_URL;\r\n \r\n-export async function serviceLoginMethod (username, password) {\r\n-    try {\r\n-        const response = await fetch(url+\"/api/login\", {\r\n-          method: 'POST',\r\n-          body: `email=${username}&password=${password}`,\r\n-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n-        });\r\n-        if(response.ok){\r\n-          return true;\r\n-        }\r\n-        console.log(response);\r\n-       } catch (error) {\r\n-        console.log(\"erro: \"+ error)\r\n-       }\r\n-       console.log(\"url global:\"+url);\r\n-       return false;  \r\n-}\r\n-const usuarios = [];\r\n-const url = process.env.EXPO_PUBLIC_API_URL;\r\n \r\n export async function serviceLoginMethod (username, password) {\r\n-    try {\r\n-        const response = await fetch(url+\"/api/login\", {\r\n-          method: 'POST',\r\n-          body: `email=${username}&password=${password}`,\r\n-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n-        });\r\n-        if(response.ok){\r\n-          return true;\r\n-        }\r\n-        console.log(response);\r\n-       } catch (error) {\r\n-        console.log(\"erro: \"+ error)\r\n-       }\r\n-       console.log(\"url global:\"+url);\r\n-       return false;  \r\n-}\r\n+  try {\r\n+      const response = await fetch(url+\"/api/login\", {\r\n+        method: 'POST',\r\n+        body: `email=${username}&password=${password}`,\r\n+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n+      });\r\n+      if(response.ok){\r\n+        return true;\r\n+      }\r\n+      console.log(response);\r\n+     } catch (error) {\r\n+      console.log(\"erro: \"+ error)\r\n+     }\r\n+     console.log(\"url global:\"+url);\r\n+     return false;  \r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716208456064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,11 @@\n        return false;  \r\n }\r\n \r\n \r\n-export async function serviceLoginMethod (username, password) {\r\n+export async function serviceLogoutMethod (username, password) {\r\n   try {\r\n-      const response = await fetch(url+\"/api/login\", {\r\n+      const response = await fetch(url+\"/post/login\", {\r\n         method: 'POST',\r\n         body: `email=${username}&password=${password}`,\r\n         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n       });\r\n"
+                },
+                {
+                    "date": 1716208468096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,10 @@\n \r\n \r\n export async function serviceLogoutMethod (username, password) {\r\n   try {\r\n-      const response = await fetch(url+\"/post/login\", {\r\n+      const response = await fetch(url+\"/post/api/logout\", {\r\n         method: 'POST',\r\n-        body: `email=${username}&password=${password}`,\r\n         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n       });\r\n       if(response.ok){\r\n         return true;\r\n"
+                },
+                {
+                    "date": 1716208660834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,10 @@\n \r\n \r\n export async function serviceLogoutMethod (username, password) {\r\n   try {\r\n-      const response = await fetch(url+\"/post/api/logout\", {\r\n+      const response = await fetch(url+\"/api/logout\", {\r\n         method: 'POST',\r\n-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }\r\n       });\r\n       if(response.ok){\r\n         return true;\r\n       }\r\n"
+                },
+                {
+                    "date": 1716208686222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n       const response = await fetch(url+\"/api/logout\", {\r\n         method: 'POST',\r\n       });\r\n       if(response.ok){\r\n+        log\r\n         return true;\r\n       }\r\n       console.log(response);\r\n      } catch (error) {\r\n"
+                },
+                {
+                    "date": 1716208692659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n       const response = await fetch(url+\"/api/logout\", {\r\n         method: 'POST',\r\n       });\r\n       if(response.ok){\r\n-        log\r\n+        console.log(response);\r\n         return true;\r\n       }\r\n       console.log(response);\r\n      } catch (error) {\r\n"
+                },
+                {
+                    "date": 1716208702392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,7 +32,6 @@\n       console.log(response);\r\n      } catch (error) {\r\n       console.log(\"erro: \"+ error)\r\n      }\r\n-     console.log(\"url global:\"+url);\r\n      return false;  \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716209243065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,8 @@\n         console.log(response);\r\n        } catch (error) {\r\n         console.log(\"erro: \"+ error)\r\n        }\r\n-       console.log(\"url global:\"+url);\r\n        return false;  \r\n }\r\n \r\n \r\n@@ -33,5 +32,21 @@\n      } catch (error) {\r\n       console.log(\"erro: \"+ error)\r\n      }\r\n      return false;  \r\n+}\r\n+\r\n+export async function serviceLogoutMethod (username, password) {\r\n+  try {\r\n+      const response = await fetch(url+\"/api/logout\", {\r\n+        method: 'POST',\r\n+      });\r\n+      if(response.ok){\r\n+        console.log(response);\r\n+        return true;\r\n+      }\r\n+      console.log(response);\r\n+     } catch (error) {\r\n+      console.log(\"erro: \"+ error)\r\n+     }\r\n+     return false;  \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716209252615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n      }\r\n      return false;  \r\n }\r\n \r\n-export async function serviceLogoutMethod (username, password) {\r\n+export async function serviceLogoutMethod () {\r\n   try {\r\n       const response = await fetch(url+\"/api/logout\", {\r\n         method: 'POST',\r\n       });\r\n"
+                },
+                {
+                    "date": 1716209270884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n        return false;  \r\n }\r\n \r\n \r\n-export async function serviceLogoutMethod (username, password) {\r\n+export async function serviceLogoutMethod () {\r\n   try {\r\n       const response = await fetch(url+\"/api/logout\", {\r\n         method: 'POST',\r\n       });\r\n@@ -35,18 +35,6 @@\n      return false;  \r\n }\r\n \r\n export async function serviceLogoutMethod () {\r\n-  try {\r\n-      const response = await fetch(url+\"/api/logout\", {\r\n-        method: 'POST',\r\n-      });\r\n-      if(response.ok){\r\n-        console.log(response);\r\n-        return true;\r\n-      }\r\n-      console.log(response);\r\n-     } catch (error) {\r\n-      console.log(\"erro: \"+ error)\r\n-     }\r\n-     return false;  \r\n+  :  \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716209286805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,6 +35,6 @@\n      return false;  \r\n }\r\n \r\n export async function serviceLogoutMethod () {\r\n-  :  \r\n+  \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716209306695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,5 +36,20 @@\n }\r\n \r\n export async function serviceLogoutMethod () {\r\n   \r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n+/*\r\n+try {\r\n+  const response = await fetch(url+\"/api/logout\", {\r\n+    method: 'POST',\r\n+  });\r\n+  if(response.ok){\r\n+    console.log(response);\r\n+    return true;\r\n+  }\r\n+  console.log(response);\r\n+ } catch (error) {\r\n+  console.log(\"erro: \"+ error)\r\n+ }\r\n+ return false;  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716209312839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,5 +51,6 @@\n   console.log(response);\r\n  } catch (error) {\r\n   console.log(\"erro: \"+ error)\r\n  }\r\n- return false;  \n\\ No newline at end of file\n+ return false;  \r\n+ */\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716209318414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,12 +35,9 @@\n      return false;  \r\n }\r\n \r\n export async function serviceLogoutMethod () {\r\n-  \r\n-}\r\n-\r\n-/*\r\n+  /*\r\n try {\r\n   const response = await fetch(url+\"/api/logout\", {\r\n     method: 'POST',\r\n   });\r\n@@ -52,5 +49,8 @@\n  } catch (error) {\r\n   console.log(\"erro: \"+ error)\r\n  }\r\n  return false;  \r\n- */\n\\ No newline at end of file\n+ */\r\n+  \r\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1716209325181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,22 +35,22 @@\n      return false;  \r\n }\r\n \r\n export async function serviceLogoutMethod () {\r\n-  /*\r\n-try {\r\n-  const response = await fetch(url+\"/api/logout\", {\r\n-    method: 'POST',\r\n-  });\r\n-  if(response.ok){\r\n-    console.log(response);\r\n-    return true;\r\n-  }\r\n-  console.log(response);\r\n- } catch (error) {\r\n-  console.log(\"erro: \"+ error)\r\n- }\r\n- return false;  \r\n- */\r\n+    /*\r\n+      try {\r\n+        const response = await fetch(url+\"/api/logout\", {\r\n+          method: 'POST',\r\n+        });\r\n+        if(response.ok){\r\n+          console.log(response);\r\n+          return true;\r\n+        }\r\n+        console.log(response);\r\n+      } catch (error) {\r\n+        console.log(\"erro: \"+ error)\r\n+      }\r\n+      return false;  \r\n+  */\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716209334764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,7 +50,8 @@\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;  \r\n   */\r\n+      return true;\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716209350459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n      }\r\n      return false;  \r\n }\r\n \r\n-export async function serviceLogoutMethod () {\r\n+export async function verifyLoginMethod () {\r\n     /*\r\n       try {\r\n         const response = await fetch(url+\"/api/logout\", {\r\n           method: 'POST',\r\n"
+                },
+                {
+                    "date": 1716209679521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,8 @@\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;  \r\n   */\r\n-      return true;\r\n+      return false;\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716209687672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,8 @@\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;  \r\n   */\r\n-      return false;\r\n+      return true;\r\n   \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1716209694768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,8 @@\n         console.log(\"erro: \"+ error)\r\n       }\r\n       return false;  \r\n   */\r\n-      return true;\r\n+      return false;\r\n   \r\n }\r\n \r\n"
                 }
             ],
             "date": 1711364653589,

@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/components/Header/Styles/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1716207149686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716208061278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   },\r\n   modalContainer: {\r\n     position: 'absolute',\r\n     top: 10,\r\n-    left: 10,\r\n+    right: 10, // Alterado para o canto superior direito\r\n     borderRadius: 10,\r\n     backgroundColor: '#FFFFFF',\r\n     padding: 20,\r\n     elevation: 5,\r\n"
+                },
+                {
+                    "date": 1716208116519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,7 +41,10 @@\n   },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n+  btnLogout: {\r\n+    \r\n+  }\r\n });\r\n \r\n export default styles;\r\n"
+                },
+                {
+                    "date": 1716208134712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,7 @@\n   },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n-  btnLogout: {\r\n-    \r\n-  }\r\n });\r\n \r\n export default styles;\r\n"
+                },
+                {
+                    "date": 1716208140404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   button: {\r\n     backgroundColor: Colors.primary,\r\n     paddingVertical: 10,\r\n     paddingHorizontal: 20,\r\n-    borderRadius: 5,\r\n+    borderRadius: 10,\r\n   },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n"
+                },
+                {
+                    "date": 1716208146022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   button: {\r\n     backgroundColor: Colors.primary,\r\n     paddingVertical: 10,\r\n     paddingHorizontal: 20,\r\n-    borderRadius: 10,\r\n+    borderRadius: 100,\r\n   },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n"
+                },
+                {
+                    "date": 1716208154013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,7 +41,10 @@\n   },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n+  btnLogout:{\r\n+    \r\n+  }\r\n });\r\n \r\n export default styles;\r\n"
+                },
+                {
+                    "date": 1716208184323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,18 +33,21 @@\n     width: '100%',\r\n     marginTop: 10,\r\n   },\r\n   button: {\r\n-    backgroundColor: Colors.primary,\r\n+    backgroundColor: Colors.,\r\n     paddingVertical: 10,\r\n     paddingHorizontal: 20,\r\n     borderRadius: 100,\r\n   },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n   btnLogout:{\r\n-    \r\n+    backgroundColor: Colors.primary,\r\n+    paddingVertical: 10,\r\n+    paddingHorizontal: 20,\r\n+    borderRadius: 100,\r\n   }\r\n });\r\n \r\n export default styles;\r\n"
+                },
+                {
+                    "date": 1716208193520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     width: '100%',\r\n     marginTop: 10,\r\n   },\r\n   button: {\r\n-    backgroundColor: Colors.,\r\n+    backgroundColor: '#fff',\r\n     paddingVertical: 10,\r\n     paddingHorizontal: 20,\r\n     borderRadius: 100,\r\n   },\r\n"
+                },
+                {
+                    "date": 1716208282651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,14 +32,8 @@\n     justifyContent: 'space-between',\r\n     width: '100%',\r\n     marginTop: 10,\r\n   },\r\n-  button: {\r\n-    backgroundColor: '#fff',\r\n-    paddingVertical: 10,\r\n-    paddingHorizontal: 20,\r\n-    borderRadius: 100,\r\n-  },\r\n   buttonText: {\r\n     color: '#FFFFFF',\r\n   },\r\n   btnLogout:{\r\n"
+                }
+            ],
+            "date": 1716207149686,
+            "name": "Commit-0",
+            "content": "// ModalLogout/Styles/index.js\r\nimport { StyleSheet } from 'react-native';\r\nimport Colors from '../../../colors';\r\n\r\nconst styles = StyleSheet.create({\r\n  container: {\r\n    backgroundColor: Colors.primary,\r\n    flexDirection: 'row',\r\n    justifyContent: 'space-between',\r\n    alignItems: 'center',\r\n    height: 70,\r\n    padding: 10,\r\n  },\r\n  modalContainer: {\r\n    position: 'absolute',\r\n    top: 10,\r\n    left: 10,\r\n    borderRadius: 10,\r\n    backgroundColor: '#FFFFFF',\r\n    padding: 20,\r\n    elevation: 5,\r\n  },\r\n  modalView: {\r\n    alignItems: 'center',\r\n  },\r\n  modalText: {\r\n    marginBottom: 15,\r\n    textAlign: 'center',\r\n  },\r\n  buttonContainer: {\r\n    flexDirection: 'row',\r\n    justifyContent: 'space-between',\r\n    width: '100%',\r\n    marginTop: 10,\r\n  },\r\n  button: {\r\n    backgroundColor: Colors.primary,\r\n    paddingVertical: 10,\r\n    paddingHorizontal: 20,\r\n    borderRadius: 5,\r\n  },\r\n  buttonText: {\r\n    color: '#FFFFFF',\r\n  },\r\n});\r\n\r\nexport default styles;\r\n"
+        }
+    ]
+}

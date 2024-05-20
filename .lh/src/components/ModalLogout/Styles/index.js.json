@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/ModalLogout/Styles/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1716206309802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716206323405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-import { StyleSheet } from \"react-native-web\";\n\\ No newline at end of file\n+import { StyleSheet } from \"react-native-web\";\r\n+\r\n+const Styles = () =\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716206334443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n import { StyleSheet } from \"react-native-web\";\r\n \r\n-const Styles = () =\n\\ No newline at end of file\n+const Styles = St\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716206343697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n import { StyleSheet } from \"react-native-web\";\r\n \r\n-const Styles = St\n\\ No newline at end of file\n+const Styles = StyleSheet.create()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716206349196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n-import { StyleSheet } from \"react-native-web\";\r\n+import { StyleSheet } from \"react-native\";\r\n+import Colors from \"../../../colors\";\r\n \r\n const Styles = StyleSheet.create()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1716206355026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n import { StyleSheet } from \"react-native\";\r\n import Colors from \"../../../colors\";\r\n \r\n-const Styles = StyleSheet.create()\n\\ No newline at end of file\n+const Styles = StyleSheet.create({\r\n+    \r\n+})\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1716206309802,
+            "name": "Commit-0",
+            "content": "import { StyleSheet } from \"react-native-web\";"
+        }
+    ]
+}
