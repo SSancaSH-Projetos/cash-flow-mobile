@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react';
-import { View, Text, TextInput, SafeAreaView, TouchableOpacity, Alert, BackHandler} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, SafeAreaView, TouchableOpacity} from 'react-native';
 import Styles from './Styles'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';

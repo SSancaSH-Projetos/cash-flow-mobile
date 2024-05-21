@@ -6,8 +6,15 @@ import Header from './../../components/Header';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { AddTravelMethod } from '../../service/TravelService'; 
 
-
 const initialTravelData = {
+    startDate: '',
+    endDate: '',
+    origin: '',
+    destination: '',
+    description: ''
+};
+
+const initialTravelDataISO = {
     startDate: '',
     endDate: '',
     origin: '',
@@ -19,6 +26,7 @@ export default function AddTravel() {
     const currentDate = new Date();
     const navigation = useNavigation();
     const [travelData, setTravelData] = useState(initialTravelData);
+    const [travelDataISO, setTravelDataISO] = useState(initialTravelDataISO);
     const [alertEmptyInput, setAlertEmptyInput] = useState('');
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [selectedDateField, setSelectedDateField] = useState('');
@@ -26,9 +34,8 @@ export default function AddTravel() {
     const adicionarViagem = async () => {
         if (validateTravelData()) {
             setAlertEmptyInput('');
-            const success = await AddTravelMethod(travelData);
+            const success = await AddTravelMethod(travelDataISO); // Envia as datas no formato ISO para o servidor
             if (success) {
-                
                 navigation.navigate('TravelList');
             } else {
                 setAlertEmptyInput('Erro ao adicionar a viagem');
@@ -53,8 +60,14 @@ export default function AddTravel() {
     }
 
     const handleDateConfirm = (date) => {
-        const formattedDate = date.toISOString().split('T')[0];
+        const formattedDate = date.toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        });
+        const isoDate = date.toISOString().split('T')[0];
         setTravelData({ ...travelData, [selectedDateField]: formattedDate });
+        setTravelDataISO({ ...travelDataISO, [selectedDateField]: isoDate });
         hideDatePicker();
     };
 
@@ -99,14 +112,20 @@ export default function AddTravel() {
                     placeholderTextColor={'gray'}
                     placeholder="Local de Origem"
                     value={travelData.origin}
-                    onChangeText={text => setTravelData({ ...travelData, origin: text })}
+                    onChangeText={text => {
+                        setTravelData({ ...travelData, origin: text });
+                        setTravelDataISO({ ...travelDataISO, origin: text });
+                    }}
                 />
                 <TextInput
                     style={Styles.address}
                     placeholderTextColor={'gray'}
                     placeholder="Local de Destino"
                     value={travelData.destination}
-                    onChangeText={text => setTravelData({ ...travelData, destination: text })}
+                    onChangeText={text => {
+                        setTravelData({ ...travelData, destination: text });
+                        setTravelDataISO({ ...travelDataISO, destination: text });
+                    }}
                 />
                 <TextInput
                     style={Styles.description}
@@ -114,7 +133,10 @@ export default function AddTravel() {
                     multiline={true}
                     placeholder="Descrição"
                     value={travelData.description}
-                    onChangeText={text => setTravelData({ ...travelData, description: text })}
+                    onChangeText={text => {
+                        setTravelData({ ...travelData, description: text });
+                        setTravelDataISO({ ...travelDataISO, description: text });
+                    }}
                 />
                 <Text style={Styles.alert}>{alertEmptyInput}</Text>
                 <TouchableOpacity style={Styles.areaBottom} onPress={adicionarViagem}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image , ActivityIndicator} from 'react-native';
 import Styles from './Styles';
 import Card from './../../components/Card';

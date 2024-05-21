@@ -36,7 +36,7 @@ export default function Card({ id, destination, description, initDate, onRemove 
 
             Alert.alert(
                 'PDF Gerado',
-                'O PDF foi salvo no seu dispositivo. Deseja compartilhar agora?',
+                'Deseja compartilhar agora?',
                 [
                     {
                         text: 'Não',
