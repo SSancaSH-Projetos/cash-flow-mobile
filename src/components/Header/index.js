@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, TouchableOpacity, Alert } from "react-native";
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Styles from './Styles'
 import { useNavigation } from "@react-navigation/native";
 import { serviceLogoutMethod } from "../../service/UserService";
@@ -8,6 +8,13 @@ import { serviceLogoutMethod } from "../../service/UserService";
 
 export default function Header() {
     const navigation = useNavigation();
+
+    async function exit(){
+        const response = await serviceLogoutMethod();
+        if(response){
+            navigation.navigate('Welcome');
+        }
+    }
 
     function confirmLogout() {
         Alert.alert(
@@ -20,12 +27,7 @@ export default function Header() {
                 },
                 {
                     text: 'Confirmar',
-                    onPress: async () => {
-                        const response = await serviceLogoutMethod();
-                        if(response){
-                            navigation.navigate('Welcome');
-                        }
-                    },
+                    onPress:  () => exit,
                 },
             ],
             { cancelable: false }
@@ -40,7 +42,7 @@ export default function Header() {
                     style={{width:54, height:49}} />
             </TouchableOpacity>
             <TouchableOpacity onPress={confirmLogout}>
-                 <Icon name="menu" size={50} color="#fff"/>
+                 <Icon name="logout" size={35} color="#fff"/>
             </TouchableOpacity>
         </View>
     );
