@@ -22,6 +22,7 @@
 
     export default function TravelDescription() {
         const [travel , setTravel] = useState(initialTravel);
+        const [numberOfExpenses , setNumberOfExpenses] = useState([]);
         const navigation = useNavigation();
         const route = useRoute();
         const { id } = route.params;
@@ -31,6 +32,7 @@
             travel && setTravel(travel);
             const expensesResponse = await ListExpensesMethod(id);
             setTravel({...travel, expenses : expensesResponse});
+            setNumberOfExpenses(expensesResponse);
         }
 
         function navigateToAddExpensePage() {
@@ -82,7 +84,7 @@
                     <View style={Styles.contentTitle}>
                         <Text style={Styles.titleText}>DESPESAS</Text>
                     </View>
-                    {travel.expenses > 0 ? (
+                    {numberOfExpenses.length > 0 ? (
                         <FlatList
                         data={travel.expenses}
                         renderItem={({item}) => {
