@@ -27,7 +27,7 @@ export default function Header() {
                 },
                 {
                     text: 'Confirmar',
-                    onPress:  () => exit,
+                    onPress:  () => exit(),
                 },
             ],
             { cancelable: false }

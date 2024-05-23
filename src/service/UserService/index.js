@@ -20,12 +20,12 @@ export async function serviceLoginMethod (username, password) {
 
 
 export async function serviceLogoutMethod () {
+console.log("Funcao de logout chamada")
   try {
       const response = await fetch(url+"/api/logout", {
         method: 'POST',
       });
       if(response.ok){
-        console.log(response);
         return true;
       }
       console.log(response);

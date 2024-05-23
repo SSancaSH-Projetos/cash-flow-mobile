@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     },
     text_btn_description:{
         fontSize:18,
+        textDecorationLine:"underline"
     },
 
     //DETAILS

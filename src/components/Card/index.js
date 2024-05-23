@@ -29,6 +29,8 @@ export default function Card({ id, destination, description, initDate, onRemove 
                 reader.onerror = reject;
             });
 
+            
+
             const pdfUri = `${FileSystem.documentDirectory}${destination}.pdf`;
             await FileSystem.writeAsStringAsync(pdfUri, base64, {
                 encoding: FileSystem.EncodingType.Base64,
@@ -60,12 +62,32 @@ export default function Card({ id, destination, description, initDate, onRemove 
         }
     }
 
+    async function handleRemove() {
+        Alert.alert(
+            'Voce realmente deseja Remover esta Viagem?',
+            '',
+            [
+                {
+                    text: 'Não',
+                    style: 'cancel',
+                },
+                {
+                    text: 'Sim',
+                    onPress: async () => {
+                        console.log("Função de remoção chamada")
+                        onRemove();
+                    },
+                },
+            ]
+        );
+    }
+
     return (
         <SafeAreaView style={Styles.container}>
             <View style={Styles.shadow}>
                 <View style={Styles.header}>
                     <Text style={Styles.titleCard}>{destination}</Text>
-                    <TouchableOpacity onPress={onRemove}>
+                    <TouchableOpacity onPress={handleRemove}>
                         <Icon name="trash" size={30} color="#000" />
                     </TouchableOpacity>
                 </View>

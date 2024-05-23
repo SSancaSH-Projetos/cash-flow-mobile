@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
 import Styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable';
@@ -37,12 +37,33 @@ export default function CardExpenses({ id_travel,id,  onRemove }) {
         }
     }
 
+    async function handleRemove() {
+            Alert.alert(
+                'Voce realmente deseja Remover esta Despesa?',
+                '',
+                [
+                    {
+                        text: 'Não',
+                        style: 'cancel',
+                    },
+                    {
+                        text: 'Sim',
+                        onPress: async () => {
+                            console.log("Função de remoção chamada")
+                            onRemove();
+                        },
+                    },
+                ]
+            );
+        
+    }
+
     return (
         <SafeAreaView style={Styles.container}>
             <View style={Styles.shadow}>
                 <View style={Styles.header}>
                     <Text style={Styles.titleCard}>{expense.description}</Text>
-                    <TouchableOpacity onPress={onRemove}>
+                    <TouchableOpacity onPress={handleRemove}>
                         <Icon name="trash" size={30} color="#000" />
                     </TouchableOpacity>
                 </View>
