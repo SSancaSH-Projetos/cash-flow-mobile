@@ -4,6 +4,7 @@ import Styles from './Styles';
 import Card from './../../components/Card';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import FiscalNoteIcon from 'react-native-vector-icons/Entypo';
 import Header from '../../components/Header';
 import { ListTravelMethod, RemoveTravelMethod } from '../../service/TravelService';
 

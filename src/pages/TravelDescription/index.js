@@ -1,12 +1,14 @@
     import React, { useState, useCallback} from 'react';
-    import { View , Text , TouchableOpacity, FlatList } from "react-native";
+    import { View , Text , TouchableOpacity, FlatList, Image } from "react-native";
     import Styles from './Styles/';
     import { useFocusEffect , useNavigation , useRoute} from '@react-navigation/native';
     import Icon from 'react-native-vector-icons/FontAwesome';
+    import FiscalNoteIcon from 'react-native-vector-icons/Entypo'
     import Header from '../../components/Header';
     import CardExpenses from '../../components/CardExpenses';
     import { ListAllDescriptionMethod } from '../../service/TravelService';
     import { RemoveExpensesMethod , ListExpensesMethod } from '../../service/ExpensesService';
+    import colors from '../../colors';
 
     const initialTravel = {
         id:'',
@@ -80,7 +82,8 @@
                     <View style={Styles.contentTitle}>
                         <Text style={Styles.titleText}>DESPESAS</Text>
                     </View>
-                    <FlatList
+                    {travel.expenses > 0 ? (
+                        <FlatList
                         data={travel.expenses}
                         renderItem={({item}) => {
                             return (
@@ -93,11 +96,18 @@
 
                         }}
                     />
+                    ):(
+                        <View style={Styles.item}>
+                            <FiscalNoteIcon size={100} name='news' color="#000"></FiscalNoteIcon>
+                            <Text style={Styles.title}>Esta viagem nao Possui despesas</Text>
+                            <Text>Adicione suas despesas para poder gerenciá-las</Text>
+                        </View>
+                    )}
 
                 </View>
                 
                 <TouchableOpacity style={Styles.containerBottom} onPress={navigateToAddExpensePage}>
-                    <Icon name="plus" size={30} color="#000" />
+                    <Icon name="plus" size={30} color='#EAB416' />
                 </TouchableOpacity>
             </View>
         )

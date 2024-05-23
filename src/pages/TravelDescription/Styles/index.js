@@ -72,12 +72,14 @@ const styles = StyleSheet.create({
         color: Colors.primary,
         fontWeight: 'bold',
     },
-
-
-
-
-
-
+    item:{
+        marginTop: '10%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    title:{
+        fontSize:22,
+    },
     containerBottom:{
         flex: 1,
         position: 'absolute',
@@ -86,7 +88,9 @@ const styles = StyleSheet.create({
         width:70,
         height:70,
         borderRadius:100,
-        backgroundColor:Colors.secondary,
+        backgroundColor:Colors.white,
+        borderWidth:5,
+        borderColor:Colors.secondary,
         alignItems: 'center',
         justifyContent: 'center'
     }

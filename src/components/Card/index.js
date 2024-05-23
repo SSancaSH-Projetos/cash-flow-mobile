@@ -7,6 +7,7 @@ import * as FileSystem from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import { GeneratePdf } from '../../service/TravelService';
 
+
 export default function Card({ id, destination, description, initDate, onRemove }) {
 
     const navigator = useNavigation();
