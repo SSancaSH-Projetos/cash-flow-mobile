@@ -30,11 +30,12 @@ export default function AddTravel() {
     const [alertEmptyInput, setAlertEmptyInput] = useState('');
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [selectedDateField, setSelectedDateField] = useState('');
+    const [startDate, setStartDate] = useState(null);
 
     const adicionarViagem = async () => {
         if (validateTravelData()) {
             setAlertEmptyInput('');
-            const success = await AddTravelMethod(travelDataISO); // Envia as datas no formato ISO para o servidor
+            const success = await AddTravelMethod(travelDataISO); 
             if (success) {
                 navigation.navigate('TravelList');
             } else {
@@ -68,6 +69,11 @@ export default function AddTravel() {
         const isoDate = date.toISOString().split('T')[0];
         setTravelData({ ...travelData, [selectedDateField]: formattedDate });
         setTravelDataISO({ ...travelDataISO, [selectedDateField]: isoDate });
+
+        if (selectedDateField === 'startDate') {
+            setStartDate(date);
+        }
+
         hideDatePicker();
     };
 
@@ -102,7 +108,7 @@ export default function AddTravel() {
                     <DateTimePickerModal
                         isVisible={isDatePickerVisible}
                         mode="date"
-                        minimumDate={currentDate}
+                        minimumDate={selectedDateField === 'endDate' && startDate ? startDate : currentDate}
                         onConfirm={handleDateConfirm}
                         onCancel={hideDatePicker}
                     />
